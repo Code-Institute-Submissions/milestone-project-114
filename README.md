@@ -16,7 +16,7 @@ will be the same.
 
 The site will also feature a webstore of branded merchandise that a subscribing user or shopper will be able to purchase.
 
-![AmIResponsive]( "")
+![]( "")
 
 ***
 
@@ -129,7 +129,7 @@ Materialize Colors:
 
 The initial wireframing design was created using [Balsamiq](https://balsamiq.cloud/).
 
-High quality wireframes of the site can be found [here]( "Wireframes").
+High quality wireframes of the site can be found [here](deathfret-wireframe.pdf "Wireframes").
 
 ***
 
