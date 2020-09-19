@@ -13,18 +13,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% endblock %}
 
-    {% block extrameta %}
+    {% block extra_meta %}
     {% endblock %}
 
-    {% block corecss %}
+    {% block core_css %}
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     {% endblock %}
 
-    {% block extracss %}
+    {% block extra_css %}
     {% endblock %}
 
-    {% block corejs %}
+    {% block core_js %}
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -32,13 +32,103 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     {% endblock %}
 
-    {% block extrajs %}
+    {% block extra_js %}
     {% endblock %}
 
-    <title>Deathfret Guitar {% block extratitle %}{% endblock %}</title>
+    <title>Deathfret Guitar {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
-    <header class="container-fluid fixed-top"></header>
+    <header class="container-fluid fixed-top bg-dark">
+        <div class="row">
+            <div class="col-12 col-lg-4 py-3 my-auto">
+                <a href="{% url 'index' %}" class="">
+                    <h2>Deathfret</h2>
+                </a>
+            </div>
+
+            <div class="col-12 col-lg-4 py-3 my-auto">
+                <!-- Add search bar -->
+            </div>
+
+            <div class="col-12 col-lg-4 py-3 my-auto align-right">
+                <ul class="list-inline list-unstyled text-right my-0">
+                    <li class="list-inline-item dropdown">
+                        <a href="#" class="text-light nav-link" id="lesson-options" data-toggle="dropdown" aria-haspopup="true" arie-expanded="false">
+                            <div>
+                                <p class="my-0">Lessons</p>
+                            </div>
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="lesson-options">
+                            <a href="" class="dropdown-item">Masterclasses</a>
+                        </div>
+                    </li>
+
+                    <li class="list-inline-item">
+                        <a href="#" class="text-light nav-link" id="blog">
+                            <div>
+                                <p class="my-0">Blog</p>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="list-inline-item">
+                        <a href="#" class="text-light nav-link" id="store">
+                            <div>
+                                <p class="my-0">Store</p>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="list-inline-item dropdown">
+                        <a href="#" class="text-light nav-link" id="account-options" data-toggle="dropdown" aria-haspopup="true" arie-expanded="false">
+                            <div>
+                                <p class="my-0">Account</p>
+                            </div>
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="lesson-options">
+                            <!-- If the user is authenticated and a superuser, manage the site. -->
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                    <a href="" class="dropdown-item">Lesson Management</a>
+
+                                    <a href="" class="dropdown-item">Store Management</a>
+                                {% endif %}
+                                <!-- Else, authenticated user can view account profile or logout -->
+                                <a href="" class="dropdown-item">My Profile</a>
+
+                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                            <!-- Else, user can register or login -->
+                            {% else %}
+                                <a href="{% url 'account_signup' %}" class="dropdown-item">Signup</a>
+
+                                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                            {% endif %}
+                        </div>
+                    </li>
+
+                    <!-- Add if statement for store -->
+                    <li class="list-inline-item">
+                        <a href="" class="text-light nav-link">
+                            <div class="text-center">
+                                <div>
+                                    <!-- Change icon colour in css -->
+                                    <i class="fas fa-shopping-cart icon-light"></i>
+
+                                    <p class="my-0">
+                                        {% if grand_total %}
+                                            £{{ grand_total|floatformat:2 }}
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
 
     {% if messages %}
         <div class="message-container"></div>
@@ -50,7 +140,7 @@
     {% block content %}
     {% endblock %}
 
-    {% block postjs %}
+    {% block post_js %}
     {% endblock %}
   </body>
 </html>
