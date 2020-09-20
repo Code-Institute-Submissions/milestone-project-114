@@ -42,7 +42,7 @@
   </head>
   <body>
     <header class="container-fluid fixed-top">
-        <div id="nav" class="row navbar-dark bg-black d-none d-lg-flex">
+        <nav id="nav" class="row navbar-dark bg-black d-none d-lg-flex">
             <div class="col-12 col-lg-5 py-3 my-auto">
                 <a href="{% url 'index' %}" class="navbar-brand ml-4">
                     <img class="logo" src="{% static 'deathfret-logo.png' %}" alt="deathfret-logo">
@@ -128,7 +128,7 @@
             </div>
 
             <div class="col-12 col-lg-2 py-3 my-auto align-right">
-                <form method="GET" action="">
+                <form class="form-inline" method="GET" action="">
                     <div class="input-group">
                         <input type="text" class="form-control rounded-0 bg-dark border-0" name="q" placeholder="Search Deathfret">
 
@@ -142,7 +142,7 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </nav>
     </header>
 
     {% if messages %}
@@ -154,6 +154,22 @@
 
     {% block content %}
     {% endblock %}
+
+    <footer class="page-footer font-small text-light bg-black py-3 text-center">
+        <div class="container">
+            <h6 class="py-3">Become a member and get full access to all resources</h6>
+
+            <h5>
+                <a href="" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Join now for £5/month</a>
+            </h5>
+        
+            <nav class="row text-secondary footer-copyright py-3">
+                <div class="col-12">
+                    <p>© 2020 Copyright: <a style="text-decoration:none;" class="text-light" href="https://github.com/vdgvzr" target="_blank">vdgvzr</a></p>
+                </div>
+            </nav>
+        </div>
+    </footer>
 
     {% block post_js %}
     {% endblock %}
