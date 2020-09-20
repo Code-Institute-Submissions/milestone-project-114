@@ -7,6 +7,10 @@ body {
     font-family: 'Noto Sans', sans-serif;
 }
 
+.logo {
+    max-height: 64px;
+}
+
 .bg-black {
     background-color: #000000;
 }
@@ -17,7 +21,7 @@ body {
 
 .index-banner {
     height: 50vh;
-    background: url('/media/deathfret-index-banner.jpeg') no-repeat center center fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/media/deathfret-index-banner.jpeg') no-repeat center center fixed;
     background-size: cover;
 }
 

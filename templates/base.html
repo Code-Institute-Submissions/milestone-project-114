@@ -42,23 +42,19 @@
   </head>
   <body>
     <header class="container-fluid fixed-top">
-        <div id="nav" class="row bg-black d-none d-lg-flex">
-            <div class="col-12 col-lg-4 py-3 my-auto">
-                <a href="{% url 'index' %}" class="navbar-brand">
-                    <img src="{{ MEDIA_URL }}deathfret-logo.png" alt="deathfret-logo">
+        <div id="nav" class="row navbar-dark bg-black d-none d-lg-flex">
+            <div class="col-12 col-lg-5 py-3 my-auto">
+                <a href="{% url 'index' %}" class="navbar-brand ml-4">
+                    <img class="logo" src="{% static 'deathfret-logo.png' %}" alt="deathfret-logo">
                 </a>
             </div>
 
-            <div class="col-12 col-lg-4 py-3 my-auto">
-                <!-- Add search bar -->
-            </div>
-
-            <div class="col-12 col-lg-4 py-3 my-auto align-right">
+            <div class="col-12 col-lg-5 py-3 my-auto align-right">
                 <ul class="list-inline list-unstyled text-right my-0">
                     <li class="list-inline-item dropdown">
                         <a href="#" class="text-light nav-link" id="lesson-options" data-toggle="dropdown" aria-haspopup="true" arie-expanded="false">
                             <div>
-                                <p class="my-0">Lessons</p>
+                                <p class="my-0 dropdown-toggle">Lessons </p>
                             </div>
                         </a>
 
@@ -86,7 +82,7 @@
                     <li class="list-inline-item dropdown">
                         <a href="#" class="text-light nav-link" id="account-options" data-toggle="dropdown" aria-haspopup="true" arie-expanded="false">
                             <div>
-                                <p class="my-0">Account</p>
+                                <p class="my-0 dropdown-toggle">Account </p>
                             </div>
                         </a>
 
@@ -129,6 +125,22 @@
                         </a>
                     </li>
                 </ul>
+            </div>
+
+            <div class="col-12 col-lg-2 py-3 my-auto align-right">
+                <form method="GET" action="">
+                    <div class="input-group">
+                        <input type="text" class="form-control rounded-0 bg-dark border-0" name="q" placeholder="Search Deathfret">
+
+                        <div class="input-group-append">
+                            <button class="form-control btn btn-danger rounded-0" type="submit">
+                                <span class="icon">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </header>
