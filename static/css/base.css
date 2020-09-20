@@ -21,7 +21,7 @@ body {
 
 .index-banner {
     height: 50vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/media/deathfret-index-banner.jpeg') no-repeat center center fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/media/deathfret-index-banner.jpeg') no-repeat center center;
     background-size: cover;
 }
 
@@ -36,6 +36,21 @@ body {
 
 .subscribe-button {
     min-width: 260px;
+}
+
+/* -------------------------- Juicer */
+
+.j-paginate {
+    color: #000000 !important;
+    border-color: #000000 !important;
+}
+
+.j-loading {
+ border-color: #000000 !important;
+}
+
+.j-loading:before {
+ background-color: #000000 !important;
 }
 
 /* -------------------------- Media Queries */
