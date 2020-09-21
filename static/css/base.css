@@ -3,12 +3,12 @@ html {
 }
 
 body {
-    height: calc(100vh - 64px);
+    height: calc(100vh - 117px);
     font-family: 'Noto Sans', sans-serif;
 }
 
 .logo {
-    max-height: 64px;
+    max-height: 75px;
 }
 
 .bg-black {
@@ -36,6 +36,10 @@ body {
 
 .subscribe-button {
     min-width: 260px;
+}
+
+.subscription-container {
+    height: 75vh;
 }
 
 /* -------------------------- Juicer */
@@ -71,6 +75,6 @@ body {
     }
 
     .header-container {
-        padding-top: 64px;
+        padding-top: 117px;
     }
 }

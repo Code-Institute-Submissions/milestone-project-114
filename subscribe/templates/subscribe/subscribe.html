@@ -1,0 +1,104 @@
+<!doctype html>
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block header %}
+    <div class="header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container text-center">
+        <div class="row pt-4">
+            <div class="col text-center mt-3">
+                <h2>Are you ready to take your playing to the next level?</h2>
+
+                <h6 class="py-2 text-uppercase text-secondary">Only £4 per month with an annual membership. Free to cancel anytime.</h6>
+
+                <h6 class="text-uppercase text-secondary">Become a member today!</h6>
+
+                <hr class="w-75">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="subscription-container col-10 offset-1">
+                <div class="row"></div>
+
+                <div class="row my-3">
+                    {% for subscription in subscriptions %}
+                        <div class="col-sm-6 col-md-6">
+                            <div class="card shadow h-100 border-1 p-3 {% if subscription.name == 'yearly' %}bg-light{% endif %}">
+                                <ul class="list-group">
+                                    <li class="list-group-item text-uppercase border-0"><h3>{{ subscription.name }}</h3></li>
+
+                                    <li class="list-group-item text-uppercase border-0 py-0"><h1>£{{ subscription.monthly_price|floatformat:0 }}</h1></li>
+
+                                    <li class="list-group-item text-uppercase border-0 text-secondary py-0"><h6>{{ subscription.frequency }}</h6></li>
+
+                                    <li class="list-group-item text-uppercase border-0 py-0"><h5>{{ subscription.paid }}</h5></li>
+
+                                    {% if subscription.incentive1 %}
+                                        <li class="list-group-item border-0 font-weight-light"><i class="fas fa-check text-success"></i> {{ subscription.incentive1 }}<hr></li>
+                                    {% endif %}
+
+                                    {% if subscription.incentive2 %}
+                                        <li class="list-group-item border-0 font-weight-light"><i class="fas fa-check text-success"></i> {{ subscription.incentive2 }}<hr></li>
+                                    {% endif %}
+
+                                    {% if subscription.incentive3 %}
+                                        <li class="list-group-item border-0 font-weight-light"><i class="fas fa-check text-success"></i> {{ subscription.incentive3 }}<hr></li>
+                                    {% endif %}
+
+                                    {% if subscription.incentive4 %}
+                                        <li class="list-group-item border-0 font-weight-light"><i class="fas fa-check text-success"></i> {{ subscription.incentive4 }}<hr></li>
+                                    {% endif %}
+
+                                    {% if subscription.incentive5 %}
+                                        <li class="list-group-item border-0 font-weight-light"><i class="fas fa-check text-success"></i> {{ subscription.incentive5 }}<hr></li>
+                                    {% endif %}
+
+                                    {% if subscription.incentive6 %}
+                                        <li class="list-group-item border-0 font-weight-light"><i class="fas fa-check text-success"></i> {{ subscription.incentive6 }}<hr></li>
+                                    {% endif %}
+
+                                    {% if subscription.incentive7 %}
+                                        <li class="list-group-item border-0 font-weight-light"><i class="fas fa-check text-success"></i> {{ subscription.incentive7 }}<hr></li>
+                                    {% endif %}
+
+                                    {% if subscription.incentive8 %}
+                                        <li class="list-group-item border-0 font-weight-light"><i class="fas fa-check text-success"></i> {{ subscription.incentive8 }}<hr></li>
+                                    {% endif %}
+
+                                    {% if subscription.incentive9 %}
+                                        <li class="list-group-item border-0 font-weight-light"><i class="fas fa-check text-success"></i> {{ subscription.incentive9 }}<hr></li>
+                                    {% endif %}
+
+                                    {% if subscription.incentive10 %}
+                                        <li class="list-group-item border-0 font-weight-light"><i class="fas fa-check text-success"></i> {{ subscription.incentive10 }}<hr></li>
+                                    {% endif %}
+
+                                    <li class="list-group-item border-0">
+                                        {% if subscription.name == 'yearly' %}
+                                            <p class="small"><strong>SAVE {}% When you pay {{ subscription.name }}!</strong></p>
+                                        {% endif %}
+                                    </li>
+
+                                    <li class="list-group-item border-0">
+                                        <h5>
+                                            <a href="{% url 'subscribe' %}" class="subscribe-button btn {% if subscription.name == 'yearly' %}btn-danger{% else %}btn-light{% endif %} rounded-0 text-uppercase">Join now</a>
+                                        </h5>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
