@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'index',
     'subscribe',
     'merch',
+    'lessons',
 ]
 
 MIDDLEWARE = [
