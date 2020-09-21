@@ -38,8 +38,9 @@ body {
     min-width: 260px;
 }
 
+.merch-container,
 .subscription-container {
-    height: 75vh;
+    min-height: 75vh;
 }
 
 /* -------------------------- Juicer */
