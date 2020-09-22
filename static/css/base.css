@@ -38,6 +38,7 @@ body {
     min-width: 260px;
 }
 
+.cart-container,
 .merch-container,
 .subscription-container {
     min-height: 75vh;

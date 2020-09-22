@@ -25,4 +25,5 @@ urlpatterns = [
     path('artist-masterclasses/', include('lessons.urls')),
     path('subscribe/', include('subscribe.urls')),
     path('store/', include('merch.urls')),
+    path('cart/', include('cart.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

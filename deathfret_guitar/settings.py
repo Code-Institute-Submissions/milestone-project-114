@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'subscribe',
     'merch',
     'lessons',
+    'cart',
 ]
 
 MIDDLEWARE = [
