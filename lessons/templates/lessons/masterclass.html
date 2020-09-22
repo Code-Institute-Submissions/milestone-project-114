@@ -1,0 +1,42 @@
+<!doctype html>
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block header %}
+    <div class="header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row pt-4">
+            <div class="col text-center mt-3">
+                <h2>{{ masterclass.masterclass_title_friendly_name }}</h2>
+
+                <h4 class="text-secondary font-weight-light">By {{ artist.artist_friendly_name }}</h4>
+
+                <hr class="w-75 mb-1">
+            </div>
+        </div>
+
+        {% for lesson in lessons %}
+            <div class="row">
+                <div class="col-6 py-5">
+                    <p><strong>Lesson {{ lesson.lesson_number }}. {{ lesson.lesson_title }}</strong></p>
+                    <hr>
+                    <p>{{ lesson.lesson_description }}</p>
+                </div>
+                <div class="col-6 py-3">
+                    <iframe width="420" height="315"
+                        src="{{ lesson.video_url }}">
+                    </iframe>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+

@@ -3,7 +3,7 @@ from django.db import models
 
 class Artist(models.Model):
     artist_name = models.CharField(max_length=254)
-    artist_friendly_name = models.CharField(max_length=254, null=True, blank=True)
+    artist_friendly_name = models.CharField(max_length=254)
     discipline1 = models.CharField(max_length=254)
     discipline2 = models.CharField(max_length=254, null=True, blank=True)
     description = models.TextField()
@@ -18,6 +18,7 @@ class Artist(models.Model):
     def get_artist_friendly_name(self):
         return self.artist_friendly_name
 
+
 class MasterclassOverview(models.Model):
 
     class Meta:
@@ -25,16 +26,18 @@ class MasterclassOverview(models.Model):
 
     artist = models.ForeignKey('Artist', on_delete=models.CASCADE)
     masterclass_title = models.CharField(max_length=254)
+    masterclass_title_friendly_name = models.CharField(max_length=254)
 
     def __str__(self):
         return self.masterclass_title
+
 
 class Masterclass(models.Model):
 
     class Meta:
         verbose_name_plural = 'Masterclass Lessons'
 
-    masterclass = models.ForeignKey('MasterclassOverview', on_delete=models.CASCADE)
+    masterclass = models.ForeignKey('MasterclassOverview', related_name='lessons', on_delete=models.CASCADE)
     lesson_title = models.CharField(max_length=254)
     lesson_number = models.IntegerField()
     lesson_description = models.TextField()

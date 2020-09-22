@@ -43,6 +43,12 @@ body {
     min-height: 75vh;
 }
 
+.item-img {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+}
+
 /* -------------------------- Juicer */
 
 .j-paginate {

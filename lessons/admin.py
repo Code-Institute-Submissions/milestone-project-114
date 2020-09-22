@@ -15,6 +15,8 @@ class LessonAdmin(admin.ModelAdmin):
         'masterclass'
     )
 
+    ordering = ('lesson_number',)
+
 admin.site.register(Artist, ArtistAdmin)
 admin.site.register(MasterclassOverview)
 admin.site.register(Masterclass, LessonAdmin)
