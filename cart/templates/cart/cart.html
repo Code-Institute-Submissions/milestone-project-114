@@ -59,7 +59,39 @@
                                     </td>
 
                                     <td class="py-3 w-25">
-                                        <p class="my-0">{{ item.quantity }}</p>
+                                        <form class="form update-form" method="POST" action="">
+                                            {% csrf_token %}
+
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <button class="decrement-qty btn btn-danger btn-sm rounded-0" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                            <span>
+                                                                <i class="fas fa-minus fa-sm"></i>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+
+                                                    <input type="number" class="form-control form-control-sm rounded-0 qty_input" name="quantity" value="1" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+
+                                                    <div class="input-group-append">
+                                                        <button class="increment-qty btn btn-danger btn-sm rounded-0" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                                            <span>
+                                                                <i class="fas fa-plus fa-sm"></i>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+
+                                                    {% if item.item.has_sizes %}
+                                                        <input type="hidden" name="size" value="item.size">
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                        <a href="" class="update-link text-success"><small>Update</small></a>
+                                        
+                                        <a href="" class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-size="{{ item.size }}"><small>Delete</small></a>
                                     </td>
 
                                     <td class="py-3">
@@ -85,4 +117,32 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block post_js %}
+{{ block.super }}
+    {% include 'merch/includes/quantity_input_script.html' %}
+
+    <script type="text/javascript">
+    // Update quantity on click
+
+    $('.update-link').click(function(e) {
+        let form = $(this).prev('.update-form');
+        form.submit()
+    });
+
+    // Remove merch item and reload page on click
+    $('.remove-item').click(function(e) {
+        let csrfToken = "{{ csrf_token }}"
+        let itemId = $(this).attr('id').split('remove_')[1];
+        let size = $(this).data('size');
+        let url = `/cart/remove/${itemId}`;
+        let data = {'csrfmiddlewaretoken': csrf_token, 'size': size};
+
+        $.post(url, data)
+        .done(function() {
+            location.reload();
+        });
+    });
+    </script>
 {% endblock %}
