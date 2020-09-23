@@ -53,7 +53,23 @@
 
                                 <div class="form-group w-50">
                                     <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <button class="decrement-qty btn btn-danger rounded-0" data-item_id="{{ item.id }}" id="decrement-qty_{{ item.id }}">
+                                                <span class="icon">
+                                                    <i class="fas fa-minus"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+
                                         <input type="number" class="form-control rounded-0 qty_input" name="quantity" value="1" min="1" max="99" data-item_id="{{ item.id }}" id="id_qty_{{ item.id }}">
+
+                                        <div class="input-group-append">
+                                            <button class="increment-qty btn btn-danger rounded-0" data-item_id="{{ item.id }}" id="increment-qty_{{ item.id }}">
+                                                <span class="icon">
+                                                    <i class="fas fa-plus"></i>
+                                                </span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -74,4 +90,9 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block post_js %}
+{{ block.super }}
+    {% include 'merch/includes/quantity_input_script.html' %}
 {% endblock %}
