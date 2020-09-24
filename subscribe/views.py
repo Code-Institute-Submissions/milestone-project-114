@@ -8,13 +8,16 @@ def subscribe(request):
     subscriptions = Subscription.objects.all()
     monthly_prices = []
 
-    for price in subscriptions:
-        monthly_prices.append(int(price.monthly_price))
+    if subscriptions:
+        for price in subscriptions:
+            monthly_prices.append(int(price.monthly_price))
 
-    price1 = monthly_prices[0]
-    price2 = monthly_prices[1]
+        price1 = monthly_prices[0]
+        price2 = monthly_prices[1]
 
-    percentage_saved = ((price1 - price2)/((price1 + price2) / 2) * 100)
+        percentage_saved = ((price1 - price2)/((price1 + price2) / 2) * 100)
+    else:
+        return render(request, 'index/index.html')
 
     context = {
         'subscriptions': subscriptions,
