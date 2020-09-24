@@ -84,7 +84,7 @@
 
                                     <li class="list-group-item border-0">
                                         {% if subscription.name == 'yearly' %}
-                                            <p class="small"><strong>SAVE {}% When you pay {{ subscription.name }}!</strong></p>
+                                            <p class="small"><strong>SAVE {{ percentage_saved | floatformat:0 }}% When you pay {{ subscription.name }}!</strong></p>
                                         {% endif %}
                                     </li>
 
