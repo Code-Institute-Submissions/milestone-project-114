@@ -112,16 +112,15 @@
                     <li class="list-inline-item">
                         <a href="{% url 'view_cart' %}" class="text-light nav-link">
                             <div class="text-center">
-                                <div>
-                                    <!-- Change icon colour in css -->
+                                <div class="icon">
                                     <i class="fas fa-shopping-cart icon-light"></i>
-
-                                    <p class="my-0">
-                                        {% if grand_total %}
-                                            £{{ grand_total|floatformat:2 }}
-                                        {% endif %}
-                                    </p>
                                 </div>
+
+                                <span class="my-0">
+                                    {% if grand_total %}
+                                        £{{ grand_total|floatformat:2 }}
+                                    {% endif %}
+                                </span>
                             </div>
                         </a>
                     </li>
