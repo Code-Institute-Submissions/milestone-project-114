@@ -81,6 +81,8 @@ TEMPLATES = [
     },
 ]
 
+MESSAGES_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
 # Allows users and admins to login via email
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
