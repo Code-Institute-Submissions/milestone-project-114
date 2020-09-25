@@ -40,8 +40,8 @@ body {
 
 .btn-outline-danger {
     background: #ffffff;
-    color: #d9534f !important;
-    border: 1px solid #d9534f;
+    color: #dc3545 !important;
+    border: 1px solid #dc3545;
 }
 
 .btn-outline-danger:hover {
@@ -63,6 +63,26 @@ body {
 .update-link,
 .remove-item {
     cursor: pointer
+}
+
+.message-container {
+    position: fixed;
+    top: 117px;
+    z-index: 9999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 10px;
+}
+
+.cart-toast-wrapper {
+    height: 150px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* -------------------------- Juicer */

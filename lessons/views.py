@@ -21,6 +21,10 @@ def masterclasses(request):
                     request,
                     "You didn't enter any search criteria."
                 )
+                messages.error(
+                    request,
+                    "You didn't enter any search criteria!"
+                )
                 return redirect(reverse('masterclasses'))
 
             searches = Q(
@@ -39,7 +43,10 @@ def masterclasses(request):
 def masterclass(request, masterclass_title):
     """ View to render the masterclass lessons page """
 
-    masterclass = get_object_or_404(MasterclassOverview, masterclass_title=masterclass_title)
+    masterclass = get_object_or_404(
+        MasterclassOverview,
+        masterclass_title=masterclass_title
+    )
     artist = get_object_or_404(Artist)
 
     overviews = MasterclassOverview.objects.all()
