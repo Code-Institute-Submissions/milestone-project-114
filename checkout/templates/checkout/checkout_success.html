@@ -1,0 +1,42 @@
+<!doctype html>
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% checkout/css/checkout.css %}">
+{% endblock %}
+
+{% block header %}
+    <div class="header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <hr>
+
+                <h2 class="mb-4 text-center">Success!</h2>
+                
+                <hr>
+
+                <p class="text-dark">Your order has been placed. Please find your information below. A confirmation email has been sent to <strong>{{ order.email }}</strong>.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-lg-7">
+                <h6 class="py-3">Interesting in becoming a member?</h6>
+
+                <h5>
+                    <a href="{% url 'subscribe' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Join now for £5/month</a>
+                </h5>
+            </div>
+        </div>
+    </div>
+{% endblock %}
