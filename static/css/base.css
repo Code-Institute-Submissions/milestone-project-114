@@ -85,19 +85,9 @@ body {
     overflow-y: auto;
 }
 
-/* -------------------------- Juicer */
-
-.j-paginate {
-    color: #000000 !important;
-    border-color: #000000 !important;
-}
-
-.j-loading {
- border-color: #000000 !important;
-}
-
-.j-loading:before {
- background-color: #000000 !important;
+.feature-image {
+    max-height: 320px;
+    width: 320px;s
 }
 
 /* -------------------------- Media Queries */
