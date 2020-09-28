@@ -5,7 +5,7 @@ from .models import Features
 def index(request):
     """ View to render the home page """
 
-    features = Features.objects.all()
+    features = Features.objects.all().order_by('id').reverse()
 
     context = {
         'features': features,

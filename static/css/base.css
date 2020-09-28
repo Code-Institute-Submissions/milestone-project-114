@@ -86,8 +86,15 @@ body {
 }
 
 .feature-image {
-    max-height: 320px;
-    width: 320px;s
+    height: 320px;
+    width: 320px;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+.feature-image:hover {
+
+    filter: brightness(80%);
 }
 
 /* -------------------------- Media Queries */

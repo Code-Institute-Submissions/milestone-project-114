@@ -30,19 +30,31 @@
         </div>
     </div>
 
-    <div class="container" style="height:50vh;">
+    <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2 class="py-3">Features</h2>
+                <h2 class="py-3 pl-2">Features</h2>
 
                 <div class="row">
-                    {% for feature in features %}
-                        <div class="col-4">
+                    {% for feature in features|slice:":6" %}
+                        <div class="col-4 mb-3 text-center">
                             <a href="{{ feature.post_url }}" target="_blank">
                                 <img class="feature-image" src="{{ feature.thumbnail_url }}" alt="{{ feature.featured_artist }}">
                             </a>
                         </div>
                     {% endfor %}
+                </div>
+
+                <div class="row">
+                    <div class="col-12 my-3 text-center">
+                        <button href="#" class="subscribe-button btn btn-danger rounded-0 text-uppercase">
+                            <span>see More</span>
+
+                            <span class="icon">
+                                <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
