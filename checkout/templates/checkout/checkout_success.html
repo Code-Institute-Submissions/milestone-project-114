@@ -209,11 +209,19 @@
 
         <div class="row">
             <div class="col-12 col-lg-7">
-                <h6 class="py-3">Interesting in becoming a member?</h6>
+                {% if from_profile %}
+                    <h6 class="py-3">Interesting in becoming a member?</h6>
 
-                <h5>
-                    <a href="{% url 'subscribe' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Join now for £5/month</a>
-                </h5>
+                    <h5>
+                        <a href="{% url 'profile' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Profile</a>
+                    </h5>
+                {% else %}
+                    <h6 class="py-3">Interesting in becoming a member?</h6>
+
+                    <h5>
+                        <a href="{% url 'subscribe' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Join now for £5/month</a>
+                    </h5>
+                {% endif %}
             </div>
         </div>
     </div>

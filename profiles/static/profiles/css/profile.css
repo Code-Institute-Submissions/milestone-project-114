@@ -1,3 +1,8 @@
+.order-history {
+    max-height: 416px;
+    overflow-y: auto;
+}
+
 #update-profile-form input::placeholder {
     color: #aab7c4;
 }
