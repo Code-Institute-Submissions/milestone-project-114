@@ -18,12 +18,12 @@ def add_to_cart(request, item_id):
     item = get_object_or_404(Merch, pk=item_id)
 
     quantity = int(request.POST.get('quantity'))
-    print(type(quantity))
     redirect_url = request.POST.get('redirect_url')
     size = None
     if 'item_size' in request.POST:
         size = request.POST['item_size']
     cart = request.session.get('cart', {})
+    print(size)
 
     if size:
         if item_id in list(cart.keys()):
