@@ -34,14 +34,29 @@ def cart_contents(request):
                 })
 
     delivery = total * Decimal(settings.DELIVERY_PERCENTAGE / 100)
-    grand_total = delivery + total
 
-    context = {
-        'cart_items': cart_items,
-        'total': total,
-        'item_count': item_count,
-        'delivery': delivery,
-        'grand_total': grand_total,
-    }
+    if request.user.is_authenticated:
+        discount = total * Decimal(settings.MEMBER_DISCOUNT / 100)
+
+        grand_total = delivery + total - discount
+
+        context = {
+            'cart_items': cart_items,
+            'total': total,
+            'item_count': item_count,
+            'delivery': delivery,
+            'discount': discount,
+            'grand_total': grand_total,
+        }
+    else:
+        grand_total = delivery + total
+
+        context = {
+            'cart_items': cart_items,
+            'total': total,
+            'item_count': item_count,
+            'delivery': delivery,
+            'grand_total': grand_total,
+        }
 
     return context
