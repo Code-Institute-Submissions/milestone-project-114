@@ -1,0 +1,28 @@
+Hello {{ order.full_name }}!
+
+This is a confirmation email from our merch store. Your order information can be seen below:
+
+Order Date: {{ order.date }}
+Order Number: {{ order.order_number }}
+
+Total: £{{ order.order_total }}
+Delivery: £{{ order.delivery }}
+Grand Total: £{{ order.grand_total }}
+
+Your order will be delivered to:
+
+{{ order.full_name }},
+{{ order.street_address1 }},
+{% if street_address2 %}
+    {{ order.street_address2 }},
+{% endif %}
+{{ order.town_or_city }},
+{{ order.county }}
+{{ order.country }}
+{{ order.postcode }}
+
+If you have any questions, don't hesitate to contact us at {{ contact_email }}.
+
+Thank you for your order!
+
+Deathfret Guitar
