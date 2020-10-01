@@ -65,7 +65,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'deathfret_guitar.urls'
 
-CRISPY_TEMPLATES = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {
