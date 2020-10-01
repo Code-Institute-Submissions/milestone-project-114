@@ -205,7 +205,7 @@ To deploy the app on Heroku, the following steps have been followed:
 
 ### Code
 
-- 
+- https://www.ordinarycoders.com/blog/article/django-stripe-monthly-subscription
 
 ### Acknowledgements
 
