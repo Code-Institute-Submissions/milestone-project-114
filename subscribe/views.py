@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 import stripe
 import json
 import djstripe
@@ -6,8 +6,6 @@ from django.http import JsonResponse, HttpResponse
 from djstripe.models import Product
 from django.contrib.auth.decorators import login_required
 from .models import Subscription
-from django.conf import settings
-
 
 
 @login_required

@@ -15,12 +15,11 @@ var style = {
   },
   invalid: {
     color: '#dc3545',
-    iconColor: '#dc3545'
+    iconColor: '#dc3545',
   }
 };
 
 let card = elements.create('card', {style: style});
-
 card.mount('#card-element');
 
 // Handle realtime validation errors on the card element
@@ -57,7 +56,7 @@ form.addEventListener('submit', function(ev) {
     let csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
     let postData = {
         'csrfmiddlewaretoken': csrfToken,
-        'client_secret': client_secret,
+        'client_secret': clientSecret,
         'save_info': saveInfo
     }
     let url = '/checkout/cache_checkout_data/';
