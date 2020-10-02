@@ -236,7 +236,8 @@
                     return fetch('/subscribe/create-sub', {
                         method: 'POST',
                         headers: {
-                        'Content-Type': 'application/json',
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': csrf_token,
                         },
                         credentials: 'same-origin',
                         body: JSON.stringify(paymentParams),
