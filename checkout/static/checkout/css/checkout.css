@@ -18,11 +18,11 @@
 }
 
 .StripeElement--webkit-autofill {
-    background-color: #fefde5 !important;
+    background-color: #ffffff !important;
 }
 
 .stripe-style-input::placeholder {
-    background-color: #aab7c4;
+    background-color: #ffffff !important;
 }
 
 .fieldset-label {
