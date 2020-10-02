@@ -219,27 +219,24 @@
             // Set up payment method for recurring usage
             let billingName = username;
 
-            stripe
-                .createPaymentMethod({
-                    type: 'card',
-                    card: card,
-                    billing_details: {
-                        name: billingName,
-                    },
-                })
-                .then((result) => {
-                    if (result.error) {
-                        displayError(result);
-                    } else {
+            stripe.createPaymentMethod({
+                type: 'card',
+                card: card,
+                billing_details: {
+                    name: billingName,
+                },
+            }).then((result) => {
+                if (result.error) {
+                    displayError(result);
+                } else {
                     const paymentParams = {
                         price_id: document.getElementById("priceId").innerHTML,
                         payment_method: result.paymentMethod.id,
                     };
-                    fetch("/subscribe/create-sub", {
+                    return fetch('/subscribe/create-sub', {
                         method: 'POST',
                         headers: {
                         'Content-Type': 'application/json',
-                        'X-CSRFToken': csrf_token,
                         },
                         credentials: 'same-origin',
                         body: JSON.stringify(paymentParams),
@@ -247,8 +244,7 @@
                         return response.json(); 
                     }).then((result) => {
                         if (result.error) {
-                        // The card had an error when trying to attach it to a customer
-                        throw result;
+                            throw result;
                         }
                         return result;
                     }).then((result) => {
@@ -258,12 +254,10 @@
                         };
                     }).catch(function (error) {
                         displayError(result.error.message);
-
                     });
                 }
             });
         }
-
 
         var changeLoadingState = function(isLoading) {
             if (isLoading) {

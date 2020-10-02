@@ -6,6 +6,8 @@ from django.http import JsonResponse, HttpResponse
 from djstripe.models import Product
 from django.contrib.auth.decorators import login_required
 from .models import Subscription
+from django.conf import settings
+
 
 
 @login_required
@@ -43,7 +45,7 @@ def create_sub(request):
         # Reads application/json and returns a response
         data = json.loads(request.body)
         payment_method = data['payment_method']
-        stripe.api_key = djstripe.settings.STRIPE_SECRET_KEY
+        stripe.api_key = settings.STRIPE_SECRET_KEY
 
         payment_method_obj = stripe.PaymentMethod.retrieve(payment_method)
         djstripe.models.PaymentMethod.sync_from_stripe_data(payment_method_obj)

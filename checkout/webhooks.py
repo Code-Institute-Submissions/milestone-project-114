@@ -18,7 +18,7 @@ def webhook(request):
 
     try:
         event = stripe.Webhook.construct_event(
-        payload, sig_header, webhook_secret
+            payload, sig_header, webhook_secret
         )
     except ValueError as e:
         # Invalid payload
