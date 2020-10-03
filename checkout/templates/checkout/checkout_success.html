@@ -1,6 +1,5 @@
-<!doctype html>
-
 {% extends "base.html" %}
+
 {% load static %}
 
 {% block extra_css %}
@@ -19,11 +18,9 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <hr>
-
-                <h2 class="mb-4 text-center">Success!</h2>
+                <h2 class="logo-font mb-4 text-center">Success!</h2>
                 
-                <hr>
+                <hr class="w-75 mb-1">
 
                 <p class="text-dark">Your order has been placed. Please find your information below. A confirmation email has been sent to <strong>{{ order.email }}</strong>.</p>
             </div>
