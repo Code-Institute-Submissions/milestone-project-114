@@ -28,12 +28,12 @@ card.addEventListener('change', function(event) {
 
     if (event.error) {
         let html = `
-            <span class="icon" role="alert">
+            <span class="icon card-error-icon" role="alert">
                 <i class="fa fa-times"></i>
             </span>
 
             <span>${event.error.message}</span>
-        `
+        `;
 
         $(errorDiv).html(html);
     } else {
@@ -49,8 +49,8 @@ form.addEventListener('submit', function(ev) {
     ev.preventDefault();
     card.update({'disabled': true});
     $('#submit-button').attr('disabled', true);
-    $('payment-form').fadeToggle(100);
-    $('loading-overlay').fadeToggle(100);
+    $('#payment-form').fadeToggle(100);
+    $('#loading-overlay').fadeToggle(100);
 
     let saveInfo = Boolean($('#id-save-info').attr('checked'));
     let csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
@@ -92,20 +92,19 @@ form.addEventListener('submit', function(ev) {
             }
         },
         }).then(function(result) {
-            let errorDiv = document.getElementById('card-errors');
-
             if (result.error) {
+                let errorDiv = document.getElementById('card-errors');
                 let html = `
-                    <span class="icon" role="alert">
+                    <span class="icon card-error-icon" role="alert">
                         <i class="fa fa-times"></i>
                     </span>
 
-                    <span>${event.error.message}</span>
-                `
+                    <span>${result.error.message}</span>
+                `;
 
                 $(errorDiv).html(html);
-                $('payment-form').fadeToggle(100);
-                $('loading-overlay').fadeToggle(100);
+                $('#payment-form').fadeToggle(100);
+                $('#loading-overlay').fadeToggle(100);
                 card.update({'disabled': false});
                 $('#submit-button').attr('disabled', false);
             } else {
