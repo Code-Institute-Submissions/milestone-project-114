@@ -45,8 +45,9 @@ class StripeWebhookHandler:
     def handle_payment_intent_succeeded(self, event):
         intent = event.data.object
         payment_id = intent.id
-        cart = intent.nmetadata.cart
+        cart = intent.metadata.cart
         save_info = intent.metadata.save_info
+
         billing_details = intent.charges.data[0].billing_details
         delivery_details = intent.delivery
         grand_total = round(intent.charges.data[0].amount / 100, 2)
@@ -96,7 +97,8 @@ class StripeWebhookHandler:
         if order_exists:
             self._send_confirmation_email(order)
             return HttpResponse(
-                content=f'Webhook received: {event["type"]} | SUCCESS: Order already exists in the database.',
+                content=f'Webhook received: {event["type"]} | SUCCESS: Order \
+                    already exists in the database.',
                 status=200,
             )
         else:

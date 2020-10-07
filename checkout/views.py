@@ -83,7 +83,7 @@ def checkout(request):
                                 order=order,
                                 item=item,
                                 quantity=quantity,
-                                item_size=size
+                                item_size=size,
                             )
                             order_line_item.save()
                 except Merch.DoesNotExist:
@@ -107,7 +107,7 @@ def checkout(request):
         else:
             messages.error(
                 request,
-                "There was an error wwith your form submission"
+                "There was an error with your form submission"
             )
     else:
         cart = request.session.get('cart', {})
