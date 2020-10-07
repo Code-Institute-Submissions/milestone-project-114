@@ -4,7 +4,6 @@ html {
 
 body {
     height: calc(100vh - 117px);
-    font-family: 'Noto Sans', sans-serif;
 }
 
 .logo {
@@ -13,10 +12,6 @@ body {
 
 .bg-black {
     background-color: #000000;
-}
-
-.logo-font {
-    font-family: 'Metal Mania', cursive;
 }
 
 .text-black {
