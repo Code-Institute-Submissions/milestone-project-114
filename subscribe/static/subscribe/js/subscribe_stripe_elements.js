@@ -1,9 +1,6 @@
 let stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 let clientSecret = $('#id_client_secret').text().slice(1, -1);
-let billingName = document.querySelector('#name').value;
 let stripe = Stripe(stripePublicKey);
-
-console.log(billingName);
 
 if (document.getElementById('card-element')) {
     let elements = stripe.elements();
@@ -28,20 +25,6 @@ if (document.getElementById('card-element')) {
     card = elements.create('card', { style: style });
 
     card.mount('#card-element');
-
-    card.on('focus', function () {
-        let el = document.getElementById('card-errors');
-        el.classList.add('focused');
-    });
-
-    card.on('blur', function () {
-        let el = document.getElementById('card-errors');
-        el.classList.remove('focused');
-    });
-
-    card.on('change', function (event) {
-        displayError(event);
-    });
 }
 
 // Mount the subscription choice to the payment form
@@ -86,3 +69,39 @@ card.addEventListener('change', function(event) {
 });
 
 //------------------------------------------------------ Form Submit
+let createCustomerUrl = "{% url 'create_subscription' %}";
+    function stripePaymentMethodHandler(result, email) {
+        if (result.error) {
+            let errorDiv = document.getElementById('subscribe-card-errors');
+        let html = `
+                <span class="icon card-error-icon" role="alert">
+                    <i class="fa fa-times"></i>
+                </span>
+
+                <span>${event.error.message}</span>
+            `;
+
+            $(errorDiv).html(html);
+        } else {
+        const paymentParams = {
+            email: email,
+            plan_id: getSelectedPlanId(),
+            payment_method: result.paymentMethod.id,
+        };
+        fetch(createCustomerUrl, {
+            method: 'post',
+            headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken'),
+            },
+            credentials: 'same-origin',
+            body: JSON.stringify(paymentParams),
+        }).then(function(response) {
+            return response.json(); 
+        }).then(function(result) {
+            // todo: check and process subscription status based on the response
+        }).catch(function (error) {
+            // more error handling
+        });
+        }
+  };
