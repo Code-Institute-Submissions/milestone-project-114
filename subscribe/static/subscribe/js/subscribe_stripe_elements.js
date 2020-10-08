@@ -69,8 +69,8 @@ card.addEventListener('change', function(event) {
 });
 
 //------------------------------------------------------ Form Submit
-let createCustomerUrl = "{% url 'create_subscription' %}";
     function stripePaymentMethodHandler(result, email) {
+        let url = "{% url 'subscribe:create_subscription' %}"
         if (result.error) {
             let errorDiv = document.getElementById('subscribe-card-errors');
         let html = `
@@ -88,11 +88,11 @@ let createCustomerUrl = "{% url 'create_subscription' %}";
             plan_id: getSelectedPlanId(),
             payment_method: result.paymentMethod.id,
         };
-        fetch(createCustomerUrl, {
-            method: 'post',
+        fetch(url, {
+            method: 'POST',
             headers: {
-            'Content-Type': 'application/json',
-            'X-CSRFToken': getCookie('csrftoken'),
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken'),
             },
             credentials: 'same-origin',
             body: JSON.stringify(paymentParams),

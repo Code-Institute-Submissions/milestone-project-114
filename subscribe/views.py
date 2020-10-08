@@ -12,7 +12,7 @@ from django.db import transaction
 
 
 @login_required
-def subscribe(request):
+def subscriptions(request):
     """ View to render the subscription page """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
@@ -64,6 +64,8 @@ def create_customer_and_subscription(request):
     payment_method = request_body['payment_method']
     plan_id = request_body['plan_id']
     stripe.api_key = settings.STRIPE_SECRET_KEY
+
+    print(settings.STRIPE_SECRET_KEY)
 
     # first sync payment method to local DB to workaround
     # https://github.com/dj-stripe/dj-stripe/issues/1125
