@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Subscription(models.Model):
@@ -20,3 +21,8 @@ class Subscription(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class StripeCustomer(User):
+    customer = models.ForeignKey('djstripe.Customer', null=True, blank=True, on_delete=models.SET_NULL)
+    subscription = models.ForeignKey('djstripe.Subscription', null=True, blank=True, on_delete=models.SET_NULL)
