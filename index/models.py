@@ -7,7 +7,7 @@ class Features(models.Model):
         verbose_name_plural = 'Features'
 
     featured_artist = models.CharField(max_length=254)
-    thumbnail_url = models.CharField(max_length=254)
+    thumbnail_url = models.CharField(max_length=512)
     post_url = models.CharField(max_length=254)
 
     def __str__(self):
