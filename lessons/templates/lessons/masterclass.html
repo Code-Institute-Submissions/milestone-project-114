@@ -30,11 +30,266 @@
                     <hr>
                     <p>{{ masterclass.lesson_description1 }}</p>
                 </div>
-                <div class="col-6 py-3">
-                    <iframe width="420" height="315"
-                        src="{{ masterclass.video_url1 }}">
-                    </iframe>
+
+                {% if user.is_authenticated %}
+                    <div class="col-6 py-3">
+                        <iframe width="420" height="315"
+                            src="{{ masterclass.video_url1 }}">
+                        </iframe>
+                    </div>
+                {% else %}
+                    <div class="col-6 py-3 container lesson-container">
+                        <img src="{{ masterclass.img_url1 }}" class="lesson-img" alt="{{ masterclass.lesson_title1 }}">
+                        <div class="middle">
+                            <h5>
+                                <a href="{% url 'subscribe:subscriptions' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Subscribe now to view this lesson!</a>
+                            </h5>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        {% if masterclass.lesson_title2 %}
+            <div class="row">
+                <div class="col-6 py-5">
+                    <p><strong>Lesson {{ masterclass.lesson_number2 }}. {{ masterclass.lesson_title2 }}</strong></p>
+                    <hr>
+                    <p>{{ masterclass.lesson_description2 }}</p>
                 </div>
+
+                {% if user.is_authenticated %}
+                    <div class="col-6 py-3">
+                        <iframe width="420" height="315"
+                            src="{{ masterclass.video_url2 }}">
+                        </iframe>
+                    </div>
+                {% else %}
+                    <div class="col-6 py-3 container lesson-container">
+                        <img src="{{ masterclass.img_url2 }}" class="lesson-img" alt="{{ masterclass.lesson_title2 }}">
+                        <div class="middle">
+                            <h5>
+                                <a href="{% url 'subscribe:subscriptions' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Subscribe now to view this lesson!</a>
+                            </h5>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        {% if masterclass.lesson_title3 %}
+            <div class="row">
+                <div class="col-6 py-5">
+                    <p><strong>Lesson {{ masterclass.lesson_number3 }}. {{ masterclass.lesson_title3 }}</strong></p>
+                    <hr>
+                    <p>{{ masterclass.lesson_description3 }}</p>
+                </div>
+
+                {% if user.is_authenticated %}
+                    <div class="col-6 py-3">
+                        <iframe width="420" height="315"
+                            src="{{ masterclass.video_url3 }}">
+                        </iframe>
+                    </div>
+                {% else %}
+                    <div class="col-6 py-3 container lesson-container">
+                        <img src="{{ masterclass.img_url3 }}" class="lesson-img" alt="{{ masterclass.lesson_title3 }}">
+                        <div class="middle">
+                            <h5>
+                                <a href="{% url 'subscribe:subscriptions' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Subscribe now to view this lesson!</a>
+                            </h5>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        {% if masterclass.lesson_title4 %}
+            <div class="row">
+                <div class="col-6 py-5">
+                    <p><strong>Lesson {{ masterclass.lesson_number4 }}. {{ masterclass.lesson_title4 }}</strong></p>
+                    <hr>
+                    <p>{{ masterclass.lesson_description4 }}</p>
+                </div>
+
+                {% if user.is_authenticated %}
+                    <div class="col-6 py-3">
+                        <iframe width="420" height="315"
+                            src="{{ masterclass.video_url4 }}">
+                        </iframe>
+                    </div>
+                {% else %}
+                    <div class="col-6 py-3 container lesson-container">
+                        <img src="{{ masterclass.img_url4 }}" class="lesson-img" alt="{{ masterclass.lesson_title4 }}">
+                        <div class="middle">
+                            <h5>
+                                <a href="{% url 'subscribe:subscriptions' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Subscribe now to view this lesson!</a>
+                            </h5>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        {% if masterclass.lesson_title5 %}
+            <div class="row">
+                <div class="col-6 py-5">
+                    <p><strong>Lesson {{ masterclass.lesson_number5 }}. {{ masterclass.lesson_title5 }}</strong></p>
+                    <hr>
+                    <p>{{ masterclass.lesson_description5 }}</p>
+                </div>
+
+                {% if user.is_authenticated %}
+                    <div class="col-6 py-3">
+                        <iframe width="420" height="315"
+                            src="{{ masterclass.video_url5 }}">
+                        </iframe>
+                    </div>
+                {% else %}
+                    <div class="col-6 py-3 container lesson-container">
+                        <img src="{{ masterclass.img_url5 }}" class="lesson-img" alt="{{ masterclass.lesson_title5 }}">
+                        <div class="middle">
+                            <h5>
+                                <a href="{% url 'subscribe:subscriptions' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Subscribe now to view this lesson!</a>
+                            </h5>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        {% if masterclass.lesson_title6 %}
+            <div class="row">
+                <div class="col-6 py-5">
+                    <p><strong>Lesson {{ masterclass.lesson_number6 }}. {{ masterclass.lesson_title6 }}</strong></p>
+                    <hr>
+                    <p>{{ masterclass.lesson_description6 }}</p>
+                </div>
+
+                {% if user.is_authenticated %}
+                    <div class="col-6 py-3">
+                        <iframe width="420" height="315"
+                            src="{{ masterclass.video_url6 }}">
+                        </iframe>
+                    </div>
+                {% else %}
+                    <div class="col-6 py-3 container lesson-container">
+                        <img src="{{ masterclass.img_url6 }}" class="lesson-img" alt="{{ masterclass.lesson_title6 }}">
+                        <div class="middle">
+                            <h5>
+                                <a href="{% url 'subscribe:subscriptions' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Subscribe now to view this lesson!</a>
+                            </h5>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        {% if masterclass.lesson_title7 %}
+            <div class="row">
+                <div class="col-6 py-5">
+                    <p><strong>Lesson {{ masterclass.lesson_number7 }}. {{ masterclass.lesson_title7 }}</strong></p>
+                    <hr>
+                    <p>{{ masterclass.lesson_description7 }}</p>
+                </div>
+
+                {% if user.is_authenticated %}
+                    <div class="col-6 py-3">
+                        <iframe width="420" height="315"
+                            src="{{ masterclass.video_url7 }}">
+                        </iframe>
+                    </div>
+                {% else %}
+                    <div class="col-6 py-3 container lesson-container">
+                        <img src="{{ masterclass.img_url7 }}" class="lesson-img" alt="{{ masterclass.lesson_title7 }}">
+                        <div class="middle">
+                            <h5>
+                                <a href="{% url 'subscribe:subscriptions' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Subscribe now to view this lesson!</a>
+                            </h5>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        {% if masterclass.lesson_title8 %}
+            <div class="row">
+                <div class="col-6 py-5">
+                    <p><strong>Lesson {{ masterclass.lesson_number8 }}. {{ masterclass.lesson_title8 }}</strong></p>
+                    <hr>
+                    <p>{{ masterclass.lesson_description8 }}</p>
+                </div>
+
+                {% if user.is_authenticated %}
+                    <div class="col-6 py-3">
+                        <iframe width="420" height="315"
+                            src="{{ masterclass.video_url8 }}">
+                        </iframe>
+                    </div>
+                {% else %}
+                    <div class="col-6 py-3 container lesson-container">
+                        <img src="{{ masterclass.img_url8 }}" class="lesson-img" alt="{{ masterclass.lesson_title8 }}">
+                        <div class="middle">
+                            <h5>
+                                <a href="{% url 'subscribe:subscriptions' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Subscribe now to view this lesson!</a>
+                            </h5>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        {% if masterclass.lesson_title9 %}
+            <div class="row">
+                <div class="col-6 py-5">
+                    <p><strong>Lesson {{ masterclass.lesson_number9 }}. {{ masterclass.lesson_title9 }}</strong></p>
+                    <hr>
+                    <p>{{ masterclass.lesson_description9 }}</p>
+                </div>
+
+                {% if user.is_authenticated %}
+                    <div class="col-6 py-3">
+                        <iframe width="420" height="315"
+                            src="{{ masterclass.video_url9 }}">
+                        </iframe>
+                    </div>
+                {% else %}
+                    <div class="col-6 py-3 container lesson-container">
+                        <img src="{{ masterclass.img_url9 }}" class="lesson-img" alt="{{ masterclass.lesson_title9 }}">
+                        <div class="middle">
+                            <h5>
+                                <a href="{% url 'subscribe:subscriptions' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Subscribe now to view this lesson!</a>
+                            </h5>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        {% if masterclass.lesson_title10 %}
+            <div class="row">
+                <div class="col-6 py-5">
+                    <p><strong>Lesson {{ masterclass.lesson_number10 }}. {{ masterclass.lesson_title10 }}</strong></p>
+                    <hr>
+                    <p>{{ masterclass.lesson_description10 }}</p>
+                </div>
+
+                {% if user.is_authenticated %}
+                    <div class="col-6 py-3">
+                        <iframe width="420" height="315"
+                            src="{{ masterclass.video_url10 }}">
+                        </iframe>
+                    </div>
+                {% else %}
+                    <div class="col-6 py-3 container lesson-container">
+                        <img src="{{ masterclass.img_url10 }}" class="lesson-img" alt="{{ masterclass.lesson_title10 }}">
+                        <div class="middle">
+                            <h5>
+                                <a href="{% url 'subscribe:subscriptions' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Subscribe now to view this lesson!</a>
+                            </h5>
+                        </div>
+                    </div>
+                {% endif %}
             </div>
         {% endif %}
     </div>

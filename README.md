@@ -197,7 +197,7 @@ To deploy the app on Heroku, the following steps have been followed:
 
 ### Content
 
-- 
+- https://www.get-youtube-thumbnail.com/
 
 ### Media:
 
