@@ -3,7 +3,12 @@ html {
 }
 
 body {
+    font-family: 'Montserrat', sans-serif;
     height: calc(100vh - 117px);
+}
+
+.nav-link {
+    font-size: 0.9rem;
 }
 
 .logo {
@@ -19,8 +24,8 @@ body {
 }
 
 .index-banner {
-    height: 50vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/media/deathfret-index-banner.jpeg') no-repeat center center;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/media/deathfret-index-banner.jpeg') no-repeat center center;
     background-size: cover;
 }
 
@@ -84,16 +89,16 @@ body {
     overflow-y: auto;
 }
 
-.feature-image {
-    height: 320px;
-    width: 320px;
+.feature-img {
+    height: 275px;
+    width: 275px;
     object-fit: cover;
-    transition: 0.3s;
+    transition: .5s ease;
+    backface-visibility: hidden;
 }
 
-.feature-image:hover {
-
-    filter: brightness(80%);
+.feature-icon {
+    font-size: 32px;
 }
 
 .lesson-img {
@@ -115,8 +120,9 @@ body {
   text-align: center;
 }
 
-.lesson-container:hover .lesson-img {
-  opacity: 0.3;
+.lesson-container:hover .lesson-img,
+.lesson-container:hover .feature-img {
+  filter: brightness(50%);
 }
 
 .lesson-container:hover .middle {

@@ -14,10 +14,10 @@
     <div class="index-banner mb-3">
         <div class="container h-100">
             <div class="row h-100">
-                <div class="col-7 col-md-6 my-auto text-white">
+                <div class="col-7 col-md-6 my-auto text-white text-uppercase">
                     <h1>Welcome to<br/>Deathfret Guitar</h1>
 
-                    <h6 class="py-3 text-uppercase text-secondary">Join our community of extreme metal guitarists</h6>
+                    <h6 class="py-3 text-uppercase text-secondary">The community for extreme metal guitarists</h6>
 
                     <div>
                         <h5>
@@ -36,9 +36,15 @@
 
                 <div class="row">
                     {% for feature in features|slice:":6" %}
-                        <div class="col-4 mb-3 text-center">
+                        <div class="col-4 mb-5 text-center lesson-container ">
+                            <img class="feature-img" src="{{ feature.thumbnail_url }}" alt="{{ feature.featured_artist }}">
+
                             <a href="{{ feature.post_url }}" target="_blank">
-                                <img class="feature-image" src="{{ feature.thumbnail_url }}" alt="{{ feature.featured_artist }}">
+                                <div class="middle">
+                                    <span class="icon feature-icon">
+                                        <i class="fas fa-play"></i>
+                                    </span>
+                                </div>
                             </a>
                         </div>
                     {% endfor %}

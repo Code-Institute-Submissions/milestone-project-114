@@ -16,13 +16,19 @@
             <div class="col-12">
                 <h2 class="logo-font mb-4 text-center">Our Featured Guitarists</h2>
 
-                <hr class="w-75 mb-1">
+                <hr class="w-75 py-2 mb-1">
 
                 <div class="row">
                     {% for feature in features %}
-                        <div class="col-4 mb-3 text-center">
+                        <div class="col-4 mb-5 text-center lesson-container">
+                            <img class="feature-img" src="{{ feature.thumbnail_url }}" alt="{{ feature.featured_artist }}">
+
                             <a href="{{ feature.post_url }}" target="_blank">
-                                <img class="feature-image" src="{{ feature.thumbnail_url }}" alt="{{ feature.featured_artist }}">
+                                <div class="middle">
+                                    <span class="icon feature-icon">
+                                        <i class="fas fa-play"></i>
+                                    </span>
+                                </div>
                             </a>
                         </div>
                     {% endfor %}

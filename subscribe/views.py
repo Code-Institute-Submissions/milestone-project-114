@@ -103,10 +103,8 @@ def create_customer_and_subscription(request):
     # return information back to the front end
     data = {
         'customer': customer,
-        'subscription': subscription
+        'subscription': subscription,
     }
-
-    print(data)
 
     return JsonResponse(
         data=data,

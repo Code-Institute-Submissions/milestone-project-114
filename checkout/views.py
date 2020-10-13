@@ -134,7 +134,7 @@ def checkout(request):
                     'postcode': profile.default_postcode,
                     'town_or_city': profile.default_town_or_city,
                     'street_address1': profile.default_street_address1,
-                    'street_adddress2': profile.default_street_adddress2,
+                    'street_adddress2': profile.default_street_address2,
                     'county': profile.default_county,
                 })
             except UserProfile.DoesNotExist:
