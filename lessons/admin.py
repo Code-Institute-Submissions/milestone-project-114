@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Artist, MasterclassOverview, Masterclass
+from .models import Artist, MasterclassOverview
+
 
 class ArtistAdmin(admin.ModelAdmin):
     list_display = (
@@ -8,15 +9,6 @@ class ArtistAdmin(admin.ModelAdmin):
 
     ordering = ('artist_friendly_name',)
 
-class LessonAdmin(admin.ModelAdmin):
-    list_display = (
-        'lesson_number',
-        'lesson_title',
-        'masterclass'
-    )
-
-    ordering = ('lesson_number',)
 
 admin.site.register(Artist, ArtistAdmin)
 admin.site.register(MasterclassOverview)
-admin.site.register(Masterclass, LessonAdmin)

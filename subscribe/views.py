@@ -65,8 +65,6 @@ def create_customer_and_subscription(request):
     plan_id = request_body['plan_id']
     stripe.api_key = settings.STRIPE_SECRET_KEY
 
-    print(settings.STRIPE_SECRET_KEY)
-
     # first sync payment method to local DB to workaround
     # https://github.com/dj-stripe/dj-stripe/issues/1125
     payment_method_obj = stripe.PaymentMethod.retrieve(payment_method)
@@ -107,6 +105,9 @@ def create_customer_and_subscription(request):
         'customer': customer,
         'subscription': subscription
     }
+
+    print(data)
+
     return JsonResponse(
         data=data,
     )

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import Artist, MasterclassOverview, Masterclass
+from .models import Artist, MasterclassOverview
 
 
 def masterclasses(request):
@@ -47,16 +47,12 @@ def masterclass(request, masterclass_title):
         MasterclassOverview,
         masterclass_title=masterclass_title
     )
-    artist = get_object_or_404(Artist)
 
     overviews = MasterclassOverview.objects.all()
-    lessons = Masterclass.objects.all()
 
     context = {
         'masterclass': masterclass,
-        'artist': artist,
         'overviews': overviews,
-        'lessons': lessons,
     }
 
     return render(request, 'lessons/masterclass.html', context)

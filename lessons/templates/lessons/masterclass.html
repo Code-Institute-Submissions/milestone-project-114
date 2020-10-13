@@ -17,26 +17,26 @@
             <div class="col text-center mt-3">
                 <h2>{{ masterclass.masterclass_title_friendly_name }}</h2>
 
-                <h4 class="text-secondary font-weight-light">By {{ artist.artist_friendly_name }}</h4>
+                <h4 class="text-secondary font-weight-light">By {{ masterclass.artist }}</h4>
 
                 <hr class="w-75 mb-1">
             </div>
         </div>
 
-        {% for lesson in lessons %}
+        {% if masterclass.lesson_title1 %}
             <div class="row">
                 <div class="col-6 py-5">
-                    <p><strong>Lesson {{ lesson.lesson_number }}. {{ lesson.lesson_title }}</strong></p>
+                    <p><strong>Lesson {{ masterclass.lesson_number1 }}. {{ masterclass.lesson_title1 }}</strong></p>
                     <hr>
-                    <p>{{ lesson.lesson_description }}</p>
+                    <p>{{ masterclass.lesson_description1 }}</p>
                 </div>
                 <div class="col-6 py-3">
                     <iframe width="420" height="315"
-                        src="{{ lesson.video_url }}">
+                        src="{{ masterclass.video_url1 }}">
                     </iframe>
                 </div>
             </div>
-        {% endfor %}
+        {% endif %}
     </div>
 {% endblock %}
 

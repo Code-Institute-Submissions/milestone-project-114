@@ -1,6 +1,7 @@
 let stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 let clientSecret = $('#id_client_secret').text().slice(1, -1);
 let stripe = Stripe(stripePublicKey);
+const url = "{% url 'subscribe:create_subscription' %}"
 
 if (document.getElementById('card-element')) {
     let elements = stripe.elements();
@@ -69,39 +70,38 @@ card.addEventListener('change', function(event) {
 });
 
 //------------------------------------------------------ Form Submit
-    function stripePaymentMethodHandler(result, email) {
-        let url = "{% url 'subscribe:create_subscription' %}"
-        if (result.error) {
-            let errorDiv = document.getElementById('subscribe-card-errors');
-        let html = `
-                <span class="icon card-error-icon" role="alert">
-                    <i class="fa fa-times"></i>
-                </span>
+function stripePaymentMethodHandler(result, email) {
+    if (result.error) {
+        let errorDiv = document.getElementById('subscribe-card-errors');
+    let html = `
+            <span class="icon card-error-icon" role="alert">
+                <i class="fa fa-times"></i>
+            </span>
 
-                <span>${event.error.message}</span>
-            `;
+            <span>${event.error.message}</span>
+        `;
 
-            $(errorDiv).html(html);
-        } else {
-        const paymentParams = {
-            email: email,
-            plan_id: getSelectedPlanId(),
-            payment_method: result.paymentMethod.id,
-        };
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': getCookie('csrftoken'),
-            },
-            credentials: 'same-origin',
-            body: JSON.stringify(paymentParams),
-        }).then(function(response) {
-            return response.json(); 
-        }).then(function(result) {
-            // todo: check and process subscription status based on the response
-        }).catch(function (error) {
-            // more error handling
-        });
-        }
-  };
+        $(errorDiv).html(html);
+    } else {
+    const paymentParams = {
+        email: email,
+        plan_id: getSelectedPlanId(),
+        payment_method: result.paymentMethod.id,
+    };
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken'),
+        },
+        credentials: 'same-origin',
+        body: JSON.stringify(paymentParams),
+    }).then(function(response) {
+        return response.json(); 
+    }).then(function(result) {
+        // todo: check and process subscription status based on the response
+    }).catch(function (error) {
+        // more error handling
+    });
+    }
+};
