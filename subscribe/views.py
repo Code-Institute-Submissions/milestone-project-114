@@ -2,6 +2,7 @@ from django.shortcuts import render
 import stripe
 import json
 import djstripe
+import requests
 from django.http.response import JsonResponse
 from djstripe.models import Product
 from django.contrib.auth.decorators import login_required
@@ -9,6 +10,7 @@ from .models import Subscription
 from django.conf import settings
 from django.views.decorators.http import require_POST
 from django.db import transaction
+from profiles.models import UserProfile
 
 
 @login_required
@@ -59,8 +61,9 @@ def create_customer_and_subscription(request):
     """
     # parse request, extract details, and verify assumptions
     request_body = json.loads(request.body.decode('utf-8'))
-    email = request_body['email']
-    assert request.user.email == email
+    profile = UserProfile.objects.get(user=request.user)
+    email = profile.user.email
+    assert profile.user.email == email
     payment_method = request_body['payment_method']
     plan_id = request_body['plan_id']
     stripe.api_key = settings.STRIPE_SECRET_KEY

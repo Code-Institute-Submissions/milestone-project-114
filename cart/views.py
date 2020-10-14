@@ -14,7 +14,7 @@ def view_cart(request):
 
 
 def add_to_cart(request, item_id):
-    """ Add a quantity of the specified item to the shopping bag """
+    """ Add a quantity of the specified item to the shopping cart """
 
     item = get_object_or_404(Merch, pk=item_id)
     quantity = int(request.POST.get('quantity'))
@@ -37,7 +37,7 @@ def add_to_cart(request, item_id):
             messages.success(request, f'Added size {size.upper()} {item.name} to your cart')
     else:
         if item_id in list(cart.keys()):
-            bag[item_id] += quantity
+            cart[item_id] += quantity
             messages.success(request, f'Updated {item.name} quantity to {cart[item_id]}')
         else:
             cart[item_id] = quantity

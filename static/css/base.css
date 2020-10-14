@@ -7,6 +7,10 @@ body {
     height: calc(100vh - 117px);
 }
 
+.logo-font {
+    padding-top: 50px;
+}
+
 .nav-link {
     font-size: 0.9rem;
 }
@@ -178,7 +182,11 @@ body {
 }
 
 .allauth-form-inner-content a {
-	color: #17a2b8;
+	color: #dc3545;
+}
+
+.allauth-form-inner-content {
+    height: 100vh;
 }
 
 /* -------------------------- Media Queries */

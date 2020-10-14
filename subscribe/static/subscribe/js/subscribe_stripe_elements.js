@@ -5,8 +5,6 @@ const url = "{% url 'subscribe:create_subscription' %}"
 
 if (document.getElementById('card-element')) {
     let elements = stripe.elements();
-
-    // Element style
     let style = {
         base: {
             color: '#000000',
@@ -30,19 +28,18 @@ if (document.getElementById('card-element')) {
 
 // Mount the subscription choice to the payment form
 function planSelect(name, price, priceId) {
-    var inputs = document.getElementsByTagName('input');
+    let inputs = document.getElementsByTagName('input');
 
-    for(var i = 0; i<inputs.length; i++){
+    for(let i = 0; i<inputs.length; i++){
         inputs[i].checked = false;
-        if(inputs[i].name== name){
-
+        if(inputs[i].name == name){
             inputs[i].checked = true;
         }
     }
 
-    var n = document.getElementById('plan');
-    var p = document.getElementById('price');
-    var pid = document.getElementById('priceId');
+    let n = document.getElementById('plan');
+    let p = document.getElementById('price');
+    let pid = document.getElementById('priceId');
     n.innerHTML = name;
     p.innerHTML = price;
     pid.innerHTML = priceId;
@@ -68,6 +65,37 @@ card.addEventListener('change', function(event) {
         errorDiv.textContext = '';
     }
 });
+
+function createCustomer() {
+        let billingEmail = document.querySelector('#email').value;
+        return fetch('/create_subscription', {
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: billingEmail,
+          }),
+        })
+          .then((response) => {
+            return response.json();
+          })
+          .then((result) => {
+            // result.customer.id is used to map back to the customer object
+            // result.setupIntent.client_secret is used to create the payment method
+            return result;
+          });
+      }
+​
+      let signupForm = document.getElementById('subscription-form');
+​
+      signupForm.addEventListener('submit', function (evt) {
+        evt.preventDefault();
+        // Create Stripe customer
+        createCustomer().then((result) => {
+          customer = result.customer;
+        });
+      });
 
 //------------------------------------------------------ Form Submit
 function stripePaymentMethodHandler(result, email) {
@@ -105,3 +133,4 @@ function stripePaymentMethodHandler(result, email) {
     });
     }
 };
+
