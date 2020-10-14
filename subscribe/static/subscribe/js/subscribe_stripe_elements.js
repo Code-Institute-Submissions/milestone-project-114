@@ -1,7 +1,12 @@
 let stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 let clientSecret = $('#id_client_secret').text().slice(1, -1);
+let billingEmail = $('#id_billing_email').text().slice(1, -1);
+let billingName = $('#id_user_name').text().slice(1, -1);
+let subscriptionForm = document.getElementById('subscription-form');
 let stripe = Stripe(stripePublicKey);
 const url = "{% url 'subscribe:create_subscription' %}"
+
+console.log(billingName)
 
 if (document.getElementById('card-element')) {
     let elements = stripe.elements();
@@ -46,7 +51,6 @@ function planSelect(name, price, priceId) {
     document.getElementById("submit").disabled = false;
 }
 
-
 // Handle and display card errors
 card.addEventListener('change', function(event) {
     let errorDiv = document.getElementById('subscribe-card-errors');
@@ -67,35 +71,33 @@ card.addEventListener('change', function(event) {
 });
 
 function createCustomer() {
-        let billingEmail = document.querySelector('#email').value;
-        return fetch('/create_subscription', {
-          method: 'post',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            email: billingEmail,
-          }),
+    return fetch('/subscribe/create_subscription/', {
+        method: 'post',
+        headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': getCookie('csrftoken'),
+        },
+        body: JSON.stringify({
+        email: billingEmail,
+        }),
+    })
+        .then((response) => {
+        return response.json();
         })
-          .then((response) => {
-            return response.json();
-          })
-          .then((result) => {
-            // result.customer.id is used to map back to the customer object
-            // result.setupIntent.client_secret is used to create the payment method
-            return result;
-          });
-      }
-​
-      let signupForm = document.getElementById('subscription-form');
-​
-      signupForm.addEventListener('submit', function (evt) {
-        evt.preventDefault();
-        // Create Stripe customer
-        createCustomer().then((result) => {
-          customer = result.customer;
+        .then((result) => {
+        // result.customer.id is used to map back to the customer object
+        // result.setupIntent.client_secret is used to create the payment method
+        return result;
         });
-      });
+    }
+
+    subscriptionForm.addEventListener('submit', function (evt) {
+    evt.preventDefault();
+    // Create Stripe customer
+    createCustomer().then((result) => {
+        customer = result.customer;
+    });
+});
 
 //------------------------------------------------------ Form Submit
 function stripePaymentMethodHandler(result, email) {
@@ -133,4 +135,3 @@ function stripePaymentMethodHandler(result, email) {
     });
     }
 };
-

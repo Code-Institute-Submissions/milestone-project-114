@@ -102,11 +102,14 @@
             </div>
         </div>
     </div>
+    {{ billing_email }}
 {% endblock %}
 
 {% block post_js %}
     {{ block.super }}
     {{ stripe_public_key|json_script:"id_stripe_public_key" }}
     {{ client_secret|json_script:"id_client_secret" }}
+    {{ billing_email|json_script:"id_billing_email" }}
+    {{ user_name|json_script:"id_user_name" }}
     <script src="{% static 'subscribe/js/subscribe_stripe_elements.js' %}"></script>
 {% endblock %}

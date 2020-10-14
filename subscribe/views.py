@@ -19,6 +19,10 @@ def subscriptions(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
+    profile = UserProfile.objects.get(user=request.user)
+    billing_email = profile.user.email
+    user_name = profile.user.username
+
     subscriptions = Subscription.objects.all()
     monthly_prices = []
 
@@ -40,6 +44,9 @@ def subscriptions(request):
         'percentage_saved': percentage_saved,
         'products': products,
         'stripe_public_key': stripe_public_key,
+        'client_secret': stripe_secret_key,
+        'billing_email': billing_email,
+        'user_name': user_name,
     }
 
     return render(request, 'subscribe/subscribe.html', context)
