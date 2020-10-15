@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from .models import Artist, MasterclassOverview
+from django.contrib.auth.decorators import login_required
 
 
 def masterclasses(request):
@@ -40,7 +41,8 @@ def masterclasses(request):
     return render(request, 'lessons/masterclasses.html', context)
 
 
-def masterclass(request, masterclass_title):
+@login_required
+def masterclass(self, request, masterclass_title):
     """ View to render the masterclass lessons page """
 
     masterclass = get_object_or_404(

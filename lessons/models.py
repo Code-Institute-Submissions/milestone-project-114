@@ -1,4 +1,5 @@
 from django.db import models
+from subscriptions.models import Pricing
 
 
 class Artist(models.Model):
@@ -24,6 +25,7 @@ class MasterclassOverview(models.Model):
     class Meta:
         verbose_name_plural = 'Masterclasses'
 
+    pricing_tiers = models.ManyToManyField(Pricing, blank=True)
     artist = models.ForeignKey('Artist', on_delete=models.CASCADE)
     masterclass_title = models.CharField(max_length=254)
     masterclass_title_friendly_name = models.CharField(max_length=254)

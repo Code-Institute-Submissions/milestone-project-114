@@ -1,9 +1,18 @@
 from django.db import models
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from allauth.account.signals import email_confirmed
+import stripe
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 class Pricing(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Pricing'
+
     name = models.CharField(max_length=50)
 
     def __str__(self):
@@ -25,10 +34,27 @@ class Subscription(models.Model):
         return self.user.email
 
 
-def post_save_user(sender, instance, created, *args, **kwargs):
-    if created:
-        signup_free = Pricing.objects.get(name='Signup Free')
-        Subscription.objects.create(user=instance, pricing=signup_free)
+def post_email_confirmed(request, email_address, *args, **kwargs):
+    user = User.objects.get(email=email_address.email)
+    signup_free = Pricing.objects.get(name='Signup Free')
+    subscription = Subscription.objects.create(
+        user=user,
+        pricing=signup_free,
+    )
+    stripe_customer = stripe.Customer.create(
+        email=user.email
+    )
+    stripe_subscription = stripe.Subscription.create(
+        customer=stripe_customer['id'],
+        items=[
+            {
+                'price': 'price_1HcZWtEjKkX6AQGJldgbPRLj'
+            }
+        ],
+    )
+    subscription.status = stripe_subscription['status']
+    subscription.stripe_subscription_id = stripe_subscription['id']
+    subscription.save()
 
 
-post_save.connect(post_save_user, sender=User)
+email_confirmed.connect(post_email_confirmed)
