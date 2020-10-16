@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% load cart_tools %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'payment/css/subscribe.css' %}">
+{% endblock %}
+
+{% block header %}
+    <div class="header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="logo-font mb-4 text-center">Subscribe</h2>
+                
+                <hr class="w-75 mb-1">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center py-5">
+                <form id="subscription-form">
+                    <div id="subscribe-card-element" class="MyCardElement">
+                    <!-- Elements will create input elements here -->
+                    </div>
+
+                    <!-- We'll put the error messages in this element -->
+                    <div id="subscribe-card-errors" role="alert"></div>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block post_js %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'payment/js/subscribe.js' %}"></script>
+{% endblock %}
