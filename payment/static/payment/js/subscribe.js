@@ -1,5 +1,4 @@
 const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-let priceId = document.getElementById("plan").innerHTML;
 
 /*
 $(document).ready(function(){
@@ -35,6 +34,7 @@ function planSelect(name, price, priceId) {
 let stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 let stripe = Stripe(stripePublicKey);
 let elements = stripe.elements();
+let priceId = document.getElementById("priceId").innerHTML;
 
 let style = {
   base: {
@@ -93,7 +93,7 @@ form.addEventListener('submit', function (ev) {
 
 function createPaymentMethod({ card, isPaymentRetry, invoiceId }) {
   // Set up payment method for recurring usage
-
+    let priceId = document.getElementById("plan").innerHTML;
   stripe
     .createPaymentMethod({
       type: 'card',
