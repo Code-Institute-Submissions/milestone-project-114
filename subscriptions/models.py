@@ -1,7 +1,6 @@
 from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
-from django.db.models.signals import post_save
 from allauth.account.signals import email_confirmed
 import stripe
 
@@ -14,6 +13,7 @@ class Pricing(models.Model):
         verbose_name_plural = 'Pricing'
 
     name = models.CharField(max_length=50)
+    stripe_price_id = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name

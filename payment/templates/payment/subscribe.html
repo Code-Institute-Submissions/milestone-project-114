@@ -79,7 +79,8 @@
 
 						</div>
 						<br>
-                    <form id="subscription-form center">
+                    <form id="subscription-form">
+                        {% csrf_token %}
                         <div id="subscribe-card-element"><!--Stripe.js injects the Card Element--></div>
                         <button id="submit" type="submit">
                         <div class="spinner hidden" id="spinner"></div>

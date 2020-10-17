@@ -1,3 +1,7 @@
+const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+let priceId = document.getElementById("plan").innerHTML;
+
+/*
 $(document).ready(function(){
     $('#checkbox1').on('click', function(){
         window.location='#subscribe-card';
@@ -6,6 +10,7 @@ $(document).ready(function(){
         window.location='#subscribe-card';
     });
 });
+*/
 
 function planSelect(name, price, priceId) {
     let inputs = document.getElementsByTagName('input');
@@ -47,10 +52,10 @@ let style = {
   }
 };
 
-let cardElement = elements.create("card", { style: style });
-cardElement.mount("#subscribe-card-element");
+let card = elements.create("card", { style: style });
+card.mount("#subscribe-card-element");
 
-cardElement.on('change', showCardError);
+card.on('change', showCardError);
 
 function showCardError(event) {
   let displayError = document.getElementById('subscribe-card-errors');
@@ -101,7 +106,6 @@ function createPaymentMethod({ card, isPaymentRetry, invoiceId }) {
         if (isPaymentRetry) {
           // Update the payment method and retry invoice payment
           retryInvoiceWithNewPaymentMethod({
-            customerId: customerId,
             paymentMethodId: result.paymentMethod.id,
             invoiceId: invoiceId,
             priceId: priceId,
@@ -109,7 +113,6 @@ function createPaymentMethod({ card, isPaymentRetry, invoiceId }) {
         } else {
           // Create the subscription
           createSubscription({
-            customerId: customerId,
             paymentMethodId: result.paymentMethod.id,
             priceId: priceId,
           });
@@ -118,15 +121,15 @@ function createPaymentMethod({ card, isPaymentRetry, invoiceId }) {
     });
 }
 
-function createSubscription({ customerId, paymentMethodId, priceId }) {
+function createSubscription({paymentMethodId, priceId }) {
   return (
-    fetch('/create-subscription', {
+    fetch("{% url '/create-subscription' %}", {
       method: 'post',
       headers: {
-        'Content-type': 'application/json',
+        'Content-Type': 'application/json',
+        'X-CSRFToken': csrftoken,
       },
       body: JSON.stringify({
-        customerId: customerId,
         paymentMethodId: paymentMethodId,
         priceId: priceId,
       }),
@@ -251,6 +254,7 @@ function handleRequiresPaymentMethod({
 function onSubscriptionComplete(result) {
   // Payment was successful.
   if (result.subscription.status === 'active') {
+      console.log("Complete!");
     // Change your UI to show a success message to your customer.
     // Call your backend to grant access to your service based on
     // `result.subscription.items.data[0].price.product` the customer subscribed to.
@@ -258,19 +262,18 @@ function onSubscriptionComplete(result) {
 }
 
 function retryInvoiceWithNewPaymentMethod({
-  customerId,
   paymentMethodId,
   invoiceId,
   priceId
 }) {
   return (
-    fetch('/retry-invoice', {
+    fetch("{% url '/retry-invoice' %}", {
       method: 'post',
       headers: {
-        'Content-type': 'application/json',
+          'Content-Type': 'application/json',
+          'X-CSRFToken': csrftoken,
       },
       body: JSON.stringify({
-        customerId: customerId,
         paymentMethodId: paymentMethodId,
         invoiceId: invoiceId,
       }),

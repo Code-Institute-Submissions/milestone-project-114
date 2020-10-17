@@ -3,11 +3,11 @@ from . import views
 
 
 urlpatterns = [
-    path('subscribe', views.subscribe, name='subscribe'),
+    path('subscribe/', views.subscribe, name='subscribe'),
     path(
-        'create-subscription',
+        'create-subscription/',
         views.createSubscription,
         name='create-subscription'
     ),
-    path('retry-invoice', views.retrySubscription, name='retry-invoice'),
+    path('retry-invoice/', views.retrySubscription, name='retry-invoice'),
 ]

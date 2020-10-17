@@ -22,13 +22,10 @@ def subscribe(request):
     return render(request, 'payment/subscribe.html', context)
 
 
-def emrol(request):
-    return render(request, 'payment/enrol.html')
-
-
 def createSubscription(self, request, *args, **kwargs):
     data = request.POST
     customer_id = request.user.stripe_customer_id
+    print(data)
 
     try:
         # Attach the payment method to the customer
@@ -66,7 +63,7 @@ def createSubscription(self, request, *args, **kwargs):
 
 
 def retrySubscription(self, request, *args, **kwargs):
-    data = request.POST
+    data = request.data
     customer_id = request.user.stripe_customer_id
     try:
 
