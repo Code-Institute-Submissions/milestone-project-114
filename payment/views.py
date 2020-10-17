@@ -18,11 +18,9 @@ def subscribe(request):
     return render(request, 'payment/subscribe.html', context)
 
 
-def post(self, request, *args, **kwargs):
+def createSubscription(self, request, *args, **kwargs):
     data = request.POST
     customer_id = request.user.stripe_customer_id
-
-    print(customer_id)
 
     try:
         # Attach the payment method to the customer
@@ -58,3 +56,33 @@ def post(self, request, *args, **kwargs):
             'error': {'message': str(e)}
         })
 
+
+def retrySubscription(self, request, *args, **kwargs):
+    data = request.POST
+    customer_id = request.user.stripe_customer_id
+    try:
+
+        stripe.PaymentMethod.attach(
+            data['paymentMethodId'],
+            customer=customer_id,
+        )
+        # Set the default payment method on the customer
+        stripe.Customer.modify(
+            customer_id,
+            invoice_settings={
+                'default_payment_method': data['paymentMethodId'],
+            },
+        )
+
+        invoice = stripe.Invoice.retrieve(
+            data['invoiceId'],
+            expand=['payment_intent'],
+        )
+        data = {}
+        data.update(invoice)
+
+        return JsonResponse(data)
+    except Exception as e:
+        return JsonResponse({
+            'error': {'message': str(e)}
+        })
