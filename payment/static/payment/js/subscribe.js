@@ -1,3 +1,32 @@
+$(document).ready(function(){
+    $('#checkbox1').on('click', function(){
+        window.location='#subscribe-card';
+    });
+    $('#checkbox2').on('click', function(){
+        window.location='#subscribe-card';
+    });
+});
+
+function planSelect(name, price, priceId) {
+    let inputs = document.getElementsByTagName('input');
+
+    for(let i = 0; i<inputs.length; i++){
+        inputs[i].checked = false;
+        if(inputs[i].name== name){
+
+            inputs[i].checked = true;
+        }
+    }
+
+    let n = document.getElementById('plan');
+    let p = document.getElementById('price');
+    let pid = document.getElementById('priceId');
+    n.innerHTML = name;
+    p.innerHTML = price;
+    pid.innerHTML = priceId;
+    document.getElementById("submit").disabled = false;
+}
+
 let stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 let stripe = Stripe(stripePublicKey);
 let elements = stripe.elements();
@@ -59,7 +88,7 @@ form.addEventListener('submit', function (ev) {
 
 function createPaymentMethod({ card, isPaymentRetry, invoiceId }) {
   // Set up payment method for recurring usage
-  
+
   stripe
     .createPaymentMethod({
       type: 'card',

@@ -28,12 +28,57 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="row my-5">
+            {% for p in products reversed %}
+            {% if p.name != 'Signup' %}
+            <div class="col-6">
+                <div class="card mx-5 shadow" style="border-radius: 10px; border:none; ">
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold">{{p.name}}</h5>
+                        <p class="card-text text-muted">{{p.description|linebreaksbr}}</p>
+
+                        {% for plan in p.plan_set.all %}
+                        <h5 >{{ plan.human_readable_price }}</h5>
+                        <div class="text-right">
+                            <input id="checkbox{{ forloop.parentloop.counter0 }}" type="checkbox" name="{{p.name}}" value="{{p.id}}" onclick="planSelect('{{p.name}}' ,'{{plan.human_readable_price}}', '{{plan.id}}')">
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <div class="col">
+            <div id="subscribe-card"></div>
+        </div>
+    </div>
 
     <div class="container">
-        <div class="row">
+        <div class="row mb-5">
             <div class="flex justify-center mx-auto my-5">
                 <div>
-                    <h6 class="logo-font text-center my-3">Subscribe now for access to our courses!</h6>
+                    <div class="card-body">
+						<h5 class="logo-font text-center my-3">Subscribe now for access to our courses!</h5>
+						<p class="text-muted ">Enter card details.  Your subscription will start immediately</p>
+						<div class="row">
+							<div class="col-6 text-muted">
+								<p>Plan:</p>
+								<p>Total:</p>
+							</div>
+							<div class="col-6 text-right">
+								<p id="plan"></p>
+								<p id="price"></p>
+								<p hidden id="priceId"></p>
+							</div>
+
+						</div>
+						<br>
                     <form id="subscription-form center">
                         <div id="subscribe-card-element"><!--Stripe.js injects the Card Element--></div>
                         <button id="submit" type="submit">

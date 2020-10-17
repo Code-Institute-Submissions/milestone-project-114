@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 form {
   width: 30vw;
   min-width: 500px;

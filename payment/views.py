@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.conf import settings
 from django.http import JsonResponse
 import stripe
+from djstripe.models import Product
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -10,12 +11,19 @@ def subscribe(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     client_secret = settings.STRIPE_SECRET_KEY
 
+    products = Product.objects.all()
+
     context = {
         'stripe_public_key': stripe_public_key,
         'stripe_secret_key': client_secret,
+        'products': products,
     }
 
     return render(request, 'payment/subscribe.html', context)
+
+
+def emrol(request):
+    return render(request, 'payment/enrol.html')
 
 
 def createSubscription(self, request, *args, **kwargs):
