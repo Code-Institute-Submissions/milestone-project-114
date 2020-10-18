@@ -69,6 +69,7 @@ let form = document.getElementById('subscription-form');
 
 form.addEventListener('submit', function (ev) {
     ev.preventDefault();
+    changeLoadingState(true);
 
     // If a previous payment was attempted, get the latest invoice
     const latestInvoicePaymentIntentStatus = localStorage.getItem(
@@ -100,6 +101,7 @@ function createPaymentMethod({ card, isPaymentRetry, invoiceId }) {
     .then((result) => {
       if (result.error) {
         displayError(result);
+        changeLoadingState(false);
       } else {
         if (isPaymentRetry) {
           // Update the payment method and retry invoice payment
@@ -163,6 +165,7 @@ function createSubscription({paymentMethodId, priceId }) {
       // No more actions required. Provision your service for the user.
       .then(onSubscriptionComplete)
       .catch((error) => {
+          changeLoadingState(false);
         // An error has happened. Display the failure to the user here.
         // We utilize the HTML element we created.
         showCardError(error);
@@ -216,6 +219,7 @@ function handlePaymentThatRequiresCustomerAction({
       })
       .catch((error) => {
         displayError(error);
+        changeLoadingState(false);
       });
   } else {
     // No customer action needed.
@@ -252,6 +256,7 @@ function handleRequiresPaymentMethod({
 function onSubscriptionComplete(result) {
   // Payment was successful.
   if (result.subscription.status === 'active') {
+      window.location.href = on_subscription_complete_url;
     // Change your UI to show a success message to your customer.
     // Call your backend to grant access to your service based on
     // `result.subscription.items.data[0].price.product` the customer subscribed to.
@@ -305,9 +310,22 @@ function retryInvoiceWithNewPaymentMethod({
       // No more actions required. Provision your service for the user.
       .then(onSubscriptionComplete)
       .catch((error) => {
+          changeLoadingState(false);
         // An error has happened. Display the failure to the user here.
         // We utilize the HTML element we created.
         displayError(error);
       })
   );
+}
+
+function changeLoadingState(isLoading) {
+  if (isLoading) {
+    document.querySelector('#button-text').classList.add('hidden');
+    document.querySelector('#spinner').classList.remove('hidden');
+    document.querySelector('#subscription-form button').disabled = true;
+  } else {
+    document.querySelector('#button-text').classList.remove('hidden');
+    document.querySelector('#spinner').classList.add('hidden');
+    document.querySelector('#subscription-form button').disabled = false;
+  }
 }
