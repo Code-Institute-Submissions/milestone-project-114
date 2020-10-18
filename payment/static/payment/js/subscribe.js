@@ -34,7 +34,6 @@ function planSelect(name, price, priceId) {
 let stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 let stripe = Stripe(stripePublicKey);
 let elements = stripe.elements();
-let priceId = document.getElementById("priceId").innerHTML;
 
 let style = {
   base: {
@@ -93,7 +92,6 @@ form.addEventListener('submit', function (ev) {
 
 function createPaymentMethod({ card, isPaymentRetry, invoiceId }) {
   // Set up payment method for recurring usage
-    let priceId = document.getElementById("plan").innerHTML;
   stripe
     .createPaymentMethod({
       type: 'card',
@@ -108,13 +106,13 @@ function createPaymentMethod({ card, isPaymentRetry, invoiceId }) {
           retryInvoiceWithNewPaymentMethod({
             paymentMethodId: result.paymentMethod.id,
             invoiceId: invoiceId,
-            priceId: priceId,
+            priceId: document.getElementById("priceId").innerHTML,
           });
         } else {
           // Create the subscription
           createSubscription({
             paymentMethodId: result.paymentMethod.id,
-            priceId: priceId,
+            priceId: document.getElementById("priceId").innerHTML,
           });
         }
       }
@@ -123,7 +121,7 @@ function createPaymentMethod({ card, isPaymentRetry, invoiceId }) {
 
 function createSubscription({paymentMethodId, priceId }) {
   return (
-    fetch("{% url '/create-subscription' %}", {
+    fetch(create_subscription_url, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
@@ -131,7 +129,7 @@ function createSubscription({paymentMethodId, priceId }) {
       },
       body: JSON.stringify({
         paymentMethodId: paymentMethodId,
-        priceId: priceId,
+        priceId: document.getElementById("priceId").innerHTML,
       }),
     })
       .then((response) => {
@@ -150,7 +148,7 @@ function createSubscription({paymentMethodId, priceId }) {
       .then((result) => {
         return {
           paymentMethodId: paymentMethodId,
-          priceId: priceId,
+          priceId: document.getElementById("priceId").innerHTML,
           subscription: result,
         };
       })
@@ -208,7 +206,7 @@ function handlePaymentThatRequiresCustomerAction({
             // There's a risk of the customer closing the window before the callback.
             // We recommend setting up webhook endpoints later in this guide.
             return {
-              priceId: priceId,
+              priceId: document.getElementById("priceId").innerHTML,
               subscription: subscription,
               invoice: invoice,
               paymentMethodId: paymentMethodId,
@@ -254,7 +252,6 @@ function handleRequiresPaymentMethod({
 function onSubscriptionComplete(result) {
   // Payment was successful.
   if (result.subscription.status === 'active') {
-      console.log("Complete!");
     // Change your UI to show a success message to your customer.
     // Call your backend to grant access to your service based on
     // `result.subscription.items.data[0].price.product` the customer subscribed to.
@@ -267,7 +264,7 @@ function retryInvoiceWithNewPaymentMethod({
   priceId
 }) {
   return (
-    fetch("{% url '/retry-invoice' %}", {
+    fetch(retry_invoice_url, {
       method: 'post',
       headers: {
           'Content-Type': 'application/json',
@@ -297,7 +294,7 @@ function retryInvoiceWithNewPaymentMethod({
           // returned result to understand what object is returned.
           invoice: result,
           paymentMethodId: paymentMethodId,
-          priceId: priceId,
+          priceId: document.getElementById("priceId").innerHTML,
           isRetry: true,
         };
       })

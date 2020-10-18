@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="{% static 'payment/css/subscribe.css' %}">
 {% endblock %}
 
+{% block extra_js %}
+    <script>
+        const create_subscription_url = "{% url 'payment:create-subscription' %}";
+        const retry_invoice_url = "{% url 'payment:retry-invoice' %}";
+    </script>
+{% endblock %}
+
 {% block header %}
     <div class="header-container">
         <div class="row">
@@ -23,6 +30,7 @@
         <div class="row">
             <div class="col">
                 <h2 class="logo-font mb-4 text-center">Subscribe</h2>
+                {{ customer_id }}
                 
                 <hr class="w-75 mb-1">
             </div>
@@ -46,7 +54,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             {% endif %}
             {% endfor %}

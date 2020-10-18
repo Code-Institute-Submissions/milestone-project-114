@@ -2,14 +2,19 @@ from django.shortcuts import render
 from django.conf import settings
 from django.http import JsonResponse
 import stripe
+import json
 from djstripe.models import Product
+from django.contrib.auth.decorators import login_required
+
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
+@login_required
 def subscribe(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     client_secret = settings.STRIPE_SECRET_KEY
+    customer_id = request.user.userprofile.stripe_customer_id
 
     products = Product.objects.all()
 
@@ -17,15 +22,15 @@ def subscribe(request):
         'stripe_public_key': stripe_public_key,
         'stripe_secret_key': client_secret,
         'products': products,
+        'customer_id': customer_id,
     }
 
     return render(request, 'payment/subscribe.html', context)
 
 
-def createSubscription(self, request, *args, **kwargs):
-    data = request.POST
-    customer_id = request.user.stripe_customer_id
-    print(data)
+def createSubscription(request, *args, **kwargs):
+    data = json.loads(request.body)
+    customer_id = request.user.userprofile.stripe_customer_id
 
     try:
         # Attach the payment method to the customer
@@ -62,9 +67,9 @@ def createSubscription(self, request, *args, **kwargs):
         })
 
 
-def retrySubscription(self, request, *args, **kwargs):
-    data = request.data
-    customer_id = request.user.stripe_customer_id
+def retrySubscription(request, *args, **kwargs):
+    data = json.loads(request.body)
+    customer_id = request.user.userprofile.stripe_customer_id
     try:
 
         stripe.PaymentMethod.attach(
