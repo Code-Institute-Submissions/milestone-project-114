@@ -12,4 +12,5 @@ urlpatterns = [
         name='create-subscription'
     ),
     path('retry-invoice/', views.retrySubscription, name='retry-invoice'),
+    path('webhook/', views.webhook, name='webhook'),
 ]
