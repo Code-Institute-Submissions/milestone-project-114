@@ -49,7 +49,13 @@
 
                     <p>Status: <span class="{% if user.subscription.status != 'canceled' %}text-success{% else %}text-danger{% endif %} text-uppercase">{{ user.subscription.status }}</span></p>
 
-                    {% if user.subscription.status == 'paid' %}
+                    {% if user.subscription.status == 'active' %}
+                        <div>
+                            <h5>
+                                <a href="{% url 'payment:subscribe' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Join now for £5/month</a>
+                            </h5>
+                        </div>
+                    {% else %}
                         <button onclick="cancelSubscription()" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Cancel Subscription</button>
                     {% endif %}
                 </div>

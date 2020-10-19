@@ -174,11 +174,13 @@
 
     <footer class="page-footer font-small text-light bg-black py-3 text-center">
         <div class="container">
-            <h6 class="py-3">Become a member and get full access to all resources</h6>
+            {% if user.subscription.status == 'active' %}
+                <h6 class="py-3">Become a member and get full access to all resources</h6>
 
-            <h5>
-                <a href="{% url 'payment:subscribe' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Join now for £5/month</a>
-            </h5>
+                <h5>
+                    <a href="{% url 'payment:subscribe' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Join now for £5/month</a>
+                </h5>
+            {% endif %}
         
             <nav class="row text-secondary footer-copyright py-3">
                 <div class="col-12">

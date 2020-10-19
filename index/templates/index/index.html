@@ -19,11 +19,13 @@
 
                     <h6 class="py-3 text-uppercase text-secondary">The community for extreme metal guitarists</h6>
 
-                    <div>
-                        <h5>
-                            <a href="{% url 'payment:subscribe' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Join now for £5/month</a>
-                        </h5>
-                    </div>
+                    {% if user.subscription.status == 'active' %}
+                        <div>
+                            <h5>
+                                <a href="{% url 'payment:subscribe' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Join now for £5/month</a>
+                            </h5>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
