@@ -38,8 +38,26 @@
     </div>
 
     <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-6 py-5 text-secondary">
+        <div class="row py-5">
+            <div class="col-lg-6 offset-3 border-0 shadow mb-5 text-center text-secondary">
+                <h2 class="text-muted">Subscription</h2>
+
+                <div class="mt-5">
+                    <p>Customer Id: <span class="text-muted">{{ user.userprofile.stripe_customer_id }}</span></p>
+
+                    <p>Current Plan: <span class="text-muted">{{ user.subscription.pricing }}</span></p>
+
+                    <p>Status: <span class="{% if user.subscription.status != 'canceled' %}text-success{% else %}text-danger{% endif %} text-uppercase">{{ user.subscription.status }}</span></p>
+
+                    {% if user.subscription.status == 'paid' %}
+                        <button onclick="cancelSubscription()" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Cancel Subscription</button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="row py-5">
+            <div class="col-lg-6 offset-3 text-secondary">
                 <p class="text-muted">Default Delivery Information</p>
 
                 <form class="mt-3" action="{% url 'profile' %}" method="POST" id="update-profile-form">
@@ -50,8 +68,10 @@
                     <button class="btn btn-outline-danger rounded-0 text-uppercase">Update Information</button>
                 </form>
             </div>
+        </div>
 
-            <div class="col-12 col-lg-6 py-5">
+        <div class="row py-5">
+            <div class="col-lg-6 offset-3 ">
                 <p class="text-muted">Merch Order History</p>
 
                 {% if orders %}
@@ -94,34 +114,6 @@
                 {% endif %}
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-lg-6 offset-3 py-5 border shadow mb-5 text-center text-secondary">
-                <h2 class="text-muted">Subscription</h2>
-
-                <div class="mt-5">
-                    <p>Customer Id: <span class="text-muted">{{ user.userprofile.stripe_customer_id }}</span></p>
-
-                    <p>Current Plan: <span class="text-muted">{{ user.subscription.pricing }}</span></p>
-
-                    <p>Status: <span class="{% if user.subscription.status != 'canceled' %}text-success{% else %}text-danger{% endif %} text-uppercase">{{ user.subscription.status }}</span></p>
-
-                    {% if user.subscription.status == 'paid' %}
-                        <button onclick="cancelSubscription()" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Cancel Subscription</button>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-
-        <!--
-        <div class="row">
-            <div class="col-12 col-lg-6 py-5">
-                <p class="text-muted">Subscription</p>
-
-                <p>Status: {% if subscription.state.is_active %}<span class="text-uppercase text-success">Active</span>{% else %}<span class="text-uppercase text-danger">Inactive</span>{% endif %}</p>
-            </div>
-        </div>
-        -->
     </div>
 {% endblock %}
 
