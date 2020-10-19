@@ -65,6 +65,7 @@
                         </div>
                     </li>
 
+                    <!--
                     <li class="list-inline-item">
                         <a href="{% url 'features' %}" class="text-light nav-link" id="blog">
                             <div>
@@ -72,6 +73,7 @@
                             </div>
                         </a>
                     </li>
+                    -->
 
                     <li class="list-inline-item">
                         <a href="{% url 'merch' %}" class="text-light nav-link" id="store">
@@ -84,7 +86,7 @@
                     <li class="list-inline-item dropdown">
                         <a href="#" class="text-light nav-link" id="account-options" data-toggle="dropdown" aria-haspopup="true" arie-expanded="false">
                             <div>
-                                <p class="my-0 dropdown-toggle">Account</p>
+                                <p class="my-0 dropdown-toggle">{% if user.is_authenticated %}{{ user.username }}{% else %}Account{% endif %}</p>
                             </div>
                         </a>
 
