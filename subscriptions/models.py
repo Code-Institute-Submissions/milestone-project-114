@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
 from allauth.account.signals import email_confirmed
+from django.contrib.auth.signals import user_logged_in
 import stripe
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -59,4 +60,15 @@ def post_email_confirmed(request, email_address, *args, **kwargs):
     user.userprofile.save()
 
 
+def user_logged_in_receiver(sender, user, **kwargs):
+    subscription = user.subscription
+    sub = stripe.Subscription.retrieve(
+        subscription.stripe_subscription_id
+    )
+
+    subscription.status = sub['status']
+    subscription.save()
+
+
+user_logged_in.connect(user_logged_in_receiver)
 email_confirmed.connect(post_email_confirmed)
