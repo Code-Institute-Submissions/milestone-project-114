@@ -104,9 +104,9 @@
 
                     <p>Current Plan: <span class="text-muted">{{ user.subscription.pricing }}</span></p>
 
-                    <p>Status: <span class="{% if user.subscription.status == 'paid' %}text-success{% else %}text-danger{% endif %} text-uppercase">{{ user.subscription.status }}</span></p>
+                    <p>Status: <span class="{% if user.subscription.status != 'canceled' %}text-success{% else %}text-danger{% endif %} text-uppercase">{{ user.subscription.status }}</span></p>
 
-                    {% if user.subscription.status != "canceled" %}
+                    {% if user.subscription.status == 'paid' %}
                         <button onclick="cancelSubscription()" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Cancel Subscription</button>
                     {% endif %}
                 </div>

@@ -35,7 +35,7 @@ def cart_contents(request):
 
     delivery = total * Decimal(settings.DELIVERY_PERCENTAGE / 100)
 
-    if request.user.is_authenticated:
+    if request.user.subscription.status == 'active':
         discount = total * Decimal(settings.MEMBER_DISCOUNT / 100)
 
         grand_total = delivery + total - discount
