@@ -8,4 +8,9 @@ urlpatterns = [
         views.order_history,
         name='order_history'
     ),
+    path(
+        'cancel-subscription/',
+        views.cancelSubscription,
+        name='cancel-subscription'
+    ),
 ]

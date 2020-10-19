@@ -68,9 +68,13 @@ def webhook(request):
         print(data)
 
     if event_type == 'customer.subscription.deleted':
-        # handle subscription cancelled automatically based
-        # upon your subscription settings. Or if the user cancels it.
-        print(data)
+
+        webhook_object = data['object']
+        stripe_customer_id = webhook_object['customer']
+        stripe_sub = stripe.Subscription.retrieve(webhook_object['id'])
+        userprofile = UserProfile.objects.get(stripe_customer_id=stripe_customer_id)
+        userprofile.user.subscription.status = stripe_sub['status']
+        userprofile.user.subscription.save()
 
     return HttpResponse()
 
