@@ -1,6 +1,9 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, get_object_or_404
+"""
+from django.shortcuts import redirect, reverse
 from django.contrib import messages
 from django.db.models import Q
+"""
 from .models import Artist, MasterclassOverview
 
 
@@ -13,6 +16,7 @@ def masterclasses(request):
     # Search set to none so page is able to load without search
     search = None
 
+    """
     if request.GET:
         if 'search' in request.GET:
             search = request.GET['search']
@@ -30,6 +34,7 @@ def masterclasses(request):
             searches = Q(
                 name__icontains=search) | Q(description__icontains=search)
             overviews = overviews.filter(searches)
+    """
 
     context = {
         'artists': artists,
