@@ -21,7 +21,9 @@
         <div class="row">
             <div class="col">
 
-                <h2 class="logo-font mb-4 text-center">{{ profile.user }}'s Profile</h2>
+                <h2 class="logo-font text-center">{{ profile.user }}'s Profile</h2>
+
+                <h6 class="logo-font mb-4 text-center text-muted">{{ user.email }}</h6>
                 
                 <hr class="w-75 mb-1">
             </div>
@@ -43,7 +45,7 @@
             </div>
 
             <div class="col-12 col-lg-6 py-5">
-                <p class="text-muted">Order History</p>
+                <p class="text-muted">Merch Order History</p>
 
                 {% if orders %}
                     <div class="order-history table-responsive">
@@ -87,12 +89,32 @@
         </div>
 
         <div class="row">
+            <div class="col-lg-6 offset-3 py-5 border shadow mb-5 text-center">
+                <h2 class="text-muted">Subscription</h2>
+                <div class="mt-5">
+                    <p>Customer Id: <span class="text-muted">{{ user.userprofile.stripe_customer_id }}</span></p>
+
+                    <p>Pricing: <span class="text-muted">{{ user.subscription.pricing }}</span></p>
+
+                    <p>Status: <span class="{% if user.subscription.status == 'paid' %}text-success{% else %}text-danger{% endif %} text-uppercase">{{ user.subscription.status }}</span></p>
+
+                    <form method="POST">
+                        {% csrf_token %}
+                        <input class="subscribe-button btn btn-danger rounded-0 text-uppercase" type="submit" value="Cancel Subscription">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--
+        <div class="row">
             <div class="col-12 col-lg-6 py-5">
                 <p class="text-muted">Subscription</p>
 
                 <p>Status: {% if subscription.state.is_active %}<span class="text-uppercase text-success">Active</span>{% else %}<span class="text-uppercase text-danger">Inactive</span>{% endif %}</p>
             </div>
         </div>
+        -->
     </div>
 {% endblock %}
 
