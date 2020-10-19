@@ -1,9 +1,9 @@
-let stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
-let clientSecret = $('#id_client_secret').text().slice(1, -1);
-let stripe = Stripe(stripePublicKey);
-let elements = stripe.elements();
+const stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
+const clientSecret = $('#id_client_secret').text().slice(1, -1);
+const stripe = Stripe(stripePublicKey);
+const elements = stripe.elements();
 
-var style = {
+let style = {
   base: {
     color: '#000000',
     fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
@@ -43,7 +43,7 @@ card.addEventListener('change', function(event) {
 
 // Handle form submit
 
-var form = document.getElementById('payment-form');
+let form = document.getElementById('payment-form');
 
 form.addEventListener('submit', function(ev) {
     ev.preventDefault();

@@ -1,3 +1,6 @@
+const stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
+const stripe = Stripe(stripePublicKey);
+const elements = stripe.elements();
 const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 
 function planSelect(name, price, priceId) {
@@ -19,10 +22,6 @@ function planSelect(name, price, priceId) {
     pid.innerHTML = priceId;
     document.getElementById("submit").disabled = false;
 }
-
-let stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
-let stripe = Stripe(stripePublicKey);
-let elements = stripe.elements();
 
 let style = {
   base: {
