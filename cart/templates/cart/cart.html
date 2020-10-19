@@ -115,16 +115,16 @@
 
                             <tr>
                                 <td colspan="5" class="text-right">
-                                    <a href="{% url 'merch' %}" class="btn btn-outline-danger rounded-0 btn-lg">
+                                    <a href="{% url 'merch' %}" class="subscribe-button btn btn-outline-danger rounded-0 text-uppercase">
                                         <span class="icon">
                                             <i class="fas fa-chevron-left"></i>
                                         </span>
 
-                                        <span class="text-danger text-uppercase">Back to store</span>
+                                        <span class="text-danger">Back to store</span>
                                     </a>
 
-                                    <a href="{% url 'checkout' %}" class="subscribe-button btn btn-damger rounded-0 btn-lg">
-                                        <span class="text-danger text-uppercase">Secure checkout</span>
+                                    <a href="{% url 'checkout' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">
+                                        <span>Secure checkout</span>
 
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>
@@ -135,9 +135,13 @@
                         </table>
                     </div>
                 {% else %}
-                    <p class="lead mb-5">Looks like your cart is empty!</p>
+                    <div class="text-center my-5">
+                        <p class="lead mb-5">Looks like your cart is empty!</p>
 
-                    <a href="{% url 'payment:subscribe' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Thinking of becoming a member?</a>
+                        <a href="{% url 'merch' %}" class="subscribe-button btn btn-outline-danger rounded-0 text-uppercase">
+                            <span class="text-uppercase">Back to store</span>
+                        </a>
+                    </div>
                 {% endif %}
             </div>
         </div>

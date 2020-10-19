@@ -34,8 +34,8 @@
 
                 <div class="row my-3">
                     {% for overview in overviews %}
-                        <div class="col-sm-6 col-md-6">
-                            <div class="card h-100 border-0 p-3">
+                        <div class="col-sm-2 col-md-6">
+                            <div class="h-100 p-3 text-center">
                                 <a href="{% if user.subscription.status == 'paid' %}{% url 'masterclass' overview.masterclass_title %}{% else %}{% url 'payment:subscribe' %}{% endif %}">
                                     <img src="{{ overview.artist.artist_image.url }}" alt="{{ overview.artist.name }}" class="item-img card-img-top img-fluid">
                                 </a>

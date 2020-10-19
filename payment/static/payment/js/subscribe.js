@@ -1,16 +1,5 @@
 const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 
-/*
-$(document).ready(function(){
-    $('#checkbox1').on('click', function(){
-        window.location='#subscribe-card';
-    });
-    $('#checkbox2').on('click', function(){
-        window.location='#subscribe-card';
-    });
-});
-*/
-
 function planSelect(name, price, priceId) {
     let inputs = document.getElementsByTagName('input');
 

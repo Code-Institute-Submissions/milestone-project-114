@@ -28,7 +28,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row my-5">
             <div class="col-12 col-lg-6 order-lg-last mb-5">
                 <p class="text-muted">Order: ({{ item_count }})</p>
                 <div class="row">
@@ -140,12 +140,8 @@
                         <input type="hidden" value="{{ client_secret }}" name="client_secret">
                     </fieldset>
 
-                    <div class="submit-button text-right mt-5 mb-2">
-                        <a href="{% url 'view_cart' %}" class="btn btn-outline-danger text-danger rounded-0 text-uppercase">
-                            <span class="icon">
-                                <i class="fas fa-chevron-left"></i>
-                            </span>
-
+                    <div class="submit-button text-center mt-5 mb-2">
+                        <a href="{% url 'view_cart' %}" class="subscribe-button btn btn-outline-danger rounded-0 text-uppercase">
                             <span>Update Cart</span>
                         </a>
 
@@ -159,7 +155,7 @@
 
                         <p class="small text-danger my-0">
                             <span class="icon">
-                                <i class="fas fa-exclamation-circle"></i>
+                                <i class="fas fa-exclamation-circle text-danger"></i>
                             </span>
 
                             <span>Your card will be charged <strong>£{{ grand_total|floatformat:2 }}</strong></span>
