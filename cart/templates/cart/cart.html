@@ -22,8 +22,8 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col cart-container">
+        <div class="row my-5">
+            <div class="col cart-container text-secondary">
                 {% if cart_items %}
                     <div class="table-responsive">
                         <table class="table-sm table-borderless">
@@ -116,11 +116,7 @@
                             <tr>
                                 <td colspan="5" class="text-right">
                                     <a href="{% url 'merch' %}" class="subscribe-button btn btn-outline-danger rounded-0 text-uppercase">
-                                        <span class="icon">
-                                            <i class="fas fa-chevron-left"></i>
-                                        </span>
-
-                                        <span class="text-danger">Back to store</span>
+                                        <span class="text-uppercase">Back to store</span>
                                     </a>
 
                                     <a href="{% url 'checkout' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">

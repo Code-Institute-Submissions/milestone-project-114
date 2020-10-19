@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row pt-4">
             <div class="col mt-3">
-                <h2 class="text-center">Artist Masterclasses</h2>
+                <h2 class="logo-font text-center">Artist Masterclasses</h2>
 
                 <h6 class="py-2 text-secondary">
                     We are proud to present to your our artist masterclass series. We've collaborated with some of the industry's 
@@ -40,9 +40,9 @@
                                     <img src="{{ overview.artist.artist_image.url }}" alt="{{ overview.artist.name }}" class="item-img card-img-top img-fluid">
                                 </a>
 
-                                <h4 class="pt-3">{{ overview.masterclass_title_friendly_name }}</h4>
+                                <h4 class="text-secondary pt-3">{{ overview.masterclass_title_friendly_name }}</h4>
 
-                                <h5 class="font-weight-light">{{ overview.artist.artist_friendly_name }}</h5>
+                                <h5 class="text-secondary font-weight-light">{{ overview.artist.artist_friendly_name }}</h5>
 
                                 <p class="small text-secondary text-muted text-uppercase">
                                     {{ overview.artist.skill_level1 }}{% if overview.artist.skill_level2 %}, {{ overview.artist.skill_level2 }}{% endif %}{% if overview.artist.skill_level3 %}, {{ overview.artist.skill_level3 }}{% endif %} | {{ overview.artist.discipline1 }}{% if overview.artist.discipline2 %}, {{ overview.artist.discipline2 }}{% endif %}

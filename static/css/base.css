@@ -4,11 +4,23 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
     height: calc(100vh - 117px);
+    background-color: #000000;
+}
+
+hr {
+    color: #fff !important;
+    border: 1px solid white;
 }
 
 .logo-font {
     padding-top: 50px;
+    color: #fff !important;
+}
+
+.text-secondary {
+    color: #a1a3a5!important;
 }
 
 .nav-link {
@@ -29,8 +41,12 @@ body {
 
 .index-banner {
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/media/deathfret-index-banner.jpeg') no-repeat center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('/media/deathfret-index-banner-4.jpeg') no-repeat bottom center;
     background-size: cover;
+}
+
+.banner-text {
+    font-size: 4rem;
 }
 
 .icon {
