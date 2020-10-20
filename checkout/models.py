@@ -39,8 +39,8 @@ class Order(models.Model):
                 'lineitem_total'
             )
         )['lineitem_total__sum'] or 0
-        self.delivery_cost = int(self.order_total) * int(settings.DELIVERY_PERCENTAGE) / 100
-        self.grand_total = int(self.order_total) + int(self.delivery_cost)
+        self.delivery_cost = self.order_total * settings.DELIVERY_PERCENTAGE / 100
+        self.grand_total = self.order_total + self.delivery_cost
         self.save
 
     def save(self, *args, **kwargs):
