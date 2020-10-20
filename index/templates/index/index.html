@@ -11,15 +11,116 @@
 {% endblock %}
 
 {% block content %}
+    <div id="index-carousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#index-carousel" data-slide-to="0" class="active"></li>
+
+            <li data-target="#index-carousel" data-slide-to="1"></li>
+
+            <li data-target="#index-carousel" data-slide-to="2"></li>
+
+        </ol>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-interval="10000">
+                <div class="index-banner"></div>
+
+                <div class="carousel-caption text-left">
+                    <div class="row mb-5">
+                        <div class="col-md-6 my-auto text-white text-uppercase">
+                            <h1 class="banner-text">Welcome to<br/>Deathfret Guitar</h1>
+
+                            <hr>
+
+                            <h6 class="py-3 text-uppercase text-secondary">The community for extreme metal guitarists</h6>
+
+                            {% if user.subscription.status != 'paid' %}
+                                <div>
+                                    <h5>
+                                        <a href="{% url 'payment:subscribe' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Join now for £5/month</a>
+                                    </h5>
+
+                                    <br><br><br><br>
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="col-md-6"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item" data-interval="10000">
+                <div class="index-banner-2"></div>
+                
+                <div class="carousel-caption text-left">
+                    <div class="row mb-5">
+                        <div class="col-md-4">
+                            <h5 class="logo-text text-white">Our Vision</h5>
+                            
+                            <hr>
+
+                            <h6 class="py-3 text-uppercase text-secondary">
+                                    Deathfret Guitar is a showcase for underground extreme metal guitarists. For the unsung heroes of death, black and doom metal.
+                                    <br><br>
+                                    This is not just a page for shredders. We celebrate riffs and songwriting as well as technical aptitude.
+
+                                    <br><br><br><br>
+                                </h6>
+                        </div>
+
+                        <div class="col-md-8"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item" data-interval="10000">
+                <div class="index-banner-3"></div>
+                <div class="carousel-caption text-left">
+                    <div class="row mb-5">
+                        <div class="col-md-4">
+                            <h5 class="logo-text text-white">Subscribe Now</h5>
+                            
+                            <hr>
+
+                            <h6 class="py-3 text-uppercase text-secondary">
+                                To gain access to our <a href="{% url 'masterclasses' %}">lessons</a> series of artist masterclasses as well as be in with a chance of being featured on our
+                                <br>
+                                <a href="https://www.instagram.com/deathfretguitar/" target="_blank">Instagram page.</a>
+
+                                <br><br><br><br>
+                            </h6>
+                        </div>
+
+                        <div class="col-md-8"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a class="carousel-control-prev" href="#index-carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+            <span class="sr-only">Previous</span>
+        </a>
+
+        <a class="carousel-control-next" href="#index-carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <!--
     <div class="index-banner">
         <div class="container h-100">
             <div class="row h-100">
-                <div class="col-7 col-md-6 my-auto text-white text-uppercase">
+                <div class="col-md-6 my-auto text-white text-uppercase">
                     <h1 class="banner-text">Welcome to<br/>Deathfret Guitar</h1>
 
                     <h6 class="py-3 text-uppercase text-secondary">The community for extreme metal guitarists</h6>
 
-                    {% if user.subscription.status == 'active' %}
+                    {% if user.subscription.status != 'paid' %}
                         <div>
                             <h5>
                                 <a href="{% url 'payment:subscribe' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Join now for £5/month</a>
@@ -27,9 +128,11 @@
                         </div>
                     {% endif %}
                 </div>
+                <div class="col-md-6"></div>
             </div>
         </div>
     </div>
+    -->
 
     <!--<div class="container my-5">
         <div class="row">

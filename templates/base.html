@@ -44,24 +44,24 @@
   </head>
   <body>
     <header class="container-fluid fixed-top">
-        <nav id="nav" class="row navbar-dark bg-black d-none d-lg-flex">
-            <div class="col-12 col-lg-4 py-3 my-auto">
+        <nav id="nav" class="row navbar-dark bg-black d-none d-lg-flex fixed-top">
+            <div class="col-12 col-lg-6 py-3 my-auto text-right">
                 <a href="{% url 'index' %}" class="navbar-brand ml-4">
                     <img class="logo" src="{% static 'deathfret-logo.png' %}" alt="deathfret-logo">
                 </a>
             </div>
 
-            <div class="col-12 col-lg-6 py-3 my-auto align-right">
-                <ul class="list-inline list-unstyled text-right my-0">
+            <div class="col-12 col-lg-6 py-3 my-auto">
+                <ul class="list-inline list-unstyled my-0">
                     <li class="list-inline-item dropdown">
                         <a href="#" class="text-light nav-link" id="lesson-options" data-toggle="dropdown" aria-haspopup="true" arie-expanded="false">
                             <div>
-                                <p class="my-0 dropdown-toggle">Lessons </p>
+                                <p class="my-0 dropdown-toggle text-uppercase">Lessons </p>
                             </div>
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="lesson-options">
-                            <a href="{% url 'masterclasses' %}" class="dropdown-item">Masterclasses</a>
+                            <a href="{% url 'masterclasses' %}" class="dropdown-item text-uppercase small">Masterclasses</a>
                         </div>
                     </li>
 
@@ -78,7 +78,7 @@
                     <li class="list-inline-item">
                         <a href="{% url 'merch' %}" class="text-light nav-link" id="store">
                             <div>
-                                <p class="my-0">Store</p>
+                                <p class="my-0 text-uppercase">Store</p>
                             </div>
                         </a>
                     </li>
@@ -94,19 +94,19 @@
                             <!-- If the user is authenticated and a superuser, manage the site. -->
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
-                                    <a href="" class="dropdown-item">Lesson Management</a>
+                                    <a href="" class="dropdown-item text-uppercase small">Lesson Management</a>
 
-                                    <a href="" class="dropdown-item">Store Management</a>
+                                    <a href="" class="dropdown-item text-uppercase small">Store Management</a>
                                 {% endif %}
                                 
-                                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                                <a href="{% url 'profile' %}" class="dropdown-item text-uppercase small">My Profile</a>
 
-                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                                <a href="{% url 'account_logout' %}" class="dropdown-item text-uppercase small">Logout</a>
                             <!-- Else, user can register or login -->
                             {% else %}
-                                <a href="{% url 'account_signup' %}" class="dropdown-item">Signup</a>
+                                <a href="{% url 'account_signup' %}" class="dropdown-item text-uppercase small">Signup</a>
 
-                                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                                <a href="{% url 'account_login' %}" class="dropdown-item text-uppercase small">Login</a>
                             {% endif %}
                         </div>
                     </li>
@@ -116,7 +116,7 @@
                         <a href="{% url 'view_cart' %}" class="text-light nav-link">
                             <div class="text-center">
                                 <div class="icon">
-                                    <i class="fas fa-shopping-cart icon-light"></i>
+                                    <i class="fas fa-shopping-cart icon-light">{% if grand_total %}<div class="cart-circle ml-3 mb-1"></div>{% endif %}</i>
                                 </div>
 
                                 <span class="my-0">
@@ -176,7 +176,7 @@
 
     <footer class="page-footer font-small text-light bg-black py-3 text-center">
         <div class="container">
-            {% if user.subscription.status == 'active' %}
+            {% if user.subscription.status != 'paid' %}
                 <h6 class="py-3">Become a member and get full access to all resources</h6>
 
                 <h5>

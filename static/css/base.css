@@ -6,7 +6,6 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     height: calc(100vh - 117px);
-    background-color: #000000;
 }
 
 hr {
@@ -14,9 +13,18 @@ hr {
     border: 1px solid white;
 }
 
+a {
+    color: lightgray;
+}
+
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+
 .logo-font {
     padding-top: 50px;
-    color: #fff !important;
+    color: #000 !important;
 }
 
 .text-secondary {
@@ -24,11 +32,19 @@ hr {
 }
 
 .nav-link {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    border-left: 1px solid white;
 }
 
 .logo {
     max-height: 75px;
+}
+
+.cart-circle {
+    background-color: #dc3545;
+    height: 5px;
+    width: 5px;
+    border-radius: 5em;
 }
 
 .bg-black {
@@ -40,9 +56,23 @@ hr {
 }
 
 .index-banner {
-    height: 100vh;
+    height: 88vh;
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('/media/deathfret-index-banner-4.jpeg') no-repeat bottom center;
     background-size: cover;
+}
+
+.index-banner-2 {
+    height: 88vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('/media/deathfret-index-banner.jpeg') no-repeat center center;
+    background-size: cover;
+    filter: saturate(0%)
+}
+
+.index-banner-3 {
+    height: 88vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('/media/deathfret-index-banner-3.jpeg') no-repeat bottom center;
+    background-size: cover;
+    filter: saturate(0%)
 }
 
 .banner-text {
