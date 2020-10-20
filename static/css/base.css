@@ -151,23 +151,23 @@ a:hover {
 }
 
 .middle {
-  transition: .5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 .lesson-container:hover .lesson-img,
 .lesson-container:hover .feature-img {
-  filter: brightness(50%);
+    filter: brightness(50%);
 }
 
 .lesson-container:hover .middle {
-  opacity: 1;
+    opacity: 1;
 }
 
 /* -------------------------- Allauth Form Styling */
@@ -190,7 +190,7 @@ a:hover {
     color: #aab7c4;
 }
 
-/* Copied from bootstrap */
+/* -------------------------- Copied from Bootstrap */
 .allauth-form-inner-content button,
 .allauth-form-inner-content input[type='submit'] {
 	display: inline-block;
@@ -214,8 +214,8 @@ a:hover {
 .allauth-form-inner-content button:hover,
 .allauth-form-inner-content input[type='submit']:hover {	
 	color: #fff;
-  background-color: #c82333;
-  border-color: #bd2130;
+    background-color: #c82333;
+    border-color: #bd2130;
 }
 
 .allauth-form-inner-content a {

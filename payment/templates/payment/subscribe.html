@@ -36,25 +36,27 @@
 
         <div class="row mt-5 text-center">
             <div class="col-3"></div>
-            {% for p in products reversed %}
-            {% if p.name != 'Signup' %}
-            <div class="col-3">
-                <div class="card shadow {% if p.name == 'Yearly' %} border border-danger {% else %} border-0 {% endif %}">
-                    <div class="card-body">
-                        <h5 class="card-title font-weight-bold">{{p.name}}</h5>
-                        <p class="card-text text-muted">{{p.description|linebreaksbr}}</p>
+                {% for p in products reversed %}
+                    {% if p.name != 'Signup' %}
+                    <div class="col-3">
+                        <div class="card shadow {% if p.name == 'Yearly' %} border border-danger {% else %} border-0 {% endif %}">
+                            <div class="card-body">
+                                <h5 class="card-title font-weight-bold">{{p.name}}</h5>
+                                
+                                <p class="card-text text-muted">{{p.description|linebreaksbr}}</p>
 
-                        {% for plan in p.plan_set.all %}
-                        <h5 >{{ plan.human_readable_price }}</h5>
-                        <div class="text-right">
-                            <input id="checkbox" onchange="document.getElementById('subscribe-card').scrollIntoView(true);" class="my-2" type="checkbox" name="{{p.name}}" value="{{p.id}}" onclick="planSelect('{{p.name}}' ,'{{plan.human_readable_price}}', '{{plan.id}}')">
-                        {% endfor %}
+                                {% for plan in p.plan_set.all %}
+                                    <h5 >{{ plan.human_readable_price }}</h5>
+
+                                    <div class="text-right">
+                                        <input id="checkbox" onchange="document.getElementById('subscribe-card').scrollIntoView(true);" class="my-2" type="checkbox" name="{{p.name}}" value="{{p.id}}" onclick="planSelect('{{p.name}}' ,'{{plan.human_readable_price}}', '{{plan.id}}')">
+                                    </div>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            {% endif %}
-            {% endfor %}
+                    {% endif %}
+                {% endfor %}
             <div class="col-3"></div>
         </div>
 
@@ -69,27 +71,39 @@
                 <div>
                     <div class="card-body">
 						<h5 class="logo-font text-center my-3">Subscribe now to gain access to all our courses!</h5>
+
 						<p class="text-muted text-center">Enter card details.  Your subscription will start immediately!</p>
+
 						<div class="row">
 							<div class="col-6 text-muted">
 								<p>Plan:</p>
+
 								<p>Total:</p>
 							</div>
+
 							<div class="col-6 text-right">
 								<p id="plan"></p>
+
 								<p id="price"></p>
+
 								<p hidden id="priceId"></p>
 							</div>
 
 						</div>
+
 						<br>
+
                         <form id="subscription-form">
                             {% csrf_token %}
+
                             <div id="subscribe-card-element"><!--Stripe.js injects the Card Element--></div>
+
                             <button id="submit" type="submit">
-                            <div class="spinner hidden" id="spinner"></div>
-                            <span id="button-text">Pay</span>
+                                <div class="spinner hidden" id="spinner"></div>
+
+                                <span id="button-text">Pay</span>
                             </button>
+                            
                             <p id="subscribe-card-errors" role="alert"></p>
                         </form>
                     </div>

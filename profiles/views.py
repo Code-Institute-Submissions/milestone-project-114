@@ -22,9 +22,7 @@ def profile(request):
 
     form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
-
     template = 'profiles/profile.html'
-
     context = {
         'profile': profile,
         'form': form,
@@ -37,14 +35,11 @@ def profile(request):
 
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
-
     messages.info(
         request,
         f'This is a previous order confirmation for order {order_number}.'
     )
-
     template = 'checkout/checkout_success.html'
-
     context = {
         'order': order,
         'from_profile': True,
@@ -55,6 +50,7 @@ def order_history(request, order_number):
 
 def cancelSubscription(request, *args, **kwargs):
     data = json.loads(request.body)
+
     try:
         # Cancel the subscription by deleting it
         deletedSubscription = stripe.Subscription.delete(
@@ -64,7 +60,9 @@ def cancelSubscription(request, *args, **kwargs):
             request,
             "You have successfully cancelled your subscription."
         )
+
         return JsonResponse(deletedSubscription)
+
     except Exception as e:
         return JsonResponse(error=str(e)), 403
 

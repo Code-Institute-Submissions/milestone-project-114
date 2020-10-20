@@ -9,14 +9,11 @@ from .models import Artist, MasterclassOverview
 
 def masterclasses(request):
     """ View to render the masterclasses page """
-
     artists = Artist.objects.all()
     overviews = MasterclassOverview.objects.all()
-
-    # Search set to none so page is able to load without search
+    """
     search = None
 
-    """
     if request.GET:
         if 'search' in request.GET:
             search = request.GET['search']
@@ -47,14 +44,11 @@ def masterclasses(request):
 
 def masterclass(request, masterclass_title):
     """ View to render the masterclass lessons page """
-
     masterclass = get_object_or_404(
         MasterclassOverview,
         masterclass_title=masterclass_title
     )
-
     overviews = MasterclassOverview.objects.all()
-
     context = {
         'masterclass': masterclass,
         'overviews': overviews,

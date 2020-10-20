@@ -4,9 +4,7 @@ from .models import Merch
 
 def all_merch(request):
     """ View to render all of the merch """
-
     merch = Merch.objects.all()
-
     context = {
         'merch': merch,
     }
@@ -16,9 +14,7 @@ def all_merch(request):
 
 def item_detail(request, item_id):
     """ View to render the merch item details """
-
     item = get_object_or_404(Merch, pk=item_id)
-
     context = {
         'item': item,
     }

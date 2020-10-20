@@ -14,9 +14,7 @@ def subscribe(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     client_secret = settings.STRIPE_SECRET_KEY
     customer_id = request.user.userprofile.stripe_customer_id
-
     products = Product.objects.all()
-
     context = {
         'stripe_public_key': stripe_public_key,
         'stripe_secret_key': client_secret,
@@ -60,6 +58,7 @@ def createSubscription(request, *args, **kwargs):
         data.update(subscription)
 
         return JsonResponse(data)
+
     except Exception as e:
         return JsonResponse({
             'error': {'message': str(e)}
@@ -69,12 +68,13 @@ def createSubscription(request, *args, **kwargs):
 def retrySubscription(request, *args, **kwargs):
     data = json.loads(request.body)
     customer_id = request.user.userprofile.stripe_customer_id
-    try:
 
+    try:
         stripe.PaymentMethod.attach(
             data['paymentMethodId'],
             customer=customer_id,
         )
+
         # Set the default payment method on the customer
         stripe.Customer.modify(
             customer_id,
@@ -87,10 +87,12 @@ def retrySubscription(request, *args, **kwargs):
             data['invoiceId'],
             expand=['payment_intent'],
         )
+
         data = {}
         data.update(invoice)
 
         return JsonResponse(data)
+
     except Exception as e:
         return JsonResponse({
             'error': {'message': str(e)}

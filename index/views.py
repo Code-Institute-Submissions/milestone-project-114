@@ -5,9 +5,7 @@ from .models import Features
 
 def index(request):
     """ View to render the home page """
-
     features = Features.objects.all().order_by('id').reverse()
-
     context = {
         'features': features,
     }
@@ -17,13 +15,10 @@ def index(request):
 
 def features(request):
     """ View to render the home page """
-
     features = Features.objects.all().order_by('id').reverse()
     paginator = Paginator(features, 9)
-
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-
     context = {
         'features': features,
         'page_obj': page_obj

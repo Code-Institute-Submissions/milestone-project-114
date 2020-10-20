@@ -47,7 +47,6 @@ class StripeWebhookHandler:
         payment_id = intent.id
         cart = intent.metadata.cart
         save_info = intent.metadata.save_info
-
         billing_details = intent.charges.data[0].billing_details
         delivery_details = intent.shipping
         grand_total = round(intent.charges.data[0].amount / 100, 2)
@@ -58,6 +57,7 @@ class StripeWebhookHandler:
 
         profile = None
         username = intent.metadata.username
+
         if username != 'AnonymousUser':
             profile = UserProfile.objects.get(user__username=username)
             if save_info:
@@ -72,6 +72,7 @@ class StripeWebhookHandler:
 
         order_exists = False
         attempt = 1
+
         while attempt <= 5:
             try:
                 order = Order.objects.get(
@@ -94,8 +95,10 @@ class StripeWebhookHandler:
             except Order.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
+
         if order_exists:
             self._send_confirmation_email(order)
+
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS: Order \
                     already exists in the database.',
@@ -103,6 +106,7 @@ class StripeWebhookHandler:
             )
         else:
             order = None
+
             try:
                 order = Order.objects.create(
                     full_name=delivery_details.name,
@@ -139,6 +143,7 @@ class StripeWebhookHandler:
             except Exception as e:
                 if order:
                     order.delete()
+
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500,
@@ -152,6 +157,7 @@ class StripeWebhookHandler:
 
     def handle_payment_intent_payment_failed(self, event):
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Order created in webhook.',
+            content=f'Webhook received: {event["type"]}\
+                 | SUCCESS: Order created in webhook.',
             status=200,
         )

@@ -5,7 +5,6 @@ from merch.models import Merch
 
 
 def cart_contents(request):
-
     cart_items = []
     total = 0
     item_count = 0
@@ -37,9 +36,7 @@ def cart_contents(request):
 
     if request.user.is_authenticated:
         discount = total * Decimal(settings.MEMBER_DISCOUNT / 100)
-
         grand_total = delivery + total - discount
-
         context = {
             'cart_items': cart_items,
             'total': total,
@@ -50,7 +47,6 @@ def cart_contents(request):
         }
     else:
         grand_total = delivery + total
-
         context = {
             'cart_items': cart_items,
             'total': total,

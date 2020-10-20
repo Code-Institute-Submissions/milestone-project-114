@@ -10,7 +10,6 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 class UserProfile(models.Model):
-
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     stripe_customer_id = models.CharField(max_length=50)
 

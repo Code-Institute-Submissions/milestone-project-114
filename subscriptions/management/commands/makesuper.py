@@ -12,6 +12,7 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 
 def randomString(stringLength=20):
     password_characters = string.ascii_letters + string.digits + string.punctuation
+
     return ''.join(
         random.choice(password_characters) for i in range(stringLength))
 
@@ -32,9 +33,11 @@ class Command(BaseCommand):
                 user=user,
                 pricing=free_trial_pricing,
             )
+
             stripe_customer = stripe.Customer.create(
                 email=user.email,
             )
+
             stripe_subscription = stripe.Subscription.create(
                 customer=stripe_customer['id'],
                 items=[
@@ -43,6 +46,7 @@ class Command(BaseCommand):
                     }
                 ],
             )
+
             subscription.status = stripe_subscription['status']
             subscription.stripe_subscription_id = stripe_subscription['id']
             subscription.save()

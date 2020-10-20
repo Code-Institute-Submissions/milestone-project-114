@@ -4,19 +4,20 @@ const stripe = Stripe(stripePublicKey);
 const elements = stripe.elements();
 
 let style = {
-  base: {
-    color: '#000000',
-    fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-    fontSmoothing: 'antialiased',
-    fontSize: '16px',
-    '::placeholder': {
-      color: '#aab7c4'
+    base: {
+        color: '#000000',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': {
+        color: '#aab7c4'
+        }
+    },
+
+    invalid: {
+        color: '#dc3545',
+        iconColor: '#dc3545',
     }
-  },
-  invalid: {
-    color: '#dc3545',
-    iconColor: '#dc3545',
-  }
 };
 
 let card = elements.create('card', {style: style});
@@ -100,7 +101,7 @@ form.addEventListener('submit', function(ev) {
 
                     <span>${result.error.message}</span>
                 `;
-
+                
                 $(errorDiv).html(html);
                 $('#payment-form').fadeToggle(100);
                 $('#loading-overlay').fadeToggle(100);
