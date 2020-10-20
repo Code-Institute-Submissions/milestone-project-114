@@ -34,7 +34,13 @@
             </div>
         </div>
 
-        <div class="row mt-5 text-center">
+        <div class="row my-5">
+            <div class="col-12">
+                <h6 class="text-center text-secondary">You are currently on the <strong class="font-weight-bold">{{ user.subscription.pricing }}</strong> plan.</h6>
+            </div>
+        </div>
+
+        <div class="row text-center">
             <div class="col-3"></div>
                 {% for p in products reversed %}
                     {% if p.name != 'Signup' %}

@@ -42,6 +42,14 @@
 
                                     <br><br><br><br>
                                 </div>
+                            {% else %}
+                                <div>
+                                    <h5>
+                                        <a href="{% url 'payment:subscribe' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Change Subscription</a>
+                                    </h5>
+
+                                    <br><br><br><br>
+                                </div>
                             {% endif %}
                         </div>
                         

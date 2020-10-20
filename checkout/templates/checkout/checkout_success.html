@@ -219,6 +219,12 @@
                         <h5>
                             <a href="#" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Join now for £5/month</a>
                         </h5>
+                    {% else %}
+                        <h6 class="py-3">Change Your Subscription</h6>
+
+                        <h5>
+                            <a href="{% url 'payment:subscribe' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Change Subscription</a>
+                        </h5>
                     {% endif %}
                 {% endif %}
             </div>

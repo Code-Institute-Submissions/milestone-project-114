@@ -241,7 +241,7 @@ function handleRequiresPaymentMethod({
 
 function onSubscriptionComplete(result) {
     // Payment was successful.
-    if (result.subscription.status === 'active') {
+    if (result.subscription.status === 'active' || 'paid') {
         window.location.href = on_subscription_complete_url;
         // Change your UI to show a success message to your customer.
         // Call your backend to grant access to your service based on
