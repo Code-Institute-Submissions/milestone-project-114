@@ -63,11 +63,11 @@ class StripeWebhookHandler:
             if save_info:
                 profile.default_phone_number = delivery_details.phone
                 profile.default_country = delivery_details.address.country
-                profile.default_postcode = delivery_details.address.postcode
-                profile.default_town_or_city = delivery_details.address.town_or_city
-                profile.default_street_address1 = delivery_details.address.street_address1
-                profile.default_street_address2 = delivery_details.address.street_address2
-                profile.default_county = delivery_details.address.county
+                profile.default_postcode = delivery_details.address.postal_code
+                profile.default_town_or_city = delivery_details.address.city
+                profile.default_street_address1 = delivery_details.address.line1
+                profile.default_street_address2 = delivery_details.address.line2
+                profile.default_county = delivery_details.address.state
                 profile.save()
 
         order_exists = False
@@ -79,12 +79,12 @@ class StripeWebhookHandler:
                     email__iexact=billing_details.email,
                     phone_number__iexact=delivery_details.phone,
                     country__iexact=delivery_details.address.country,
-                    postcode__iexact=delivery_details.address.postcode,
-                    town_or_city__iexact=delivery_details.address.town_or_city,
-                    street_address1__iexact=delivery_details.address.street_address1,
-                    street_address2__iexact=delivery_details.address.street_address2,
-                    county__iexact=delivery_details.address.county,
-                    grand_total__iexact=delivery_details.grand_total,
+                    postcode__iexact=delivery_details.address.postal_code,
+                    town_or_city__iexact=delivery_details.address.city,
+                    street_address1__iexact=delivery_details.address.line1,
+                    street_address2__iexact=delivery_details.address.line2,
+                    county__iexact=delivery_details.address.state,
+                    grand_total=grand_total,
                     original_cart=cart,
                     stripe_payment_id=payment_id,
                 )
@@ -110,11 +110,11 @@ class StripeWebhookHandler:
                     email=billing_details.email,
                     phone_number=delivery_details.phone,
                     country=delivery_details.address.country,
-                    postcode=delivery_details.address.postcode,
-                    town_or_city=delivery_details.address.town_or_city,
-                    street_address1=delivery_details.address.street_address1,
-                    street_address2=delivery_details.address.street_address2,
-                    county=delivery_details.address.county,
+                    postcode=delivery_details.address.postal_code,
+                    town_or_city=delivery_details.address.city,
+                    street_address1=delivery_details.address.line1,
+                    street_address2=delivery_details.address.line2,
+                    county=delivery_details.address.state,
                     original_cart=cart,
                     stripe_payment_id=payment_id,
                 )

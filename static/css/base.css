@@ -8,11 +8,6 @@ body {
     height: calc(100vh - 117px);
 }
 
-hr {
-    color: #fff !important;
-    border: 1px solid white;
-}
-
 a {
     color: lightgray;
 }
@@ -25,10 +20,6 @@ a:hover {
 .logo-font {
     padding-top: 50px;
     color: #000 !important;
-}
-
-.text-secondary {
-    color: #a1a3a5!important;
 }
 
 .nav-link {
