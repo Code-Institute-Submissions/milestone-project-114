@@ -17,8 +17,6 @@
         <div class="row">
             <div class="col">
                 <h2 class="logo-font mb-4 text-center">Merch Cart</h2>
-                
-                <hr class="w-75 mb-1">
             </div>
         </div>
 
@@ -26,16 +24,16 @@
             <div class="col cart-container text-secondary">
                 {% if cart_items %}
                     <div class="table-responsive">
-                        <table class="table-sm table-borderless">
+                        <table class="table-sm">
                             <thead>
                                 <tr>
-                                    <th scope="col">Item Info</th>
-
                                     <th scope="col"></th>
 
-                                    <th scope="col">Price</th>
+                                    <th scope="col">Item Info</th>
 
                                     <th scope="col">Quantity</th>
+
+                                    <th scope="col">Price</th>
 
                                     <th scope="col">Subtotal</th>
                                 </tr>
@@ -43,7 +41,7 @@
 
                             {% for item in cart_items %}
                                 <tr>
-                                    <td class="p-3 w-25">
+                                    <td class="py-3 w-25">
                                         <img src="{{ item.item.image.url }}" alt="{{ item.item.name }}" class="img-fluid">
                                     </td>
 
@@ -51,10 +49,6 @@
                                         <p class="my-0"><strong>{{ item.item.name }}</strong></p>
 
                                         <p class="my-0"><strong>Size: </strong>{% if item.item.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
-                                    </td>
-
-                                    <td class="py-3">
-                                        <p class="my-0">£{{ item.item.price }}</p>
                                     </td>
 
                                     <td class="py-3 w-25">

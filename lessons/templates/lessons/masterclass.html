@@ -19,189 +19,303 @@
                 <h2>{{ masterclass.masterclass_title_friendly_name }}</h2>
 
                 <h4 class="text-secondary font-weight-light">By {{ masterclass.artist }}</h4>
-
-                <hr class="w-75 mb-1">
             </div>
         </div>
 
-        {% if masterclass.lesson_title1 %}
-            <div class="row">
-                <div class="col-6 py-5">
-                    <p><strong>Lesson {{ masterclass.lesson_number1 }}. {{ masterclass.lesson_title1 }}</strong></p>
+        <div class="row py-5">
+            <div class="col-12">
+                <div class="accordion md-accordion accordion-1" id="accordion" role="tablist">
+                    {% if masterclass.lesson_title1 %}
+                        <div class="card">
+                            <div class="card-header lighten-3 z-depth-1" role="tab" id="heading">
+                                <h5 class="text-uppercase mb-0 py-1">
+                                    <a class="white-text font-weight-bold" data-toggle="collapse" href="#collapse" aria-expanded="true" aria-controls="collapse">
+                                        Lesson {{ masterclass.lesson_number1 }}. {{ masterclass.lesson_title1 }}
+                                    </a>
+                                </h5>
+                            </div>
 
-                    <hr>
+                            <div id="collapse" class="collapse show" role="tabpanel" aria-labelledby="heading" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="row my-4">
+                                        <div class="col-md-8 my-auto">
+                                            <p>{{ masterclass.lesson_description1 }}</p>
+                                        </div>
+                                        <div class="col-md-4 mt-3 pt-2">
+                                            <div class="view z-depth-1">
+                                                <iframe class="shadow" width="420" height="315"
+                                                    src="{{ masterclass.video_url1 }}">
+                                                </iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
 
-                    <p>{{ masterclass.lesson_description1 }}</p>
-                </div>
+                    {% if masterclass.lesson_title2 %}
+                        <div class="card">
+                            <div class="card-header lighten-3 z-depth-1" role="tab" id="heading2">
+                                <h5 class="text-uppercase mb-0 py-1">
+                                    <a class="collapsed white-text font-weight-bold" data-toggle="collapse" href="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                        Lesson {{ masterclass.lesson_number2 }}. {{ masterclass.lesson_title2 }}
+                                    </a>
+                                </h5>
+                            </div>
 
-                <div class="col-6 py-3">
-                    <iframe width="420" height="315"
-                        src="{{ masterclass.video_url1 }}">
-                    </iframe>
+                            <div id="collapse2" class="collapse" role="tabpanel" aria-labelledby="heading2" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="row my-4">
+                                        <div class="col-md-8 my-auto">
+                                            <p>{{ masterclass.lesson_description2 }}</p>
+                                        </div>
+                                        <div class="col-md-4 mt-3 pt-2">
+                                            <div class="view z-depth-1">
+                                                <iframe class="shadow" width="420" height="315"
+                                                    src="{{ masterclass.video_url2 }}">
+                                                </iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if masterclass.lesson_title3 %}
+                        <div class="card">
+                            <div class="card-header lighten-3 z-depth-1" role="tab" id="heading3">
+                                <h5 class="text-uppercase mb-0 py-1">
+                                    <a class="collapsed white-text font-weight-bold" data-toggle="collapse" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                        Lesson {{ masterclass.lesson_number3 }}. {{ masterclass.lesson_title3 }}
+                                    </a>
+                                </h5>
+                            </div>
+
+                            <div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="heading2" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="row my-4">
+                                        <div class="col-md-8 my-auto">
+                                            <p>{{ masterclass.lesson_description3 }}</p>
+                                        </div>
+                                        <div class="col-md-4 mt-3 pt-2">
+                                            <div class="view z-depth-1">
+                                                <iframe class="shadow" width="420" height="315"
+                                                    src="{{ masterclass.video_url3 }}">
+                                                </iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if masterclass.lesson_title4 %}
+                        <div class="card">
+                            <div class="card-header lighten-3 z-depth-1" role="tab" id="heading4">
+                                <h5 class="text-uppercase mb-0 py-1">
+                                    <a class="collapsed white-text font-weight-bold" data-toggle="collapse" href="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                        Lesson {{ masterclass.lesson_number4 }}. {{ masterclass.lesson_title4 }}
+                                    </a>
+                                </h5>
+                            </div>
+
+                            <div id="collapse4" class="collapse" role="tabpanel" aria-labelledby="heading4" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="row my-4">
+                                        <div class="col-md-8 my-auto">
+                                            <p>{{ masterclass.lesson_description4 }}</p>
+                                        </div>
+                                        <div class="col-md-4 mt-3 pt-2">
+                                            <div class="view z-depth-1">
+                                                <iframe class="shadow" width="420" height="315"
+                                                    src="{{ masterclass.video_url4 }}">
+                                                </iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if masterclass.lesson_title5 %}
+                        <div class="card">
+                            <div class="card-header lighten-3 z-depth-1" role="tab" id="heading5">
+                                <h5 class="text-uppercase mb-0 py-1">
+                                    <a class="collapsed white-text font-weight-bold" data-toggle="collapse" href="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                                        Lesson {{ masterclass.lesson_number5 }}. {{ masterclass.lesson_title5 }}
+                                    </a>
+                                </h5>
+                            </div>
+
+                            <div id="collapse5" class="collapse" role="tabpanel" aria-labelledby="heading5" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="row my-4">
+                                        <div class="col-md-8 my-auto">
+                                            <p>{{ masterclass.lesson_description5 }}</p>
+                                        </div>
+                                        <div class="col-md-4 mt-3 pt-2">
+                                            <div class="view z-depth-1">
+                                                <iframe class="shadow" width="420" height="315"
+                                                    src="{{ masterclass.video_url5 }}">
+                                                </iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if masterclass.lesson_title6 %}
+                        <div class="card">
+                            <div class="card-header lighten-3 z-depth-1" role="tab" id="heading6">
+                                <h5 class="text-uppercase mb-0 py-1">
+                                    <a class="collapsed white-text font-weight-bold" data-toggle="collapse" href="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                                        Lesson {{ masterclass.lesson_number6 }}. {{ masterclass.lesson_title6 }}
+                                    </a>
+                                </h5>
+                            </div>
+
+                            <div id="collapse6" class="collapse" role="tabpanel" aria-labelledby="heading6" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="row my-4">
+                                        <div class="col-md-8 my-auto">
+                                            <p>{{ masterclass.lesson_description6 }}</p>
+                                        </div>
+                                        <div class="col-md-4 mt-3 pt-2">
+                                            <div class="view z-depth-1">
+                                                <iframe class="shadow" width="420" height="315"
+                                                    src="{{ masterclass.video_url6 }}">
+                                                </iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if masterclass.lesson_title7 %}
+                        <div class="card">
+                            <div class="card-header lighten-3 z-depth-1" role="tab" id="heading7">
+                                <h5 class="text-uppercase mb-0 py-1">
+                                    <a class="collapsed white-text font-weight-bold" data-toggle="collapse" href="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                                        Lesson {{ masterclass.lesson_number7 }}. {{ masterclass.lesson_title7 }}
+                                    </a>
+                                </h5>
+                            </div>
+
+                            <div id="collapse7" class="collapse" role="tabpanel" aria-labelledby="heading7" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="row my-4">
+                                        <div class="col-md-8 my-auto">
+                                            <p>{{ masterclass.lesson_description7 }}</p>
+                                        </div>
+                                        <div class="col-md-4 mt-3 pt-2">
+                                            <div class="view z-depth-1">
+                                                <iframe class="shadow" width="420" height="315"
+                                                    src="{{ masterclass.video_url7 }}">
+                                                </iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if masterclass.lesson_title8 %}
+                        <div class="card">
+                            <div class="card-header lighten-3 z-depth-1" role="tab" id="heading8">
+                                <h5 class="text-uppercase mb-0 py-1">
+                                    <a class="collapsed white-text font-weight-bold" data-toggle="collapse" href="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                                        Lesson {{ masterclass.lesson_number8 }}. {{ masterclass.lesson_title8 }}
+                                    </a>
+                                </h5>
+                            </div>
+
+                            <div id="collapse8" class="collapse" role="tabpanel" aria-labelledby="heading8" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="row my-4">
+                                        <div class="col-md-8 my-auto">
+                                            <p>{{ masterclass.lesson_description8 }}</p>
+                                        </div>
+                                        <div class="col-md-4 mt-3 pt-2">
+                                            <div class="view z-depth-1">
+                                                <iframe class="shadow" width="420" height="315"
+                                                    src="{{ masterclass.video_url8 }}">
+                                                </iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if masterclass.lesson_title9 %}
+                        <div class="card">
+                            <div class="card-header lighten-3 z-depth-1" role="tab" id="heading9">
+                                <h5 class="text-uppercase mb-0 py-1">
+                                    <a class="collapsed white-text font-weight-bold" data-toggle="collapse" href="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                                        Lesson {{ masterclass.lesson_number9 }}. {{ masterclass.lesson_title9 }}
+                                    </a>
+                                </h5>
+                            </div>
+
+                            <div id="collapse9" class="collapse" role="tabpanel" aria-labelledby="heading9" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="row my-4">
+                                        <div class="col-md-8 my-auto">
+                                            <p>{{ masterclass.lesson_description9 }}</p>
+                                        </div>
+                                        <div class="col-md-4 mt-3 pt-2">
+                                            <div class="view z-depth-1">
+                                                <iframe class="shadow" width="420" height="315"
+                                                    src="{{ masterclass.video_url9 }}">
+                                                </iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if masterclass.lesson_title10 %}
+                        <div class="card">
+                            <div class="card-header lighten-3 z-depth-1" role="tab" id="heading10">
+                                <h5 class="text-uppercase mb-0 py-1">
+                                    <a class="collapsed white-text font-weight-bold" data-toggle="collapse" href="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                                        Lesson {{ masterclass.lesson_number10 }}. {{ masterclass.lesson_title10 }}
+                                    </a>
+                                </h5>
+                            </div>
+
+                            <div id="collapse10" class="collapse" role="tabpanel" aria-labelledby="heading10" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="row my-4">
+                                        <div class="col-md-8 my-auto">
+                                            <p>{{ masterclass.lesson_description10 }}</p>
+                                        </div>
+                                        <div class="col-md-4 mt-3 pt-2">
+                                            <div class="view z-depth-1">
+                                                <iframe class="shadow" width="420" height="315"
+                                                    src="{{ masterclass.video_url10 }}">
+                                                </iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
-        {% endif %}
-
-        {% if masterclass.lesson_title2 %}
-            <div class="row">
-                <div class="col-6 py-5">
-                    <p><strong>Lesson {{ masterclass.lesson_number2 }}. {{ masterclass.lesson_title2 }}</strong></p>
-
-                    <hr>
-
-                    <p>{{ masterclass.lesson_description2 }}</p>
-                </div>
-
-                <div class="col-6 py-3">
-                    <iframe width="420" height="315"
-                        src="{{ masterclass.video_url2 }}">
-                    </iframe>
-                </div>
-            </div>
-        {% endif %}
-
-        {% if masterclass.lesson_title3 %}
-            <div class="row">
-                <div class="col-6 py-5">
-                    <p><strong>Lesson {{ masterclass.lesson_number3 }}. {{ masterclass.lesson_title3 }}</strong></p>
-
-                    <hr>
-
-                    <p>{{ masterclass.lesson_description3 }}</p>
-                </div>
-
-                <div class="col-6 py-3">
-                    <iframe width="420" height="315"
-                        src="{{ masterclass.video_url3 }}">
-                    </iframe>
-                </div>
-            </div>
-        {% endif %}
-
-        {% if masterclass.lesson_title4 %}
-            <div class="row">
-                <div class="col-6 py-5">
-                    <p><strong>Lesson {{ masterclass.lesson_number4 }}. {{ masterclass.lesson_title4 }}</strong></p>
-
-                    <hr>
-
-                    <p>{{ masterclass.lesson_description4 }}</p>
-                </div>
-
-                <div class="col-6 py-3">
-                    <iframe width="420" height="315"
-                        src="{{ masterclass.video_url4 }}">
-                    </iframe>
-                </div>
-            </div>
-        {% endif %}
-
-        {% if masterclass.lesson_title5 %}
-            <div class="row">
-                <div class="col-6 py-5">
-                    <p><strong>Lesson {{ masterclass.lesson_number5 }}. {{ masterclass.lesson_title5 }}</strong></p>
-
-                    <hr>
-
-                    <p>{{ masterclass.lesson_description5 }}</p>
-                </div>
-
-                <div class="col-6 py-3">
-                    <iframe width="420" height="315"
-                        src="{{ masterclass.video_url5 }}">
-                    </iframe>
-                </div>
-            </div>
-        {% endif %}
-
-        {% if masterclass.lesson_title6 %}
-            <div class="row">
-                <div class="col-6 py-5">
-                    <p><strong>Lesson {{ masterclass.lesson_number6 }}. {{ masterclass.lesson_title6 }}</strong></p>
-
-                    <hr>
-
-                    <p>{{ masterclass.lesson_description6 }}</p>
-                </div>
-
-                <div class="col-6 py-3">
-                    <iframe width="420" height="315"
-                        src="{{ masterclass.video_url6 }}">
-                    </iframe>
-                </div>
-            </div>
-        {% endif %}
-
-        {% if masterclass.lesson_title7 %}
-            <div class="row">
-                <div class="col-6 py-5">
-                    <p><strong>Lesson {{ masterclass.lesson_number7 }}. {{ masterclass.lesson_title7 }}</strong></p>
-
-                    <hr>
-
-                    <p>{{ masterclass.lesson_description7 }}</p>
-                </div>
-
-                <div class="col-6 py-3">
-                    <iframe width="420" height="315"
-                        src="{{ masterclass.video_url7 }}">
-                    </iframe>
-                </div>
-            </div>
-        {% endif %}
-
-        {% if masterclass.lesson_title8 %}
-            <div class="row">
-                <div class="col-6 py-5">
-                    <p><strong>Lesson {{ masterclass.lesson_number8 }}. {{ masterclass.lesson_title8 }}</strong></p>
-
-                    <hr>
-
-                    <p>{{ masterclass.lesson_description8 }}</p>
-                </div>
-
-                <div class="col-6 py-3">
-                    <iframe width="420" height="315"
-                        src="{{ masterclass.video_url8 }}">
-                    </iframe>
-                </div>
-            </div>
-        {% endif %}
-
-        {% if masterclass.lesson_title9 %}
-            <div class="row">
-                <div class="col-6 py-5">
-                    <p><strong>Lesson {{ masterclass.lesson_number9 }}. {{ masterclass.lesson_title9 }}</strong></p>
-
-                    <hr>
-
-                    <p>{{ masterclass.lesson_description9 }}</p>
-                </div>
-
-                <div class="col-6 py-3">
-                    <iframe width="420" height="315"
-                        src="{{ masterclass.video_url9 }}">
-                    </iframe>
-                </div>
-            </div>
-        {% endif %}
-
-        {% if masterclass.lesson_title10 %}
-            <div class="row">
-                <div class="col-6 py-5">
-                    <p><strong>Lesson {{ masterclass.lesson_number10 }}. {{ masterclass.lesson_title10 }}</strong></p>
-
-                    <hr>
-                    
-                    <p>{{ masterclass.lesson_description10 }}</p>
-                </div>
-
-                <div class="col-6 py-3">
-                    <iframe width="420" height="315"
-                        src="{{ masterclass.video_url10 }}">
-                    </iframe>
-                </div>
-            </div>
-        {% endif %}
+        </div>
     </div>
 {% endblock %}

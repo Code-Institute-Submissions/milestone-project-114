@@ -15,7 +15,9 @@
 {% block content %}
     <div class="container">
         <div class="row pt-4">
-            <div class="col mt-3">
+            <div class="col-3"></div>
+
+            <div class="col-6 mt-3">
                 <h2 class="logo-font text-center">Artist Masterclasses</h2>
 
                 <h6 class="py-2 text-secondary">
@@ -24,21 +26,19 @@
                     be sure that the wealth of experience, tips, tricks and techniques on offer is sure to take your playing and
                     musicianship to the next level.
                 </h6>
-
-                <hr class="w-75 mb-1">
             </div>
+
+            <div class="col-3"></div>
         </div>
 
         <div class="row">
             <div class="subscription-container col-10 offset-1">
-                <div class="row"></div>
-
                 <div class="row my-3">
                     {% for overview in overviews %}
-                        <div class="col-sm-2 col-md-6">
+                        <div class="col-md-6">
                             <div class="h-100 p-3 text-center">
                                 <a href="{% if user.subscription.status == 'paid' %}{% url 'masterclass' overview.masterclass_title %}{% else %}{% url 'payment:subscribe' %}{% endif %}">
-                                    <img src="{{ overview.artist.artist_image.url }}" alt="{{ overview.artist.name }}" class="item-img card-img-top img-fluid">
+                                    <img src="{{ overview.artist.artist_image.url }}" alt="{{ overview.artist.name }}" class="item-img card-img-top img-fluid shadow">
                                 </a>
 
                                 <h4 class="text-secondary pt-3">{{ overview.masterclass_title_friendly_name }}</h4>

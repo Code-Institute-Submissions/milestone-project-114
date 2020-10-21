@@ -11,11 +11,11 @@ body {
 }
 
 a {
-    color: lightgray;
+    color: #dc3545;
 }
 
 a:hover {
-    color: white;
+    color: #6c757d;
     text-decoration: none;
 }
 
@@ -109,6 +109,11 @@ a:hover {
     height: 300px;
     width: 300px;
     object-fit: cover;
+    transition: 0.2s;
+}
+
+.item-img:hover {
+    filter: brightness(80%)
 }
 
 .update-link,
