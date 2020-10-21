@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 
 <div class="toast custom-toast rounded-0 border-0" data-autohide="false">
-    <div class="arrow-up arrow-success"></div>
-    <div class="w-100 toast-capper bg-success"></div>
     <div class="toast-header bg-white text-dark">
-        <strong class="mr-auto">Success!</strong>
+        <div class="icon">
+            <i class="fas fa-check text-success"></i>
+        </div>
+        
+        <strong class="mr-auto"> Success!</strong>
 
         <button type="button" class="ml-2 mb-1 close text-dark" data-dismiss="toast" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -12,48 +14,6 @@
     </div>
 
     <div class="toast-body bg-white">
-        <div class="row">
-            <div class="co">
-                {{ message }}
-                <hr class="mt-1 mb-3">
-            </div>
-        </div>
-        {% if grand_total and not on_profile_page %}
-            <p class="bg-white text-dark py-1">Your cart: ({{ item_count }})</p>
-
-            <div class="cart-toast-wrapper">
-                {% for item in cart_items %}
-                    <div class="row">
-                        <div class="col-3 my-1">
-                            <img src="{{ item.item.image.url }}" alt="{{ item.item.name }}" class="w-100">
-                        </div>
-
-                        <div class="col-9">
-                            <p class="my-0"><strong>{{ item.item.name }}</strong></p>
-
-                            <p class="my-0 small">Sie: {% if item.item.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
-
-                            <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    <p class="mt-3 mb-1 text-dark">
-                        <strong>Total (Exc. delivery): <span class="float-right">£{{ total|floatformat:2 }}</span></strong>
-                    </p>
-
-                    <a href="{% url 'view_cart' %}" class="btn btn-danger rounded-0 text-uppercase">
-                        <span>Go to secure checkout</span>
-
-                        <span class="icon">
-                            <i class="fas fa-lock"></i>
-                        </span>
-                    </a>
-                </div>
-            </div>
-        {% endif %}
+        {{ message }}
     </div>
 </div>
