@@ -1,3 +1,7 @@
 from django.test import TestCase
 
-# Create your tests here.
+
+class TestIndex(TestCase):
+
+    def test_one(self):
+        self.assertAlmostEqual(1, 0)
