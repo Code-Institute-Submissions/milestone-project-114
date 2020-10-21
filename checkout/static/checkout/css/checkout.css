@@ -1,3 +1,5 @@
+/* -------------------------- Stripe store checkout element */
+
 .StripeElement,
 .stripe-style-input {
     box-sizing: border-box;
@@ -25,6 +27,8 @@
     background-color: #ffffff !important;
 }
 
+/* -------------------------- Order form */
+
 .fieldset-label {
     position: relative;
     right: .5rem;
@@ -45,6 +49,8 @@ select:invalid,
 select option[value=""] {
     color: #aab7c4 !important;
 }
+
+/* -------------------------- Loading overlay */
 
 #loading-overlay {
     display: none;

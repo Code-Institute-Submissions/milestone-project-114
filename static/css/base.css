@@ -1,3 +1,5 @@
+/* -------------------------- Global */
+
 html {
     height: 100%;
 }
@@ -46,6 +48,17 @@ a:hover {
     color: #000000;
 }
 
+.icon {
+    color: #f8f9fa !important;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1rem;
+    width: 1rem;
+}
+
+/* -------------------------- Index/banners/carousel */
+
 .index-banner {
     height: 88vh;
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('/media/deathfret-index-banner-4.jpeg') no-repeat bottom center;
@@ -70,14 +83,7 @@ a:hover {
     font-size: 2rem;
 }
 
-.icon {
-    color: #f8f9fa !important;
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1rem;
-    width: 1rem;
-}
+/* -------------------------- Buttons */
 
 .subscribe-button {
     min-width: 260px;
@@ -117,6 +123,8 @@ a:hover {
     z-index: 9999;
 }
 
+/* -------------------------- Toasts */
+
 .custom-toast {
     overflow: visible;
 }
@@ -126,6 +134,8 @@ a:hover {
     overflow-x: hidden;
     overflow-y: auto;
 }
+
+/* -------------------------- Features (redundant) */
 
 .feature-img {
     height: 275px;
@@ -138,6 +148,8 @@ a:hover {
 .feature-icon {
     font-size: 32px;
 }
+
+/* -------------------------- Lessons */
 
 .lesson-img {
     width: 420px;
@@ -167,7 +179,7 @@ a:hover {
     opacity: 1;
 }
 
-/* -------------------------- Allauth Form Styling */
+/* -------------------------- Allauth form styling */
 
 .allauth-form-inner-content p {
     color: #6c757d;
@@ -223,7 +235,7 @@ a:hover {
     height: 100vh;
 }
 
-/* -------------------------- Media Queries */
+/* -------------------------- Media queries */
 
 @media (min-width: 1200px) {
     .container {

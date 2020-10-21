@@ -1,8 +1,14 @@
+/* 
+    Stripe payemnts
+*/
+
+// Define the constants to be used in the script
 const stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 const clientSecret = $('#id_client_secret').text().slice(1, -1);
 const stripe = Stripe(stripePublicKey);
 const elements = stripe.elements();
 
+// Define the styling of the stripe element
 let style = {
     base: {
         color: '#000000',
@@ -20,6 +26,7 @@ let style = {
     }
 };
 
+// Define and mount the element to the div
 let card = elements.create('card', {style: style});
 card.mount('#card-element');
 
@@ -43,16 +50,19 @@ card.addEventListener('change', function(event) {
 });
 
 // Handle form submit
-
 let form = document.getElementById('payment-form');
 
 form.addEventListener('submit', function(ev) {
+    // Prevent the form from being submitted
     ev.preventDefault();
     card.update({'disabled': true});
     $('#submit-button').attr('disabled', true);
+
+    // Toggle the fade for the loading overlay
     $('#payment-form').fadeToggle(100);
     $('#loading-overlay').fadeToggle(100);
 
+    // Define post variables
     let saveInfo = Boolean($('#id-save-info').attr('checked'));
     let csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
     let postData = {
@@ -62,6 +72,7 @@ form.addEventListener('submit', function(ev) {
     }
     let url = '/checkout/cache_checkout_data/';
 
+    // Post payment method
     $.post(url, postData).done(function() {
         stripe.confirmCardPayment(clientSecret, {
         payment_method: {
@@ -92,6 +103,7 @@ form.addEventListener('submit', function(ev) {
             }
         },
         }).then(function(result) {
+            // Then check result for errors and handle
             if (result.error) {
                 let errorDiv = document.getElementById('card-errors');
                 let html = `
@@ -108,12 +120,14 @@ form.addEventListener('submit', function(ev) {
                 card.update({'disabled': false});
                 $('#submit-button').attr('disabled', false);
             } else {
+                // If the intent is successful, submit the form
                 if (result.paymentIntent.status === 'succeeded') {
                     form.submit();
                 }
             }
         });
     }).fail(function() {
+        // If the form submit fails for whatever reason, reload the checkout page
         location.reload();
     })
 });

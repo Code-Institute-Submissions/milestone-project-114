@@ -55,8 +55,14 @@
                             </h5>
                         </div>
                     {% else %}
-                        <button onclick="cancelSubscription()" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Cancel Subscription</button>
+                        <button id="cancel-button" onclick="cancelSubscription()" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Cancel Subscription</button>
                     {% endif %}
+                    
+                    <div id="subscription-cancelled" class="hidden my-2">
+                        <div class="flex flex-wrap font-bold text-danger text-xl mt-6 mb-2">
+                            Subscription Cancelled.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,8 +1,15 @@
+/* 
+    Subscription payment
+*/
+
+// Define the constants to be used in the script
 const stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 const stripe = Stripe(stripePublicKey);
 const elements = stripe.elements();
 const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 
+// Function to get the payment plan data from the
+// selected plan and mount them to the card element
 function planSelect(name, price, priceId) {
     let inputs = document.getElementsByTagName('input');
 
@@ -14,15 +21,16 @@ function planSelect(name, price, priceId) {
         }
     }
 
-    let n = document.getElementById('plan');
-    let p = document.getElementById('price');
+    let plan = document.getElementById('plan');
+    let price = document.getElementById('price');
     let pid = document.getElementById('priceId');
-    n.innerHTML = name;
-    p.innerHTML = price;
+    plan.innerHTML = name;
+    price.innerHTML = price;
     pid.innerHTML = priceId;
     document.getElementById("submit").disabled = false;
 }
 
+// Define the styling of the stripe element
 let style = {
     base: {
         color: "#32325d",
@@ -39,10 +47,13 @@ let style = {
     }
 };
 
+// Define and mount the element to the div
 let card = elements.create("card", { style: style });
 card.mount("#subscribe-card-element");
+
 card.on('change', showCardError);
 
+// Handle realtime validation errors on the card element
 function showCardError(event) {
     let displayError = document.getElementById('subscribe-card-errors');
     if (event.error) {
@@ -52,6 +63,7 @@ function showCardError(event) {
     }
 }
 
+// Handle form submit
 let form = document.getElementById('subscription-form');
 
 form.addEventListener('submit', function (ev) {
@@ -66,6 +78,7 @@ form.addEventListener('submit', function (ev) {
     if (latestInvoicePaymentIntentStatus === 'requires_payment_method') {
     const invoiceId = localStorage.getItem('latestInvoiceId');
     const isPaymentRetry = true;
+
     // create new payment method & retry payment on invoice with new payment method
     createPaymentMethod({
         card,
@@ -73,11 +86,13 @@ form.addEventListener('submit', function (ev) {
         invoiceId,
     });
     } else {
+
     // create new payment method & create subscription
     createPaymentMethod({ card });
     }
 });
 
+// Function to cerate the payment method
 function createPaymentMethod({ card, isPaymentRetry, invoiceId }) {
   // Set up payment method for recurring usage
     stripe.createPaymentMethod({
@@ -90,6 +105,7 @@ function createPaymentMethod({ card, isPaymentRetry, invoiceId }) {
             changeLoadingState(false);
         } else {
             if (isPaymentRetry) {
+
             // Update the payment method and retry invoice payment
             retryInvoiceWithNewPaymentMethod({
                 paymentMethodId: result.paymentMethod.id,
@@ -97,6 +113,7 @@ function createPaymentMethod({ card, isPaymentRetry, invoiceId }) {
                 priceId: document.getElementById("priceId").innerHTML,
             });
             } else {
+
                 // Create the subscription
                 createSubscription({
                     paymentMethodId: result.paymentMethod.id,
@@ -107,6 +124,7 @@ function createPaymentMethod({ card, isPaymentRetry, invoiceId }) {
     });
 }
 
+// Function to create the subscription
 function createSubscription({paymentMethodId, priceId }) {
     return (
         fetch(create_subscription_url, {
@@ -123,14 +141,17 @@ function createSubscription({paymentMethodId, priceId }) {
         .then((response) => {
             return response.json();
         })
+
         // If the card is declined, display an error to the user.
         .then((result) => {
             if (result.error) {
+
             // The card had an error when trying to attach it to a customer.
             throw result;
             }
             return result;
         })
+
         // Normalize the result to contain the object returned by Stripe.
         // Add the additional details we need.
         .then((result) => {
@@ -140,18 +161,22 @@ function createSubscription({paymentMethodId, priceId }) {
             subscription: result,
             };
         })
+
         // Some payment methods require a customer to be on session
         // to complete the payment process. Check the status of the
         // payment intent to handle these actions.
         .then(handlePaymentThatRequiresCustomerAction)
+
         // If attaching this card to a Customer object succeeds,
         // but attempts to charge the customer fail, you
         // get a requires_payment_method error.
         .then(handleRequiresPaymentMethod)
+
         // No more actions required. Provision your service for the user.
         .then(onSubscriptionComplete)
         .catch((error) => {
             changeLoadingState(false);
+
             // An error has happened. Display the failure to the user here.
             // We utilize the HTML element we created.
             showCardError(error);
@@ -159,6 +184,7 @@ function createSubscription({paymentMethodId, priceId }) {
     );
 }
 
+// Subscription customer actions if required
 function handlePaymentThatRequiresCustomerAction({
     subscription,
     invoice,
@@ -185,12 +211,14 @@ function handlePaymentThatRequiresCustomerAction({
         })
         .then((result) => {
             if (result.error) {
+
             // Start code flow to handle updating the payment details.
             // Display error message in your UI.
             // The card was declined (i.e. insufficient funds, card has expired, etc).
             throw result;
             } else {
             if (result.paymentIntent.status === 'succeeded') {
+
                 // Show a success message to your customer.
                 // There's a risk of the customer closing the window before the callback.
                 // We recommend setting up webhook endpoints later in this guide.
@@ -208,23 +236,27 @@ function handlePaymentThatRequiresCustomerAction({
             changeLoadingState(false);
         });
     } else {
+
         // No customer action needed.
         return { subscription, priceId, paymentMethodId };
     }
 }
 
+// Handle the payment method for the subscription
 function handleRequiresPaymentMethod({
     subscription,
     paymentMethodId,
     priceId,
     }) {
     if (subscription.status === 'active') {
+
         // subscription is active, no customer actions required.
         return { subscription, priceId, paymentMethodId };
     } else if (
         subscription.latest_invoice.payment_intent.status ===
         'requires_payment_method'
     ) {
+
         // Using localStorage to manage the state of the retry here,
         // feel free to replace with what you prefer.
         // Store the latest invoice ID and status.
@@ -239,16 +271,15 @@ function handleRequiresPaymentMethod({
     }
 }
 
+// Once the subscription creation is complete, redirect to the 'profile' page
 function onSubscriptionComplete(result) {
     // Payment was successful.
     if (result.subscription.status === 'active' || 'paid') {
         window.location.href = on_subscription_complete_url;
-        // Change your UI to show a success message to your customer.
-        // Call your backend to grant access to your service based on
-        // `result.subscription.items.data[0].price.product` the customer subscribed to.
     }
 }
 
+// If the original payment method doesn't work for whatever reason, retry with new
 function retryInvoiceWithNewPaymentMethod({
     paymentMethodId,
     invoiceId,
@@ -269,18 +300,22 @@ function retryInvoiceWithNewPaymentMethod({
         .then((response) => {
             return response.json();
         })
+
         // If the card is declined, display an error to the user.
         .then((result) => {
             if (result.error) {
+
             // The card had an error when trying to attach it to a customer.
             throw result;
             }
             return result;
         })
+
         // Normalize the result to contain the object returned by Stripe.
         // Add the additional details we need.
         .then((result) => {
             return {
+
             // Use the Stripe 'object' property on the
             // returned result to understand what object is returned.
             invoice: result,
@@ -289,14 +324,17 @@ function retryInvoiceWithNewPaymentMethod({
             isRetry: true,
             };
         })
+
         // Some payment methods require a customer to be on session
         // to complete the payment process. Check the status of the
         // payment intent to handle these actions.
         .then(handlePaymentThatRequiresCustomerAction)
+
         // No more actions required. Provision your service for the user.
         .then(onSubscriptionComplete)
         .catch((error) => {
             changeLoadingState(false);
+
             // An error has happened. Display the failure to the user here.
             // We utilize the HTML element we created.
             displayError(error);
@@ -304,6 +342,7 @@ function retryInvoiceWithNewPaymentMethod({
     );
 }
 
+// Function to add or remove the loading spinner on the element on submit
 function changeLoadingState(isLoading) {
     if (isLoading) {
         document.querySelector('#button-text').classList.add('hidden');
