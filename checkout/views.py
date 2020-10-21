@@ -21,6 +21,7 @@ import json
 
 @require_POST
 def cache_checkout_data(request):
+    """ Cache the checkout data in case of browser error """
     try:
         payment_id = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -43,12 +44,14 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
+    """ View to display the checkout template """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == 'POST':
         cart = request.session.get('cart', {})
 
+        """" Display the form data in the template """
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -160,9 +163,12 @@ def checkout(request):
 
 
 def checkout_success(request, order_number):
+    """ View to display the checkout success template """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
+    """ If the user in authenticated, save default delivery
+        information to the user's profile """
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
         order.user_profile = profile
@@ -182,6 +188,7 @@ def checkout_success(request, order_number):
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
+    """ Final message to the user that their order was successful """
     messages.success(
         request,
         f'Order processed successfully! \

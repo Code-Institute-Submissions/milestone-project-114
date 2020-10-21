@@ -5,11 +5,16 @@ from merch.models import Merch
 
 
 def cart_contents(request):
+    """ Create a global context of store totals to be used site-wide """
+
+    """ Define cart variables """
     cart_items = []
     total = 0
     item_count = 0
     cart = request.session.get('cart', {})
 
+    """ For every item in the cart view,
+        append to the cart for checkout """
     for item_id, item_data in cart.items():
         if isinstance(item_data, int):
             item = get_object_or_404(Merch, pk=item_id)
@@ -34,6 +39,9 @@ def cart_contents(request):
 
     delivery = total * Decimal(settings.DELIVERY_PERCENTAGE / 100)
 
+    """ If the user has paid their subscription,
+        add the member discount, otherwise create
+        the context without """
     if request.user.subscription.status == 'paid':
         discount = total * Decimal(settings.MEMBER_DISCOUNT / 100)
         grand_total = delivery + total - discount

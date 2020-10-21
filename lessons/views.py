@@ -11,6 +11,11 @@ def masterclasses(request):
     """ View to render the masterclasses page """
     artists = Artist.objects.all()
     overviews = MasterclassOverview.objects.all()
+
+    """
+        Search result function made redundant as
+        not necessary for the scope of the project
+    """
     """
     search = None
 

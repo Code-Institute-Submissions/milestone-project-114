@@ -14,7 +14,7 @@ def index(request):
 
 
 def features(request):
-    """ View to render the home page """
+    """ View to render the features page (view now redundant) """
     features = Features.objects.all().order_by('id').reverse()
     paginator = Paginator(features, 9)
     page_number = request.GET.get('page')

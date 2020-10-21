@@ -11,6 +11,7 @@ from django.contrib import messages
 @require_POST
 @csrf_exempt
 def subscribe_webhook(request):
+    """ Catch the stripe subscription webhooks """
     webhook_secret = settings.SUBSCRIBE_WEBHOOK_SECRET
     payload = request.body
     signature = request.META['HTTP_STRIPE_SIGNATURE']

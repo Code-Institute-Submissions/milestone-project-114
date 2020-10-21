@@ -11,16 +11,19 @@ import time
 
 
 class StripeWebhookHandler:
+    """ Handle the payment specific webhooks """
     def __init__(self, request):
         self.request = request
 
     def handle_event(self, event):
+        """ Handle any generic or unexpected events """
         return HttpResponse(
             content=f'Unhandled webhook received: {event["type"]}',
             status=200,
         )
 
     def _send_confirmation_email(self, order):
+        """ Send a confirmation email to customer on success of payment """
         merch_customer_email = order.email
         subject = render_to_string(
             'checkout/emails/email_subject.txt',
@@ -43,6 +46,7 @@ class StripeWebhookHandler:
         )
 
     def handle_payment_intent_succeeded(self, event):
+        """ Handle the intent succeeded event """
         intent = event.data.object
         payment_id = intent.id
         cart = intent.metadata.cart
@@ -156,6 +160,7 @@ class StripeWebhookHandler:
         )
 
     def handle_payment_intent_payment_failed(self, event):
+        """ Handle the intent failed event """
         return HttpResponse(
             content=f'Webhook received: {event["type"]}\
                  | SUCCESS: Order created in webhook.',

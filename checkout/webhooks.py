@@ -9,6 +9,7 @@ import stripe
 @require_POST
 @csrf_exempt
 def webhook(request):
+    """ Catch the payment webhooks sent from stripe """
     webhook_secret = settings.STRIPE_WEBHOOK_SECRET
     stripe.api_key = settings.STRIPE_SECRET_KEY
 

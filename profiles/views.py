@@ -12,6 +12,7 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 def profile(request):
+    """ View to render the profile page """
     profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':
@@ -34,6 +35,7 @@ def profile(request):
 
 
 def order_history(request, order_number):
+    """ Display the user's order history in the profile view """
     order = get_object_or_404(Order, order_number=order_number)
     messages.info(
         request,
@@ -49,10 +51,11 @@ def order_history(request, order_number):
 
 
 def cancelSubscription(request, *args, **kwargs):
+    """ Cancel the user's subscription on the backend """
     data = json.loads(request.body)
 
     try:
-        # Cancel the subscription by deleting it
+        """ Cancel the subscription by deleting it """
         deletedSubscription = stripe.Subscription.delete(
             data['subscriptionId']
         )
