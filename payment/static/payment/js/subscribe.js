@@ -21,11 +21,11 @@ function planSelect(name, price, priceId) {
         }
     }
 
-    let plan = document.getElementById('plan');
-    let price = document.getElementById('price');
+    let n = document.getElementById('plan');
+    let p = document.getElementById('price');
     let pid = document.getElementById('priceId');
-    plan.innerHTML = name;
-    price.innerHTML = price;
+    n.innerHTML = name;
+    p.innerHTML = price;
     pid.innerHTML = priceId;
     document.getElementById("submit").disabled = false;
 }

@@ -50,5 +50,5 @@ class Command(BaseCommand):
             subscription.status = stripe_subscription['status']
             subscription.stripe_subscription_id = stripe_subscription['id']
             subscription.save()
-            user.stripe_customer_id = stripe_customer['id']
-            user.save()
+            user.userprofile.stripe_customer_id = stripe_customer['id']
+            user.userporfile.save()

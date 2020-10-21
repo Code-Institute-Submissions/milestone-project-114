@@ -27,14 +27,14 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h2 class="logo-font text-center">{{ profile.user }}'s Profile - {{ user.email }}</h2>
+                <h2 class="logo-font text-center">{{ profile.user }}'s Profile - <span class="text-muted">{{ user.email }}</span></h2>
             </div>
         </div>
     </div>
 
     <div class="container">
         <div class="row py-5">
-            <div class="col-lg-6 offset-3 p-4 border-0 mb-5 text-center text-secondary">
+            <div class="col-lg-6 offset-3 p-4 border-0 mb-5 text-center text-secondary shadow">
                 <h2 class="text-muted">Subscription</h2>
 
                 <div class="mt-5">
@@ -50,7 +50,13 @@
                                 <a href="{% url 'payment:subscribe' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Join now for £5/month</a>
                             </h5>
                         </div>
-                    {% else %}
+                    {% elif user.subscription.status == 'canceled' %}
+                        <div>
+                            <h5>
+                                <a href="{% url 'payment:subscribe' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Re-Subscribe</a>
+                            </h5>
+                        </div>
+                    {% else  %}
                         <button id="cancel-button" onclick="cancelSubscription()" class="subscribe-button btn btn-danger rounded-0 text-uppercase">Cancel Subscription</button>
                     {% endif %}
                     

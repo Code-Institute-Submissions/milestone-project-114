@@ -21,7 +21,7 @@
         </div>
 
         <div class="row my-5">
-            <div class="col cart-container text-secondary">
+            <div class="col cart-container text-secondary shadow">
                 {% if cart_items %}
                     <div class="table-responsive">
                         <table class="table-sm">
@@ -42,7 +42,7 @@
                             {% for item in cart_items %}
                                 <tr>
                                     <td class="py-3 w-25">
-                                        <img src="{{ item.item.image.url }}" alt="{{ item.item.name }}" class="img-fluid">
+                                        <img src="{{ item.item.image.url }}" alt="{{ item.item.name }}" class="img-fluid shadow">
                                     </td>
 
                                     <td class="py-3">
