@@ -36,7 +36,6 @@ def masterclasses(request):
     context = {
         'artists': artists,
         'overviews': overviews,
-        'search_query': search,
     }
 
     return render(request, 'lessons/masterclasses.html', context)

@@ -24,6 +24,7 @@ class Order(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
     delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    discount = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
 
@@ -39,8 +40,11 @@ class Order(models.Model):
                 'lineitem_total'
             )
         )['lineitem_total__sum'] or 0
-        self.delivery_cost = self.order_total * settings.DELIVERY_PERCENTAGE / 100
-        self.grand_total = self.order_total + self.delivery_cost
+        self.delivery_cost = float(self.order_total) * settings.DELIVERY_PERCENTAGE / 100
+        if self.discount:
+            self.grand_total = self.order_total + self.delivery_cost - settings.MEMBER_DISCOUNT / 100
+        else:
+            self.grand_total = float(self.order_total) + self.delivery_cost
         self.save
 
     def save(self, *args, **kwargs):
