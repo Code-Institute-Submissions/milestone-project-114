@@ -1,4 +1,5 @@
 from django.test import TestCase
+from merch.models import Merch
 
 
 class TestCartViews(TestCase):

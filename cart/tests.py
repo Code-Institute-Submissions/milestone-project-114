@@ -1,7 +1,7 @@
 from django.test import TestCase
 
 
-class TestCartContexts(TestCase):
+class TestContexts(TestCase):
 
     def test_user_subscription_status(self):
         status = 'paid'
@@ -17,3 +17,12 @@ class TestCartContexts(TestCase):
             delivery = total * (10 / 100)
             grand_total = delivery + total
             self.assertEqual(grand_total, 11)
+
+
+class TestCartTools(TestCase):
+
+    def test_cart_tools(self):
+        price = 5
+        quantity = 3
+        subtotal = price * quantity
+        self.assertEqual(subtotal, 15)
