@@ -32,11 +32,13 @@
             </div>
         </div>
 
-        <div class="row my-5">
-            <div class="col-12">
-                <h6 class="text-center text-secondary">You are currently on the <strong class="font-weight-bold">{{ user.subscription.pricing }}</strong> plan.</h6>
+        {% if user.subscription.status == 'paid' %}
+            <div class="row my-5">
+                <div class="col-12">
+                    <h6 class="text-center text-secondary">You are currently on the <strong class="font-weight-bold">{{ user.subscription.pricing }}</strong> plan.</h6>
+                </div>
             </div>
-        </div>
+        {% endif %}
 
         <div class="row text-center">
             <div class="col-3"></div>

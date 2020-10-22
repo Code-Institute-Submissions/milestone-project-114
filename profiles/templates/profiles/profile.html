@@ -40,7 +40,7 @@
                 <div class="mt-5">
                     <p>Customer Id: <span class="text-muted">{{ user.userprofile.stripe_customer_id }}</span></p>
 
-                    <p>Current Plan: <span class="text-muted">{{ user.subscription.pricing }}</span></p>
+                    <p>{% if user.subscription.status != 'canceled' %}Current{% else %}Previous{% endif %} Plan: <span class="text-muted">{{ user.subscription.pricing }}</span></p>
 
                     <p>Status: <span class="{% if user.subscription.status != 'canceled' %}text-success{% else %}text-danger{% endif %} text-uppercase">{{ user.subscription.status }}</span></p>
 

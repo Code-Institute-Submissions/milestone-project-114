@@ -14,7 +14,9 @@ Your order will be delivered to:
 {{ order.full_name }},
 {{ order.street_address1 }},
 {% if street_address2 %}
-{{ order.street_address2 }},
+    {{ order.street_address2 }},
+{% else %}
+    N/A
 {% endif %}
 {{ order.town_or_city }},
 {{ order.county }}

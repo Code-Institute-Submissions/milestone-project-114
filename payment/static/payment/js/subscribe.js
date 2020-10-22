@@ -275,7 +275,10 @@ function handleRequiresPaymentMethod({
 function onSubscriptionComplete(result) {
     // Payment was successful.
     if (result.subscription.status === 'active' || 'paid') {
-        window.location.href = on_subscription_complete_url;
+        // Add a 5 second delay to redirect to allow updated status to be displayed in profile page
+        window.setTimeout(function() {
+             window.location.href = on_subscription_complete_url;
+        }, 5000);
     }
 }
 
