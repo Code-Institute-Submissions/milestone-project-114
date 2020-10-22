@@ -23,7 +23,7 @@ class Command(BaseCommand):
             if settings.DEBUG:
                 password = 'admin'
             else:
-                password = randomString()
+                password = 'admin'
             user = User.objects.create_superuser(
                 'admin', 'admin@admin.com', password
             )
