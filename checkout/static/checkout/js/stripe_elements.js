@@ -58,10 +58,6 @@ form.addEventListener('submit', function(ev) {
     card.update({'disabled': true});
     $('#submit-button').attr('disabled', true);
 
-    // Toggle the fade for the loading overlay
-    $('#payment-form').fadeToggle(100);
-    $('#loading-overlay').fadeToggle(100);
-
     // Define post variables
     let saveInfo = Boolean($('#id-save-info').attr('checked'));
     let csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
@@ -115,8 +111,6 @@ form.addEventListener('submit', function(ev) {
                 `;
                 
                 $(errorDiv).html(html);
-                $('#payment-form').fadeToggle(100);
-                $('#loading-overlay').fadeToggle(100);
                 card.update({'disabled': false});
                 $('#submit-button').attr('disabled', false);
             } else {
