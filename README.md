@@ -204,6 +204,11 @@ To deploy the app on Heroku, the following steps have been followed:
 
 10. Add `<app_name>.herokuapp.com` to ALLOWED_HOSTS in settings.py.
 
+11. Finally, set the git remote and push the repository to deploy to Heroku:
+
+    - `heroku git:remote -a <app_name>`
+    - `git push heroku master`
+
 ### Deploying Locally
 
 1. 
