@@ -42,18 +42,23 @@
 
     <title>Deathfret Guitar {% block extra_title %}{% endblock %}</title>
   </head>
+
   <body>
     <header class="container-fluid fixed-top">
-        <nav id="nav" class="row navbar-dark bg-black d-lg-flex fixed-top">
-            <div class="col-3 col-lg-4 py-3 pr-0 my-auto text-right">
+        <nav id="nav" class="navbar navbar-expand-lg navbar-dark bg-black d-lg-flex fixed-top">
+            <div>
                 <a href="{% url 'index' %}" class="navbar-brand ml-4">
                     <img class="logo" src="{% static 'deathfret-logo.png' %}" alt="deathfret-logo">
                 </a>
             </div>
 
-            <div class="col-6 col-lg-4 py-3 px-0 my-auto text-center">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler" aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div id="navbar-toggler" class="row py-2 px-0 my-auto collapse navbar-collapse">
                 <ul class="list-inline list-unstyled my-0">
-                    <li class="list-inline-item dropdown">
+                    <li class="list-inline-item dropdown border-right lessons-navlink">
                         <a href="#" class="text-light nav-link" id="lesson-options" data-toggle="dropdown" aria-haspopup="true" arie-expanded="false">
                             <div>
                                 <p class="my-0 dropdown-toggle text-uppercase">Lessons </p>
@@ -75,7 +80,7 @@
                     </li>
                     -->
 
-                    <li class="list-inline-item">
+                    <li class="list-inline-item border-right">
                         <a href="{% url 'merch' %}" class="text-light nav-link" id="store">
                             <div>
                                 <p class="my-0 text-uppercase">Store</p>
@@ -112,14 +117,14 @@
                     </li>
 
                     <!-- Add if statement for store -->
-                    <li class="list-inline-item">
+                    <li class="list-inline-item border-left">
                         <a href="{% url 'view_cart' %}" class="text-light nav-link">
                             <div class="text-center">
                                 <div class="icon">
                                     <i class="fas fa-shopping-cart icon-light">{% if grand_total %}<div class="cart-circle ml-3 mb-1"></div>{% endif %}</i>
                                 </div>
 
-                                <span class="my-0 d-md-none">
+                                <span class="my-0 d-none d-lg-inline-block">
                                     {% if grand_total %}
                                         £{{ grand_total|floatformat:2 }}
                                     {% endif %}
@@ -128,12 +133,6 @@
                         </a>
                     </li>
                 </ul>
-            </div>
-
-            <div class="col-3 col-lg-4 py-3 pl-0 my-auto">
-                <a href="{% url 'index' %}" class="navbar-brand ml-4">
-                    <h1 class="navbar-brand text-uppercase text-left">Deathfret <span class="text-danger">Guitar</span></h1>
-                </a>
             </div>
 
             <!--

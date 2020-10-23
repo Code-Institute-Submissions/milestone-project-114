@@ -7,7 +7,7 @@ html {
 body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
-    height: calc(100vh - 117px);
+    height: calc(100vh - 100px);
 }
 
 a {
@@ -26,7 +26,6 @@ a:hover {
 
 .nav-link {
     font-size: 0.8rem;
-    border-left: 1px solid white;
 }
 
 .logo {
@@ -61,7 +60,7 @@ a:hover {
 
 .index-banner {
     height: 88vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('/media/deathfret-index-banner-4.jpeg') no-repeat bottom center;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('/media/deathfret-index-banner-4.jpeg') no-repeat right center;
     background-size: cover;
 }
 
@@ -102,7 +101,7 @@ a:hover {
 .cart-container,
 .merch-container,
 .subscription-container {
-    min-height: 75vh;
+    min-height: 100vh;
 }
 
 .item-img {
@@ -182,6 +181,11 @@ a:hover {
 
 .lesson-container:hover .middle {
     opacity: 1;
+}
+
+.video {
+    width: 420px;
+    height: 315px;
 }
 
 /* -------------------------- Allauth form styling */
@@ -264,17 +268,17 @@ a:hover {
     }
 
     .header-container {
-        padding-top: 117px;
+        padding-top: 100px;
     }
 }
 
 @media (max-width: 991px) {
     .header-container {
-        padding-top: 117px;
+        padding-top: 100px;
     }
 
     body {
-        height: calc(100vh - 117px)
+        height: calc(100vh - 100px)
     }
 
     .navbar-brand {
@@ -283,5 +287,10 @@ a:hover {
 
     .logo-font {
         font-size: 1.4rem;
+    }
+
+    .video {
+        width: 340px;
+        height: 235px;
     }
 }

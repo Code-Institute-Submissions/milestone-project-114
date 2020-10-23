@@ -16,6 +16,7 @@ def subscribe(request):
     client_secret = settings.STRIPE_SECRET_KEY
     customer_id = request.user.userprofile.stripe_customer_id
     products = Product.objects.all()
+
     context = {
         'stripe_public_key': stripe_public_key,
         'stripe_secret_key': client_secret,

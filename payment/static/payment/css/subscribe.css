@@ -157,6 +157,8 @@ button:disabled {
 
 @media only screen and (max-width: 600px) {
     form {
-        width: 80vw;
+        width: 50vw;
+        padding: 0px;
+        min-width: 340px;
     }
 }

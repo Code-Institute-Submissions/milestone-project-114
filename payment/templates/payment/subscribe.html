@@ -28,7 +28,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h2 class="logo-font mb-4 text-center">Subscribe</h2>
+                <h2 class="logo-font my-4 text-center">Subscribe</h2>
             </div>
         </div>
 
@@ -41,15 +41,18 @@
         {% endif %}
 
         <div class="row text-center">
-            <div class="d-md-none col-3"></div>
-                {% for p in products reversed %}
-                    {% if p.name != 'Signup' %}
-                    <div class="col-md-6 col-lg-3">
+            {% for p in products reversed %}
+                {% if p.name != 'Signup' %}
+                    <div class="flex justify-center mx-auto mt-3 col-12 col-lg-6">
                         <div class="card shadow {% if p.name == 'Yearly' %} border border-danger {% else %} border-0 {% endif %}">
                             <div class="card-body">
-                                <h5 class="card-title font-weight-bold">{{p.name}}</h5>
+                                <h5 class="card-title font-weight-bold">{{p.name}} {{ percentage_saved }}</h5>
                                 
                                 <p class="card-text text-muted">{{p.description|linebreaksbr}}</p>
+
+                                {% if p.name == 'Yearly' %}
+                                    <p class="text-danger card-text">Save 20% When You Subscribe Annually!</p>
+                                {% endif %}
 
                                 {% for plan in p.plan_set.all %}
                                     <h5 >{{ plan.human_readable_price }}</h5>
@@ -61,9 +64,8 @@
                             </div>
                         </div>
                     </div>
-                    {% endif %}
-                {% endfor %}
-            <div class="d-md-none col-3"></div>
+                {% endif %}
+            {% endfor %}
         </div>
 
         <div class="row mb-5">
@@ -73,12 +75,12 @@
         </div>
 
         <div class="row mb-5">
-            <div class="flex justify-center mx-auto my-5">
+            <div class="flex justify-center mx-auto my-5 col-12 col-lg-5">
                 <div>
                     <div class="card-body shadow">
 						<h5 class="logo-font text-center my-3">Subscribe now to gain access to all our courses!</h5>
 
-						<p class="text-muted text-center">Enter card details.  Your subscription will start immediately!</p>
+						<p class="text-muted text-center">Enter card details. Your subscription will start immediately!</p>
 
 						<div class="row">
 							<div class="col-6 text-muted">
@@ -101,14 +103,17 @@
 
                         <form id="subscription-form">
                             {% csrf_token %}
+                            <div class="row">
+                                <div class="col-12 px-2">
+                                    <div id="subscribe-card-element"><!--Stripe.js injects the Card Element--></div>
 
-                            <div id="subscribe-card-element"><!--Stripe.js injects the Card Element--></div>
+                                    <button id="submit" type="submit">
+                                        <div class="spinner hidden" id="spinner"></div>
 
-                            <button id="submit" type="submit">
-                                <div class="spinner hidden" id="spinner"></div>
-
-                                <span id="button-text">Pay</span>
-                            </button>
+                                        <span id="button-text">Pay</span>
+                                    </button>
+                                </div>
+                            </div>
                             
                             <p id="subscribe-card-errors" role="alert"></p>
                         </form>
