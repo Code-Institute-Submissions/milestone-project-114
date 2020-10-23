@@ -209,6 +209,8 @@ To deploy the app on Heroku, the following steps have been followed:
     - `heroku git:remote -a <app_name>`
     - `git push heroku master`
 
+12. To complete deployment, connect the git repository to Heroku to allow git to push to Gitpod and Heroku simultaneously. Add new environment variables for SECRET_KEY and DEVELOPMENT and add those into settings.py.
+
 ### Deploying Locally
 
 1. 
