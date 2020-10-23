@@ -204,6 +204,12 @@ a:hover {
     color: #aab7c4;
 }
 
+/* -------------------------- Allauth social button styling */
+
+.socialaccount_providers {
+    padding-left: 0;
+}
+
 /* -------------------------- Copied from Bootstrap */
 .allauth-form-inner-content button,
 .allauth-form-inner-content input[type='submit'] {
