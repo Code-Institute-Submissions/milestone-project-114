@@ -44,14 +44,14 @@
   </head>
   <body>
     <header class="container-fluid fixed-top">
-        <nav id="nav" class="row navbar-dark bg-black d-none d-lg-flex fixed-top">
-            <div class="col-12 col-lg-4 py-3 pr-0 my-auto text-right">
+        <nav id="nav" class="row navbar-dark bg-black d-lg-flex fixed-top">
+            <div class="col-3 col-lg-4 py-3 pr-0 my-auto text-right">
                 <a href="{% url 'index' %}" class="navbar-brand ml-4">
                     <img class="logo" src="{% static 'deathfret-logo.png' %}" alt="deathfret-logo">
                 </a>
             </div>
 
-            <div class="col-12 col-lg-4 py-3 px-0 my-auto text-center">
+            <div class="col-6 col-lg-4 py-3 px-0 my-auto text-center">
                 <ul class="list-inline list-unstyled my-0">
                     <li class="list-inline-item dropdown">
                         <a href="#" class="text-light nav-link" id="lesson-options" data-toggle="dropdown" aria-haspopup="true" arie-expanded="false">
@@ -119,7 +119,7 @@
                                     <i class="fas fa-shopping-cart icon-light">{% if grand_total %}<div class="cart-circle ml-3 mb-1"></div>{% endif %}</i>
                                 </div>
 
-                                <span class="my-0">
+                                <span class="my-0 d-md-none">
                                     {% if grand_total %}
                                         £{{ grand_total|floatformat:2 }}
                                     {% endif %}
@@ -130,7 +130,7 @@
                 </ul>
             </div>
 
-            <div class="col-12 col-lg-4 py-3 pl-0 my-auto">
+            <div class="col-3 col-lg-4 py-3 pl-0 my-auto">
                 <a href="{% url 'index' %}" class="navbar-brand ml-4">
                     <h1 class="navbar-brand text-uppercase text-left">Deathfret <span class="text-danger">Guitar</span></h1>
                 </a>

@@ -276,4 +276,12 @@ a:hover {
     body {
         height: calc(100vh - 117px)
     }
+
+    .navbar-brand {
+        font-size: 0.8rem;
+    }
+
+    .logo-font {
+        font-size: 1.4rem;
+    }
 }

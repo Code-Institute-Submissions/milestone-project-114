@@ -15,9 +15,9 @@
 {% block content %}
     <div class="container">
         <div class="row pt-4">
-            <div class="col-3"></div>
+            <div class="d-md-none col-lg-3"></div>
 
-            <div class="col-6 mt-3">
+            <div class="col-md-12 col-lg-6 mt-3">
                 <h2 class="logo-font text-center">Artist Masterclasses</h2>
 
                 <h6 class="py-2 text-secondary">
@@ -28,14 +28,14 @@
                 </h6>
             </div>
 
-            <div class="col-3"></div>
+            <div class="d-md-none col-lg-3"></div>
         </div>
 
         <div class="row">
             <div class="subscription-container col-10 offset-1">
                 <div class="row my-3">
                     {% for overview in overviews %}
-                        <div class="col-md-6">
+                        <div class="col-md-12 col-lg-6">
                             <div class="h-100 p-3 text-center">
                                 <a href="{% if user.subscription.status == 'paid' %}{% url 'masterclass' overview.masterclass_title %}{% else %}{% url 'payment:subscribe' %}{% endif %}">
                                     <img src="{{ overview.artist.artist_image.url }}" alt="{{ overview.artist.name }}" class="item-img card-img-top img-fluid shadow">

@@ -34,7 +34,9 @@
 
     <div class="container">
         <div class="row py-5">
-            <div class="col-lg-6 offset-3 p-4 border-0 mb-5 text-center text-secondary shadow">
+            <div class="col-lg-3"></div>
+
+            <div class="col-12 col-lg-6 p-4 border-0 mb-5 text-center text-secondary shadow">
                 <h2 class="text-muted">Subscription</h2>
 
                 <div class="mt-5">
@@ -67,13 +69,17 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-lg-3"></div>
         </div>
 
         <div class="row py-5">
-            <div class="col-lg-6 offset-3 text-secondary">
+            <div class="col-lg-3"></div>
+
+            <div class="col-12 col-lg-6 text-secondary">
                 <p class="text-muted">Default Delivery Information</p>
 
-                <form class="mt-3" action="{% url 'profile' %}" method="POST" id="update-profile-form">
+                <form class="mt-3 text-center" action="{% url 'profile' %}" method="POST" id="update-profile-form">
                     {% csrf_token %}
 
                     {{ form|crispy }}
@@ -81,10 +87,14 @@
                     <button class="btn btn-outline-danger rounded-0 text-uppercase">Update Information</button>
                 </form>
             </div>
+
+            <div class="col-lg-3"></div>
         </div>
 
         <div class="row py-5">
-            <div class="col-lg-6 offset-3 ">
+            <div class="col-lg-3"></div>
+
+            <div class="col-12 col-lg-6">
                 <p class="text-muted">Merch Order History</p>
 
                 {% if orders %}
@@ -127,6 +137,8 @@
                     </div>
                 {% endif %}
             </div>
+
+            <div class="col-lg-3"></div>
         </div>
     </div>
 {% endblock %}
