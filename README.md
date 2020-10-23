@@ -178,7 +178,31 @@ High quality wireframes of the site can be found [here](deathfret-wireframe.pdf 
 
 To deploy the app on Heroku, the following steps have been followed:
 
-1. 
+1. Log into Heroku, and create new app by providing app name and nearest location of deployment.
+
+2. Under the resources tab, provision the Heroku Postgres database as a new Add-on. This will be used as the deployment database.
+
+3. To use Heroku Postgres, in the terminal, install `dj_database_url` and `psycopg2-binary`.
+
+4. Freeze all app requirements to and create a requirements.txt file. This tells Heroku which requirements to use for deployment.
+
+    - `pip3 freeze > requirements.txt`
+
+5. To set up the new Postgres database, `import dj_database_url` in the project level settings.py file and set the new database default to the Heroku database config variable. Once in place, run migrations.
+
+6. Once the migration has occurred, revert the default database setting to the original and set up a conditional so that if the DATABASE_URL exists in the Heroku environment, use Postgres, otherwise, use local database.
+
+7. Install `gunicorn` as project web server and freeze to requirements.txt.
+
+8. Create the Heroku Procfile (`touch Procfile`) which will run gunicorn as server for the app.
+
+    - `web: gunicorn <app_name>.wsgi:application`
+
+9. Log into Heroku in the terminal (`heroku login -i`), and disable the app's collect static so that Heroku will not collect the static files.
+
+    - `heroku config:set DISABLE_COLLECTSTATIC=1 --app <app_name>`
+
+10. Add `<app_name>.herokuapp.com` to ALLOWED_HOSTS in settings.py.
 
 ### Deploying Locally
 
