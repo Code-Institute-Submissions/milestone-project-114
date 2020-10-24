@@ -16,7 +16,7 @@
     <div class="container">
         <div class="row pt-4">
             <div class="col text-center mt-3">
-                <h2>{{ masterclass.masterclass_title_friendly_name }}</h2>
+                <h2 class="logo-font mb-4 text-center">{{ masterclass.masterclass_title_friendly_name }}</h2>
 
                 <h4 class="text-secondary font-weight-light">By {{ masterclass.artist }}</h4>
 
@@ -31,7 +31,7 @@
                         <div class="card">
                             <div class="card-header lighten-3 z-depth-1" role="tab" id="heading">
                                 <h5 class="text-uppercase mb-0 py-1">
-                                    <a class="white-text font-weight-bold" data-toggle="collapse" href="#collapse" aria-expanded="true" aria-controls="collapse">
+                                    <a class="white-text font-weight-bold lesson-title" data-toggle="collapse" href="#collapse" aria-expanded="true" aria-controls="collapse">
                                         Lesson {{ masterclass.lesson_number1 }}. {{ masterclass.lesson_title1 }}
                                     </a>
                                 </h5>
@@ -41,7 +41,7 @@
                                 <div class="card-body">
                                     <div class="row my-4">
                                         <div class="col-md-12 text-md-center col-lg-8 my-auto">
-                                            <p>{{ masterclass.lesson_description1 }}</p>
+                                            <p class="lesson-desc">{{ masterclass.lesson_description1 }}</p>
                                         </div>
                                         <div class="col-md-12 text-md-center col-lg-4 mt-3 pt-2">
                                             <div class="view z-depth-1">
@@ -60,7 +60,7 @@
                         <div class="card">
                             <div class="card-header lighten-3 z-depth-1" role="tab" id="heading2">
                                 <h5 class="text-uppercase mb-0 py-1">
-                                    <a class="collapsed white-text font-weight-bold" data-toggle="collapse" href="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                    <a class="collapsed white-text font-weight-bold lesson-title" data-toggle="collapse" href="#collapse2" aria-expanded="false" aria-controls="collapse2">
                                         Lesson {{ masterclass.lesson_number2 }}. {{ masterclass.lesson_title2 }}
                                     </a>
                                 </h5>
@@ -70,7 +70,7 @@
                                 <div class="card-body">
                                     <div class="row my-4">
                                         <div class="col-md-12 text-md-center col-lg-8 my-auto">
-                                            <p>{{ masterclass.lesson_description2 }}</p>
+                                            <p class="lesson-desc">{{ masterclass.lesson_description2 }}</p>
                                         </div>
                                         <div class="col-md-12 text-md-center col-lg-4 mt-3 pt-2">
                                             <div class="view z-depth-1">
@@ -89,7 +89,7 @@
                         <div class="card">
                             <div class="card-header lighten-3 z-depth-1" role="tab" id="heading3">
                                 <h5 class="text-uppercase mb-0 py-1">
-                                    <a class="collapsed white-text font-weight-bold" data-toggle="collapse" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                    <a class="collapsed white-text font-weight-bold lesson-title" data-toggle="collapse" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
                                         Lesson {{ masterclass.lesson_number3 }}. {{ masterclass.lesson_title3 }}
                                     </a>
                                 </h5>
@@ -99,7 +99,7 @@
                                 <div class="card-body">
                                     <div class="row my-4">
                                         <div class="col-md-12 text-md-center col-lg-8 my-auto">
-                                            <p>{{ masterclass.lesson_description3 }}</p>
+                                            <p class="lesson-desc">{{ masterclass.lesson_description3 }}</p>
                                         </div>
                                         <div class="col-md-12 text-md-center col-lg-4 mt-3 pt-2">
                                             <div class="view z-depth-1">
@@ -118,7 +118,7 @@
                         <div class="card">
                             <div class="card-header lighten-3 z-depth-1" role="tab" id="heading4">
                                 <h5 class="text-uppercase mb-0 py-1">
-                                    <a class="collapsed white-text font-weight-bold" data-toggle="collapse" href="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                    <a class="collapsed white-text font-weight-bold lesson-title" data-toggle="collapse" href="#collapse4" aria-expanded="false" aria-controls="collapse4">
                                         Lesson {{ masterclass.lesson_number4 }}. {{ masterclass.lesson_title4 }}
                                     </a>
                                 </h5>
@@ -128,7 +128,7 @@
                                 <div class="card-body">
                                     <div class="row my-4">
                                         <div class="col-md-12 text-md-center col-lg-8 my-auto">
-                                            <p>{{ masterclass.lesson_description4 }}</p>
+                                            <p class="lesson-desc">{{ masterclass.lesson_description4 }}</p>
                                         </div>
                                         <div class="col-md-12 text-md-center col-lg-4 mt-3 pt-2">
                                             <div class="view z-depth-1">
@@ -147,7 +147,7 @@
                         <div class="card">
                             <div class="card-header lighten-3 z-depth-1" role="tab" id="heading5">
                                 <h5 class="text-uppercase mb-0 py-1">
-                                    <a class="collapsed white-text font-weight-bold" data-toggle="collapse" href="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                                    <a class="collapsed white-text font-weight-bold lesson-title" data-toggle="collapse" href="#collapse5" aria-expanded="false" aria-controls="collapse5">
                                         Lesson {{ masterclass.lesson_number5 }}. {{ masterclass.lesson_title5 }}
                                     </a>
                                 </h5>
@@ -157,7 +157,7 @@
                                 <div class="card-body">
                                     <div class="row my-4">
                                         <div class="col-md-12 text-md-center col-lg-8 my-auto">
-                                            <p>{{ masterclass.lesson_description5 }}</p>
+                                            <p class="lesson-desc">{{ masterclass.lesson_description5 }}</p>
                                         </div>
                                         <div class="col-md-12 text-md-center col-lg-4 mt-3 pt-2">
                                             <div class="view z-depth-1">
@@ -176,7 +176,7 @@
                         <div class="card">
                             <div class="card-header lighten-3 z-depth-1" role="tab" id="heading6">
                                 <h5 class="text-uppercase mb-0 py-1">
-                                    <a class="collapsed white-text font-weight-bold" data-toggle="collapse" href="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                                    <a class="collapsed white-text font-weight-bold lesson-title" data-toggle="collapse" href="#collapse6" aria-expanded="false" aria-controls="collapse6">
                                         Lesson {{ masterclass.lesson_number6 }}. {{ masterclass.lesson_title6 }}
                                     </a>
                                 </h5>
@@ -186,7 +186,7 @@
                                 <div class="card-body">
                                     <div class="row my-4">
                                         <div class="col-md-12 text-md-center col-lg-8 my-auto">
-                                            <p>{{ masterclass.lesson_description6 }}</p>
+                                            <p class="lesson-desc">{{ masterclass.lesson_description6 }}</p>
                                         </div>
                                         <div class="col-md-12 text-md-center col-lg-4 mt-3 pt-2">
                                             <div class="view z-depth-1">
@@ -205,7 +205,7 @@
                         <div class="card">
                             <div class="card-header lighten-3 z-depth-1" role="tab" id="heading7">
                                 <h5 class="text-uppercase mb-0 py-1">
-                                    <a class="collapsed white-text font-weight-bold" data-toggle="collapse" href="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                                    <a class="collapsed white-text font-weight-bold lesson-title" data-toggle="collapse" href="#collapse7" aria-expanded="false" aria-controls="collapse7">
                                         Lesson {{ masterclass.lesson_number7 }}. {{ masterclass.lesson_title7 }}
                                     </a>
                                 </h5>
@@ -215,7 +215,7 @@
                                 <div class="card-body">
                                     <div class="row my-4">
                                         <div class="col-md-12 text-md-center col-lg-8 my-auto">
-                                            <p>{{ masterclass.lesson_description7 }}</p>
+                                            <p class="lesson-desc">{{ masterclass.lesson_description7 }}</p>
                                         </div>
                                         <div class="col-md-12 text-md-center col-lg-4 mt-3 pt-2">
                                             <div class="view z-depth-1">
@@ -234,7 +234,7 @@
                         <div class="card">
                             <div class="card-header lighten-3 z-depth-1" role="tab" id="heading8">
                                 <h5 class="text-uppercase mb-0 py-1">
-                                    <a class="collapsed white-text font-weight-bold" data-toggle="collapse" href="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                                    <a class="collapsed white-text font-weight-bold lesson-title" data-toggle="collapse" href="#collapse8" aria-expanded="false" aria-controls="collapse8">
                                         Lesson {{ masterclass.lesson_number8 }}. {{ masterclass.lesson_title8 }}
                                     </a>
                                 </h5>
@@ -244,7 +244,7 @@
                                 <div class="card-body">
                                     <div class="row my-4">
                                         <div class="col-md-12 text-md-center col-lg-8 my-auto">
-                                            <p>{{ masterclass.lesson_description8 }}</p>
+                                            <p class="lesson-desc">{{ masterclass.lesson_description8 }}</p>
                                         </div>
                                         <div class="col-md-12 text-md-center col-lg-4 mt-3 pt-2">
                                             <div class="view z-depth-1">
@@ -263,7 +263,7 @@
                         <div class="card">
                             <div class="card-header lighten-3 z-depth-1" role="tab" id="heading9">
                                 <h5 class="text-uppercase mb-0 py-1">
-                                    <a class="collapsed white-text font-weight-bold" data-toggle="collapse" href="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                                    <a class="collapsed white-text font-weight-bold lesson-title" data-toggle="collapse" href="#collapse9" aria-expanded="false" aria-controls="collapse9">
                                         Lesson {{ masterclass.lesson_number9 }}. {{ masterclass.lesson_title9 }}
                                     </a>
                                 </h5>
@@ -273,7 +273,7 @@
                                 <div class="card-body">
                                     <div class="row my-4">
                                         <div class="col-md-12 text-md-center col-lg-8 my-auto">
-                                            <p>{{ masterclass.lesson_description9 }}</p>
+                                            <p class="lesson-desc">{{ masterclass.lesson_description9 }}</p>
                                         </div>
                                         <div class="col-md-12 text-md-center col-lg-4 mt-3 pt-2">
                                             <div class="view z-depth-1">
@@ -292,7 +292,7 @@
                         <div class="card">
                             <div class="card-header lighten-3 z-depth-1" role="tab" id="heading10">
                                 <h5 class="text-uppercase mb-0 py-1">
-                                    <a class="collapsed white-text font-weight-bold" data-toggle="collapse" href="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                                    <a class="collapsed white-text font-weight-bold lesson-title" data-toggle="collapse" href="#collapse10" aria-expanded="false" aria-controls="collapse10">
                                         Lesson {{ masterclass.lesson_number10 }}. {{ masterclass.lesson_title10 }}
                                     </a>
                                 </h5>
@@ -302,7 +302,7 @@
                                 <div class="card-body">
                                     <div class="row my-4">
                                         <div class="col-md-12 text-md-center col-lg-8 my-auto">
-                                            <p>{{ masterclass.lesson_description10 }}</p>
+                                            <p class="lesson-desc">{{ masterclass.lesson_description10 }}</p>
                                         </div>
                                         <div class="col-md-12 text-md-center col-lg-4 mt-3 pt-2">
                                             <div class="view z-depth-1">

@@ -293,4 +293,21 @@ a:hover {
         width: 340px;
         height: 235px;
     }
+
+    .increment-qty,
+    .decrement-qty {
+        padding: 0.2rem;
+    }
+
+    .lesson-title {
+        font-size: 0.8rem;
+    }
+
+    .lesson-desc {
+        font-size: 0.75rem;
+    }
+
+    .logo {
+        max-height: 50px;
+    }
 }
