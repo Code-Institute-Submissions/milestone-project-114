@@ -213,13 +213,13 @@ if 'USE_AWS' in os.environ:
 
     # Static and Media Storage
     STATIC_FILES_STORAGE = 'custom_storages.StaticStorage'
-    STATIC_FILES_LOCATION = 'static'
+    STATICFILES_LOCATION = 'static'
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-    MEDIA_FILES_LOCATION = 'media'
+    MEDIAFILES_LOCATION = 'media'
 
     # Override static and media urls
-    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATIC_FILES_LOCATION}/'
-    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIA_FILES_LOCATION}/'
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
 DELIVERY_PERCENTAGE = 12.5
 MEMBER_DISCOUNT = 10
