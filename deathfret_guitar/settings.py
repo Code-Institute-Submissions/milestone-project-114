@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'profiles',
     'djstripe',
     'payment',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -194,6 +195,24 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+if 'USE_AWS' in os.environ:
+    # S3 Bucket Config Vars
+    AWS_STORAGE_BUCKET_NAME = 'deathfret-guitar'
+    AWS_S3_REGION_NAME = 'eu-west-1'
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+    # Static and Media Storage
+    STATIC_FILES_STORAGE = 'custom_storages.StaticStorage'
+    STATIC_FILES_LOCATION = 'static'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIA_FILES_LOCATION = 'media'
+
+    # Override static and media urls
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATIC_FILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIA_FILES_LOCATION}/'
 
 DELIVERY_PERCENTAGE = 12.5
 MEMBER_DISCOUNT = 10
