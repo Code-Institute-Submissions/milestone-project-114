@@ -1,0 +1,47 @@
+[
+{
+    "model": "profiles.userprofile",
+    "pk": 21,
+    "fields": {
+        "user": 27,
+        "stripe_customer_id": "cus_IFgCxsTkTHMzTJ",
+        "default_phone_number": "07528182502",
+        "default_street_address1": "Flat 20 The Cedars",
+        "default_street_address2": "Park Road",
+        "default_town_or_city": "Newcastle-Upon-Tyne",
+        "default_county": "Tyne & Wear",
+        "default_country": "GB",
+        "default_postcode": "NE4 7DX"
+    }
+},
+{
+    "model": "profiles.userprofile",
+    "pk": 22,
+    "fields": {
+        "user": 28,
+        "stripe_customer_id": "cus_IFyvtnwVBlGOv3",
+        "default_phone_number": null,
+        "default_street_address1": null,
+        "default_street_address2": null,
+        "default_town_or_city": null,
+        "default_county": null,
+        "default_country": null,
+        "default_postcode": null
+    }
+},
+{
+    "model": "profiles.userprofile",
+    "pk": 23,
+    "fields": {
+        "user": 29,
+        "stripe_customer_id": "",
+        "default_phone_number": null,
+        "default_street_address1": null,
+        "default_street_address2": null,
+        "default_town_or_city": null,
+        "default_county": null,
+        "default_country": null,
+        "default_postcode": null
+    }
+}
+]

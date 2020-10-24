@@ -1,0 +1,26 @@
+[
+{
+    "model": "subscriptions.pricing",
+    "pk": 1,
+    "fields": {
+        "name": "Signup Free",
+        "stripe_price_id": "price_1HcZWtEjKkX6AQGJldgbPRLj"
+    }
+},
+{
+    "model": "subscriptions.pricing",
+    "pk": 2,
+    "fields": {
+        "name": "Monthly",
+        "stripe_price_id": "price_1HX6XJEjKkX6AQGJGu9Q8MmT"
+    }
+},
+{
+    "model": "subscriptions.pricing",
+    "pk": 3,
+    "fields": {
+        "name": "Yearly",
+        "stripe_price_id": "price_1HX6ZPEjKkX6AQGJhktMQhke"
+    }
+}
+]

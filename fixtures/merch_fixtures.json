@@ -1,0 +1,74 @@
+[
+{
+    "model": "merch.merch",
+    "pk": "1",
+    "fields": {
+        "name": "Deathfret Branded T-Shirt",
+        "description": "Deathfret Logo Branded T-shirt - 100% Cotton, Available in Sizes S - XL",
+        "has_sizes": true,
+        "price": "15.00",
+        "image_url": null,
+        "image": "Deathfret_T-shirt_yXJs9tm.png"
+    }
+},
+{
+    "model": "merch.merch",
+    "pk": "2",
+    "fields": {
+        "name": "Deathfret Branded Beanie Hat",
+        "description": "Deathfret Logo Branded Beanie Hat  with Cuff - One Size Fits All",
+        "has_sizes": false,
+        "price": "7.99",
+        "image_url": null,
+        "image": "Deathfret_Hat_6ppcRlr.png"
+    }
+},
+{
+    "model": "merch.merch",
+    "pk": "3",
+    "fields": {
+        "name": "Deathfret Branded Trucker Cap",
+        "description": "Deathfret Logo Branded Trucker Cap - Adjustable, One Size Fits All",
+        "has_sizes": false,
+        "price": "8.99",
+        "image_url": null,
+        "image": "Deathfret_Trucker_Cap_2SuxNfz.png"
+    }
+},
+{
+    "model": "merch.merch",
+    "pk": "4",
+    "fields": {
+        "name": "Deathfret Branded Tote Bag",
+        "description": "Deathfret Logo Branded Tote Bag - Canvas",
+        "has_sizes": false,
+        "price": "10.00",
+        "image_url": null,
+        "image": "Deathfret_Tote_Bag_gtRP3ZX.png"
+    }
+},
+{
+    "model": "merch.merch",
+    "pk": "5",
+    "fields": {
+        "name": "Deathfret Branded Mug",
+        "description": "Deathfret Logo Branded Camping Mug - Stainless Steel",
+        "has_sizes": false,
+        "price": "7.99",
+        "image_url": null,
+        "image": "Deathfret_Mug_9xsCRrW.png"
+    }
+},
+{
+    "model": "merch.merch",
+    "pk": "6",
+    "fields": {
+        "name": "Deathfret Branded Sticker",
+        "description": "Deathfret Logo Branded Sticker - Vinyl",
+        "has_sizes": false,
+        "price": "0.50",
+        "image_url": null,
+        "image": "Deathfret_Sticker_hrOnlFv.png"
+    }
+}
+]

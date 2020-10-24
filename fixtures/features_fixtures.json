@@ -1,0 +1,74 @@
+[
+{
+    "model": "index.features",
+    "pk": 1,
+    "fields": {
+        "featured_artist": "shaun_lindsley",
+        "thumbnail_url": "https://scontent-vie1-1.cdninstagram.com/v/t51.2885-15/e35/s320x320/93242314_151320533043670_8641754024621963478_n.jpg?_nc_ht=scontent-vie1-1.cdninstagram.com&_nc_cat=110&_nc_ohc=2c34aPDGybEAX8iDiqQ&_nc_tp=15&oh=393bd7316fe9bc2b64f00c93ac0527a1&oe=5F87DA66",
+        "post_url": "https://www.instagram.com/p/B-9n0uOBzWa/?utm_source=ig_web_copy_link"
+    }
+},
+{
+    "model": "index.features",
+    "pk": 2,
+    "fields": {
+        "featured_artist": "nathan_caven",
+        "thumbnail_url": "https://scontent-vie1-1.cdninstagram.com/v/t51.2885-15/e35/p320x320/93794195_249961693038895_2895917791616862567_n.jpg?_nc_ht=scontent-vie1-1.cdninstagram.com&_nc_cat=107&_nc_ohc=5OYMXyoJth4AX_1lUkw&_nc_tp=19&oh=5889f73703c99d41bef638fc4cb80123&oe=5F87F358",
+        "post_url": "https://www.instagram.com/tv/B_He_8CBIGP/?utm_source=ig_web_copy_link"
+    }
+},
+{
+    "model": "index.features",
+    "pk": 3,
+    "fields": {
+        "featured_artist": "john_nicholson",
+        "thumbnail_url": "https://scontent-vie1-1.cdninstagram.com/v/t51.2885-15/e35/s320x320/93794407_533050320740709_98235084418432155_n.jpg?_nc_ht=scontent-vie1-1.cdninstagram.com&_nc_cat=109&_nc_ohc=Nxz95pLLMc8AX_PJ-op&_nc_tp=15&oh=44fb20c94415b205d95861229d3dd6aa&oe=5F87BD22",
+        "post_url": "https://www.instagram.com/p/B_KGeOxB5Ep/?utm_source=ig_web_copy_link"
+    }
+},
+{
+    "model": "index.features",
+    "pk": 4,
+    "fields": {
+        "featured_artist": "xander_gryphog",
+        "thumbnail_url": "https://scontent-vie1-1.cdninstagram.com/v/t51.2885-15/e35/s320x320/93989567_1122440441437274_8320693569211366721_n.jpg?_nc_ht=scontent-vie1-1.cdninstagram.com&_nc_cat=102&_nc_ohc=acH_xNkorwYAX-UQXrv&_nc_tp=15&oh=405807716ead7c602c79fc224eedc205&oe=5F880BB5",
+        "post_url": "https://www.instagram.com/p/B_QPet4hoqU/?utm_source=ig_web_copy_link"
+    }
+},
+{
+    "model": "index.features",
+    "pk": 5,
+    "fields": {
+        "featured_artist": "jake_bielby",
+        "thumbnail_url": "https://scontent-vie1-1.cdninstagram.com/v/t51.2885-15/e35/s320x320/94911260_1249040908820413_4958187704554985059_n.jpg?_nc_ht=scontent-vie1-1.cdninstagram.com&_nc_cat=101&_nc_ohc=5HjcNSidGbwAX-ilR-E&_nc_tp=15&oh=220fed053514668577e0251997d503cb&oe=5F87C1CF",
+        "post_url": "https://www.instagram.com/p/B_XUveNBr_3/?utm_source=ig_web_copy_link"
+    }
+},
+{
+    "model": "index.features",
+    "pk": 6,
+    "fields": {
+        "featured_artist": "dan_alderson",
+        "thumbnail_url": "https://scontent-vie1-1.cdninstagram.com/v/t51.2885-15/e35/s320x320/94889973_941023256329044_3181535401852814012_n.jpg?_nc_ht=scontent-vie1-1.cdninstagram.com&_nc_cat=100&_nc_ohc=TwuZZYwtgQ8AX8hBtvt&_nc_tp=15&oh=cca63e2dc55da6bc5c8a49b3e0ba1f20&oe=5F88023F",
+        "post_url": "https://www.instagram.com/p/B_k1qlXJy1x/?utm_source=ig_web_copy_link"
+    }
+},
+{
+    "model": "index.features",
+    "pk": 7,
+    "fields": {
+        "featured_artist": "clockwork_deity",
+        "thumbnail_url": "https://scontent-vie1-1.cdninstagram.com/v/t51.2885-15/e35/s320x320/95087679_2708828872679195_3336396924709711695_n.jpg?_nc_ht=scontent-vie1-1.cdninstagram.com&_nc_cat=111&_nc_ohc=OX4N5uWRvIQAX9KbPmR&_nc_tp=15&oh=28588a3710d0c5927fd9e5e812370816&oe=5F884E7D",
+        "post_url": "https://www.instagram.com/p/B_nbxfSJA4V/?utm_source=ig_web_copy_link"
+    }
+},
+{
+    "model": "index.features",
+    "pk": 8,
+    "fields": {
+        "featured_artist": "nathan_caven",
+        "thumbnail_url": "https://scontent-vie1-1.cdninstagram.com/v/t51.2885-15/e35/p320x320/95260786_236396797447772_8259295915342265011_n.jpg?_nc_ht=scontent-vie1-1.cdninstagram.com&_nc_cat=108&_nc_ohc=t-CFMQww_WwAX8XH97p&_nc_tp=19&oh=24d656c298f78b8a1d9f94197955c67c&oe=5F87B562",
+        "post_url": "https://www.instagram.com/tv/B_p4Vufp1Bh/?utm_source=ig_web_copy_link"
+    }
+}
+]

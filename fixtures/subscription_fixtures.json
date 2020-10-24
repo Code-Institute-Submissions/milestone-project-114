@@ -1,0 +1,35 @@
+[
+{
+    "model": "subscriptions.subscription",
+    "pk": 16,
+    "fields": {
+        "user": 27,
+        "pricing": 2,
+        "created": "2020-10-22T20:56:41.746Z",
+        "stripe_subscription_id": "sub_IFxNDWUBiPUVSH",
+        "status": "paid"
+    }
+},
+{
+    "model": "subscriptions.subscription",
+    "pk": 17,
+    "fields": {
+        "user": 29,
+        "pricing": 1,
+        "created": "2020-10-23T16:17:02.805Z",
+        "stripe_subscription_id": "sub_IFyuOCRzFEGSvU",
+        "status": "active"
+    }
+},
+{
+    "model": "subscriptions.subscription",
+    "pk": 18,
+    "fields": {
+        "user": 28,
+        "pricing": 1,
+        "created": "2020-10-23T16:18:02.183Z",
+        "stripe_subscription_id": "sub_IFyvfn7QFGKwod",
+        "status": "active"
+    }
+}
+]

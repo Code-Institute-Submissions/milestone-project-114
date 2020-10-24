@@ -1,0 +1,62 @@
+[
+{
+    "model": "lessons.artist",
+    "pk": 1,
+    "fields": {
+        "artist_name": "kevin_goetz",
+        "artist_friendly_name": "Kevin Goetz",
+        "discipline1": "rhythm",
+        "discipline2": "lead",
+        "description": "Lessons on all the necessary techniques, tricks and mindsets to succeed as a modern metal guitarist, both rhythm and lead.",
+        "skill_level1": "intermediate",
+        "skill_level2": "advanced",
+        "skill_level3": null,
+        "artist_image": "kevin-goetz_ihrRo5Q.jpeg"
+    }
+},
+{
+    "model": "lessons.artist",
+    "pk": 2,
+    "fields": {
+        "artist_name": "jason_stallworth",
+        "artist_friendly_name": "Jason Stallworth",
+        "discipline1": "Rhythm",
+        "discipline2": "Lead",
+        "description": "My goal is to give you authentic tutorials and lessons to help you became a better metal guitar player, and better musician overall. I give you tips for soloing, thrash metal riffs, and melodic death metal progressions. I go into depth with specific techniques I use, and I not only show you how to play guitar riffs, but I also teach you how to build on them.",
+        "skill_level1": "Beginner",
+        "skill_level2": "Intermediate",
+        "skill_level3": null,
+        "artist_image": "jason_stallworth.jpg"
+    }
+},
+{
+    "model": "lessons.artist",
+    "pk": 3,
+    "fields": {
+        "artist_name": "simon_smith",
+        "artist_friendly_name": "Simon Smith",
+        "discipline1": "Rhythm",
+        "discipline2": null,
+        "description": "My class is dedicated to all things guitar. My two main aims are to teach you how to play guitar better, and to show you demo's of amps, pedals, and guitars so you know what you're buying! Hope you enjoy it.",
+        "skill_level1": "Intermediate",
+        "skill_level2": "Advanced",
+        "skill_level3": null,
+        "artist_image": "simon_smith.png"
+    }
+},
+{
+    "model": "lessons.artist",
+    "pk": 4,
+    "fields": {
+        "artist_name": "corey_hunter",
+        "artist_friendly_name": "Corey Hunter",
+        "discipline1": "Rhythm",
+        "discipline2": "Lead",
+        "description": "Check out the website at https://geminiguitar.com.au!",
+        "skill_level1": "Intermediate",
+        "skill_level2": null,
+        "skill_level3": null,
+        "artist_image": "corey_hunter.jpg"
+    }
+}
+]
