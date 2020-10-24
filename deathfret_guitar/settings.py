@@ -125,8 +125,6 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
@@ -141,17 +139,17 @@ WSGI_APPLICATION = 'deathfret_guitar.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-#    if 'DATABASE_URL' in os.environ:
-DATABASES = {
-    'default': dj_database_url.parse('postgres://cxisxsmjzsdngv:b482c284d8c43a31443fe3d56b533c62eda894171c0781c6ffc82a2c39cce206@ec2-54-247-79-178.eu-west-1.compute.amazonaws.com:5432/dbaic7smebe6b1')
-}
-#    else:
-#        DATABASES = {
-#            'default': {
-#                'ENGINE': 'django.db.backends.sqlite3',
-#                'NAME': BASE_DIR / 'db.sqlite3',
-#            }
-#        }
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 # Password validation
@@ -232,3 +230,14 @@ STRIPE_MONTHLY_PRICE_ID = os.getenv('STRIPE_MONTHLY_PRICE_ID', '')
 STRIPE_YEARLY_PRICE_ID = os.getenv('STRIPE_YEARLY_PRICE_ID', '')
 
 DEFAULT_EMAIL = 'deathfretguitar@gmail.com'
+
+if 'DEVELOPMENT' in os.environ:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    DEFAULT_FROM_EMAIL = 'deathfretguitar@gmail.com'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_USE_TLS = True
+    EMAIL_PORT = 587
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
