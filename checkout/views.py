@@ -45,6 +45,7 @@ def cache_checkout_data(request):
 
 def checkout(request):
     """ View to display the checkout template """
+    template = 'checkout/checkout.html'
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -151,8 +152,6 @@ def checkout(request):
             'Stripe public key is missing from environment.'
         )
 
-    template = 'checkout/checkout.html'
-
     context = {
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
@@ -164,6 +163,7 @@ def checkout(request):
 
 def checkout_success(request, order_number):
     """ View to display the checkout success template """
+    template = 'checkout/checkout_success.html'
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
@@ -198,8 +198,6 @@ def checkout_success(request, order_number):
 
     if 'cart' in request.session:
         del request.session['cart']
-
-    template = 'checkout/checkout_success.html'
 
     context = {
         'order': order,

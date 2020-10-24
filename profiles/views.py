@@ -13,6 +13,7 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 
 def profile(request):
     """ View to render the profile page """
+    template = 'profiles/profile.html'
     profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':
@@ -23,7 +24,6 @@ def profile(request):
 
     form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
-    template = 'profiles/profile.html'
     context = {
         'profile': profile,
         'form': form,
@@ -36,12 +36,12 @@ def profile(request):
 
 def order_history(request, order_number):
     """ Display the user's order history in the profile view """
+    template = 'checkout/checkout_success.html'
     order = get_object_or_404(Order, order_number=order_number)
     messages.info(
         request,
         f'This is a previous order confirmation for order {order_number}.'
     )
-    template = 'checkout/checkout_success.html'
     context = {
         'order': order,
         'from_profile': True,

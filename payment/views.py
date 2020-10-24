@@ -12,6 +12,7 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 @login_required
 def subscribe(request):
     """ View to render the subscribe page """
+    template = 'payment/subscribe.html'
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     client_secret = settings.STRIPE_SECRET_KEY
     customer_id = request.user.userprofile.stripe_customer_id
@@ -24,7 +25,7 @@ def subscribe(request):
         'customer_id': customer_id,
     }
 
-    return render(request, 'payment/subscribe.html', context)
+    return render(request, template, context)
 
 
 def createSubscription(request, *args, **kwargs):

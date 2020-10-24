@@ -9,6 +9,7 @@ from .models import Artist, MasterclassOverview
 
 def masterclasses(request):
     """ View to render the masterclasses page """
+    template = 'lessons/masterclasses.html'
     artists = Artist.objects.all()
     overviews = MasterclassOverview.objects.all()
 
@@ -43,11 +44,12 @@ def masterclasses(request):
         'overviews': overviews,
     }
 
-    return render(request, 'lessons/masterclasses.html', context)
+    return render(request, template, context)
 
 
 def masterclass(request, masterclass_title):
     """ View to render the masterclass lessons page """
+    template = 'lessons/masterclass.html'
     masterclass = get_object_or_404(
         MasterclassOverview,
         masterclass_title=masterclass_title
@@ -58,4 +60,4 @@ def masterclass(request, masterclass_title):
         'overviews': overviews,
     }
 
-    return render(request, 'lessons/masterclass.html', context)
+    return render(request, template, context)

@@ -11,7 +11,8 @@ from merch.models import Merch
 
 def view_cart(request):
     """ View to display the cart template """
-    return render(request, 'cart/cart.html')
+    template = 'cart/cart.html'
+    return render(request, template)
 
 
 def add_to_cart(request, item_id):
