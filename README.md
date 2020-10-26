@@ -14,7 +14,7 @@ for the site owner(s) to source players who would be willing to write and record
 
 The site will also feature a webstore of branded merchandise that a subscribing user or anaonymous shopper will be able to purchase. An extra incentive for subscribership is a subscriber's 10% discount to be used on all branded merchandise.
 
-![]( "")
+![DeathfretResponsive](static/deathfret-responsive.png "DeathfretResponsive")
 
 ***
 
@@ -310,7 +310,7 @@ To deploy the app on Heroku, the following steps have been followed:
 * [AmIResponsive?](http://ami.responsivedesign.is/) - To test site responsiveness.
 * [Stripe](https://stripe.com/gb) - To process payments.
 * [YouTube](https://www.youtube.com) - For embedded lesson videos.
-* [Instagram](https://www.instagram.com) - For embedded features (now redundant)
+* [Instagram](https://www.instagram.com) - For embedded features. `(now redundant)`
 
 ***
 
