@@ -318,15 +318,34 @@ To deploy the app on Heroku, the following steps have been followed:
 
 ### Content
 
-- https://www.get-youtube-thumbnail.com/
+- All content has been written by myself, with the exception of the artist and lesson descriptions which have been written by each artist, respectively.
 
 ### Media:
 
-- 
+* The Deathfret brand logo was designed by myself, for personal use.
+* Index carousel images have been sourced as copyright-free images from [Adobe Stock](https://stock.adobe.com/uk/).
+* Merch items created by myself using [Custom Ink](https://www.customink.com/).
+* All credit for lesson videos goes to the sourced artists:
+    - [Kevin Goetz](https://www.youtube.com/user/MuteProphetBand)
+    - [Jason Stallworth](https://www.youtube.com/c/jasonstallworth/playlists)
+    - [Simon Smith](https://www.youtube.com/user/simonthedragon)
+    - [Corey Hunter](https://www.youtube.com/user/gsogoz)
 
 ### Code
 
-- https://www.ordinarycoders.com/blog/article/django-stripe-monthly-subscription
+- The Deathfret merch store app coding content has been inspired by what has been learned about Django full stack frameworks thanks to the Data Centric Development module provided by [Code Institute](https://codeinstitute.net/), allowing room to further demonstrate understanding of the framework for the subscription app.
+- This article from [Ordinary Coders](https://www.ordinarycoders.com/blog/article/django-stripe-monthly-subscription) provided valuable insight into how to integrate the Stripe subscription API with this app.
 
 ### Acknowledgements
 
+Special thanks go to :
+
+- The Code Institute mentoring team, for their patience and expertise.
+- My mentor, Mark Railton for his support and encouragement.
+- The Code Institute Slack community for their knowledge and quick responses.
+
+This site is for educational use only.
+
+Shaun Lindsley/vdgvzr
+
+Code Institute 2020
