@@ -88,6 +88,10 @@
                                     </td>
 
                                     <td class="py-3">
+                                        <p class="my-0">£{{ item.item.price }}</p>
+                                    </td>
+
+                                    <td class="py-3">
                                         <p class="my-0">£{{ item.item.price | calculate_subtotal:item.quantity }}</p>
                                     </td>
                                 </tr>

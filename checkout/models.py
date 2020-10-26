@@ -45,7 +45,7 @@ class Order(models.Model):
             self.grand_total = self.order_total + self.delivery_cost - settings.MEMBER_DISCOUNT / 100
         else:
             self.grand_total = float(self.order_total) + self.delivery_cost
-        self.save
+        self.save()
 
     def save(self, *args, **kwargs):
         if not self.order_number:

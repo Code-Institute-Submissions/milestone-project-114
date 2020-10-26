@@ -7,14 +7,12 @@ in one comprehensive application. Using the Django full stack framework, the goa
 as a payment system for a product and/or service.
 
 As a guitarist with over 20 years experience playing, recording and touring, I have always dreamt of creating a community of up and coming players, in which the more prevalant
-who have anything to teach will be able to do so for a subscribing user. Specifically I have been a part of the extreme metal niche of the industry for many years and have noticed that
-such a platform does not currently exist for this particular genre.
+who have anything to teach will be able to do so for a subscribing user. Specifically I have been a part of the extreme metal niche of the industry for many years and have observed a gap in this market, and that such a platform does not currently exist for this particular genre.
 
-The site will be a subscription based site, where a member will be able to access lessons and masterclasses of talented guitarists for a small monthly, or yearly fee. The idea will be
-for the site owner(s) to source players who would be willing to write and record a lesson series, which will then be available for paying members in their very own members area. At the time of writing however, this collaborative content has not yet been created, so while the project is being built, only example lesson plans by sourced players will be used. The structure of the site
-will be the same.
+The django app will be a subscription based site, where a member will be able to access lessons and masterclasses of talented guitarists for a small monthly, or yearly fee. The idea will be
+for the site owner(s) to source players who would be willing to write and record a lesson series, which will then be available for paying members in their very own members area. At the time of writing however, this collaborative content has not yet been created, so while the project is being built, only example lesson plans by sourced (Youtube, with permission) players will be used. The structure of the site will however, remain the same.
 
-The site will also feature a webstore of branded merchandise that a subscribing user or shopper will be able to purchase.
+The site will also feature a webstore of branded merchandise that a subscribing user or anaonymous shopper will be able to purchase. An extra incentive for subscribership is a subscriber's 10% discount to be used on all branded merchandise.
 
 ![]( "")
 
@@ -58,11 +56,19 @@ The site will also feature a webstore of branded merchandise that a subscribing 
 
 ### Goals
 
+As part of the Full Stack Developer course directed by [Code Institute](https://codeinstitute.net/), this project was designed to fulfill the scope of creating an ecommerce or SaaS app using the [Django](https://www.djangoproject.com/) full stack framework.
 
+The goal is to create not only a site where users can access to valuable lesson series' offered by the talents of the music scene, but eventually to create a community of like-minded players who share a passion to share and devlop ideas artistically. The demographic is open to any guitarist who is interested in learning from the featured artists, but those specifically who are fans of the genre or are interested in learning from it.
+
+The long term goal is to take this project beyond the scope of the course, and after completion, to launch this as my first online business.
 
 ### Developer Goals
 
+As a developer, the main goal is to build a subscription model based on a signup and paid for tier of subscription. The paid tier will be divided into monthly or yearly payments. If the user opts for the yearly payment option, this will work out cheaper for them annually, rather than paying on a monthly basis.
 
+The side goal for this project is to strengthen the knowledge of creating an eccommerce store and the system of one off payments for goods using [Stripe](https://stripe.com/gb).
+
+Both will strengthen knowledge and skills of the Django framework, and provide the development of advanced JavaScript and Python functionality.
 
 ### User Stories
 
@@ -96,34 +102,45 @@ As a user, I would like to be able to:
 
 ### Design
 
+The layout and navigation design elements of the site has been achieved using the Bootstrap design framework. As much consideration as possible has gone into the implementing the components and altering the styles of each to best suit the overall visual design.
 
+The UX design of the site has been designed as a simple, and easy to use payment flow for both subscription and goods payments. The featured artist and lesson series have been presented to the user in an easy-to-follow style of use, where leassons are laid out in an interactive, self-explanatory way.
 
 #### Frameworks
 
-* []()
-    - 
+* [Django](https://www.djangoproject.com/)
+    - The Django framework has provided an excellent, intuitive framework to build this project upon. Offering the ability to easily create data models and to display the data back on the front-end with the use of Django's template tags.
+
+* [Bootstrap 4.5.2](https://getbootstrap.com/)
+    - Bootstrap has been chosen as the design framework over others, such as Materialize or Tailwind. Materialize was used in a previous project and resulted in some limitations with compatibility of other features that were implemented. To keep things simple, Bootstrap provided the ease of use and implememntation necessary for the scope of the project.
+
+* [JQuery 3.5.1](https://jquery.com/)
+    - Although JQuery has not been a major factor for the use of JavaScript logic in the project, it has played an important role in connecting the front-end interactivity to the back-end functionality. 
 
 #### Colours Used
 
-
+The colour scheme and brand logo have been designed to reflect the imagery and primary colours that are used throughout most of this genre's visual design work:
+    - The logo as a 'band logo' style brand.
+    - The use of black, red and white as primary colours observed throughout most extreme metal's visual design work.
 
 Colours:
 
-- ![]() ``
-
-Materialize Colors:
-
-- ![]() ``
+- ![#000000](https://placehold.it/15/000000/000000?text=+) `#000000 - black, base colour`
+- ![#FFFFFF](https://placehold.it/15/FFFFFF/000000?text=+) `#FFFFFF - white, base colour`
+- ![#DC3545](https://placehold.it/15/DC3545/000000?text=+) `#DC3545 - red (bootstrap 'danger'), primary colour`
+- ![#6C757D](https://placehold.it/15/6C757D/000000?text=+) `#6C757D - dark grey (bootstrap 'secondary'), secondary colour`
 
 #### Fonts
 
-![]( "")
+Many fonts have been experimented with in order to fit the design of the project, including Google Fonts' "Metal" - which ended up leaving an impression of "tackiness". A cleaner, lighter and smarter font has been chosen, in order to give the site an air of sophistication and professionalism despite the nature of the genre in which is is based.
 
+![FontsExample](static/deathfret-fonts.png "Fonts")
 
+Montserrat from [Google Fonts](https://fonts.google.com) has been chosen to reflect the design aesthetic.
 
 #### Icons
 
-[]()
+[FontAwesome](https://fontawesome.com/) has been used to deliver the icons used throughout the project, as they are the more convenient option to implement alongside Bootstrap.
 
 #### Wireframes
 
@@ -139,11 +156,21 @@ High quality wireframes of the site can be found [here](deathfret-wireframe.pdf 
 
 #### 
 
-* 
+* Subscription tier page with easy UX flow for taking card payments.
+
+* Merch webstore with easy UK flow for taking card payments.
+
+* User profile comtaining surrent subscription status, default delivery information and order history.
+
+* Lesson sets laid out in a Bootstrap accordion.
 
 ### Features Left to Implement
 
-* 
+* Instagram feed for local feature wall - something that was implemented during the project but made redundant due to the nature of instagrams API being changed.
+
+* A news blog related to the community that will be built by app users.
+
+* Downloadable course content (music sheets and backing tracks) in PDF and mp3 format.
 
 ***
 
@@ -163,7 +190,19 @@ High quality wireframes of the site can be found [here](deathfret-wireframe.pdf 
 
 ### HTML
 
-* []()
+* [HTMLValidator](https://validator.w3.org/)
+    - All HTML passes through the validator without any problems. The only errors present are raised for the Django template tags:
+
+![HtmlValidator](static/deathfret-guitar-html-validator.png "HTMLValidator")
+
+* [CSSValidator](https://jigsaw.w3.org/css-validator/)
+    - All static CSS files pass through the validator with no errors.
+
+* [JavaSciptValidator](https://esprima.org/demo/validate.html)
+    - All static JS files pass through the validator with no errors.
+
+* [PythonCodeChecker](https://extendsclass.com/python-tester.html)
+    - All Python code passes through the code checker with no major errors. The only errors present here and on flake8 are things not worth changing, eg. line length.
 
 ### Compatibility
 
@@ -213,7 +252,26 @@ To deploy the app on Heroku, the following steps have been followed:
 
 ### Deploying Locally
 
-1. 
+1. Ensure the following components are present:
+
+    - [Git](https://gist.github.com/derhuerst/1b15ff4652a867391f03)
+    - [pip](https://pip.pypa.io/en/stable/installing/)
+    - [Python3](https://www.python.org/downloads/)
+    - [Django](https://www.djangoproject.com/)
+
+2. Download the .zip file from the repository in GitHub. The following command can also be used to clone the repository:
+
+    - `git clone https://github.com/vdgvzr/milestone-project-4`
+
+3. In the workspace environment, ensure that all Django config variables are set.
+
+4. Install the project requirements from the requirements.txt file:
+
+    - `pip3 install -r requirements.txt`
+
+5. Run the manage.py file to run the server:
+
+    - `pip3 manage.py runserver`
 
 ***
 

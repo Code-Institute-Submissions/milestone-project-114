@@ -102,7 +102,12 @@ def checkout(request):
                     return redirect(reverse('view_cart'))
 
             request.session['save_info'] = 'save_info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(
+                reverse(
+                    'checkout_success',
+                    args=[order.order_number]
+                )
+            )
         else:
             messages.error(
                 request,
@@ -191,9 +196,9 @@ def checkout_success(request, order_number):
     """ Final message to the user that their order was successful """
     messages.success(
         request,
-        f'Order processed successfully! \
-        Your order number is {order_number}. A confirmation \
-        email will be sent to {order.email}'
+        f'Order processed successfully!\
+            Your order number is {order_number}.\
+                 A confirmation email will be sent to {order.email}'
     )
 
     if 'cart' in request.session:
