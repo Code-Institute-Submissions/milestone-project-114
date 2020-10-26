@@ -180,6 +180,12 @@ High quality wireframes of the site can be found [here](deathfret-wireframe.pdf 
 
 
 
+### Responsiveness
+
+Using boostrap simplified the responsiveness process thanks to the grid system and responsive based text classes. I have utilised this system with minimal use of media queries.
+
+To test responsiveness, Google Chrome developer tools has been used to ensure the site works across all screeen sizes, from desktop computers down to mobile.
+
 ### Other Bugs and Problems
 
 *  
@@ -195,19 +201,26 @@ High quality wireframes of the site can be found [here](deathfret-wireframe.pdf 
 
 ![HtmlValidator](static/deathfret-guitar-html-validator.png "HTMLValidator")
 
+### CSS
+
 * [CSSValidator](https://jigsaw.w3.org/css-validator/)
     - All static CSS files pass through the validator with no errors.
 
+### JS
+
 * [JavaSciptValidator](https://esprima.org/demo/validate.html)
     - All static JS files pass through the validator with no errors.
+
+### Python
 
 * [PythonCodeChecker](https://extendsclass.com/python-tester.html)
     - All Python code passes through the code checker with no major errors. The only errors present here and on flake8 are things not worth changing, eg. line length.
 
 ### Compatibility
 
-* 
-    - 
+* To test the site based on different platforms, I used [Cross Browser Platforms](https://app.crossbrowsertesting.com/) to view the look and feel of the site on multiple platforms.
+    - The site was tested throughout development using Google Chrome.
+    - No other issues with emements appear present. Functionality works fine.
 
 ***
 
@@ -279,6 +292,25 @@ To deploy the app on Heroku, the following steps have been followed:
 
 * [Github](https://www.github.com/) - Used for hosting and version control.
 * [GitPod](https://www.gitpod.io/) - Online code editor.
+* [Django](https://www.djangoproject.com/) - Web framework used.
+* [Heroku](https://www.heroku.com/) - Used for app deployment.
+* [HTML5](https://en.wikipedia.org/wiki/HTML5) - Used for the templates.
+* [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) - For adding styles to html elements.
+* [Javascript](https://en.wikipedia.org/wiki/JavaScript) - Used to write functions for site interactivity.
+* [Python](https://www.python.org/download/releases/3.0/) - Used for writing app functions and to communicate with mongoDB using pymongo.
+* [JQuery](https://jquery.com/) - Ussed to access elements between languages.
+* [Bootstrap4](https://getbootstrap.com/) - Design framework.
+* [Balsamiq](https://www.balsamiq.com/) - Used for wireframe design.
+* [HTMLValidator](https://validator.w3.org/) - For testing html code validity.
+* [CSSValidator](https://jigsaw.w3.org/css-validator/) - For testing css code validity.
+* [JavaScriptValidator](https://esprima.org/demo/validate.html) - For testing js code.
+* [PythonCodeChecker](https://extendsclass.com/python-tester.html) - For testing python code.
+* [Favicon](https://www.favicon-generator.org/) - For creating site favicon.
+* [GoogleFonts](https://fonts.google.com/) - For providing fonts for the site.
+* [AmIResponsive?](http://ami.responsivedesign.is/) - To test site responsiveness.
+* [Stripe](https://stripe.com/gb) - To process payments.
+* [YouTube](https://www.youtube.com) - For embedded lesson videos.
+* [Instagram](https://www.instagram.com) - For embedded features (now redundant)
 
 ***
 
