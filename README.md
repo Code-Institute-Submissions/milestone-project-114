@@ -172,11 +172,13 @@ High quality wireframes of the site can be found [here](deathfret-wireframe.pdf 
 
 * Downloadable course content (music sheets and backing tracks) in PDF and mp3 format.
 
+* Gain access keys from Google and Facebook in order to complete the social media login functionality. This requires registration of a finished site and domain.
+
 ***
 
 ## Testing
 
-### 
+### Creating an Account
 
 
 
@@ -293,7 +295,10 @@ To deploy the app on Heroku, the following steps have been followed:
 * [Github](https://www.github.com/) - Used for hosting and version control.
 * [GitPod](https://www.gitpod.io/) - Online code editor.
 * [Django](https://www.djangoproject.com/) - Web framework used.
-* [Heroku](https://www.heroku.com/) - Used for app deployment.
+* [Django Allauth](https://django-allauth.readthedocs.io/en/latest/installation.html) - Authentication framework used.
+* [Django Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) - Used for all form styling.
+* [DjStripe](https://github.com/dj-stripe/dj-stripe) - Used to integrate the Stripe subscription Products with the Django SQLite3 database.
+* [Heroku and Postgres](https://www.heroku.com/) - Used for app and database deployment.
 * [HTML5](https://en.wikipedia.org/wiki/HTML5) - Used for the templates.
 * [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) - For adding styles to html elements.
 * [Javascript](https://en.wikipedia.org/wiki/JavaScript) - Used to write functions for site interactivity.
