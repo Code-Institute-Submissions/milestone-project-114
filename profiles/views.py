@@ -3,6 +3,8 @@ from django.contrib import messages
 from django.conf import settings
 from checkout.models import Order
 from django.http import JsonResponse
+from django.contrib.auth.models import User
+from subscriptions.models import Pricing, Subscription
 from .models import UserProfile
 from .forms import UserProfileForm
 import stripe

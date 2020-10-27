@@ -172,7 +172,7 @@ High quality wireframes of the site can be found [here](deathfret-wireframe.pdf 
 
 * Downloadable course content (music sheets and backing tracks) in PDF and mp3 format.
 
-* Gain access keys from Google and Facebook in order to complete the social media login functionality. This requires registration of a finished site and domain.
+* Gain access key from Google in order to complete the social media login functionality. This requires registration of a finished site and domain.
 
 ***
 

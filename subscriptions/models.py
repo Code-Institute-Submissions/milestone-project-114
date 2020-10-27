@@ -61,6 +61,14 @@ def post_email_confirmed(request, email_address, *args, **kwargs):
     user.userprofile.save()
 
 
+"""
+    Login reciever created to access up-to-date subscription 'status'
+    from Stripe each time the user logs in. The probelem is, Stripe
+    changes the 'PAID' status back to 'ACTIVE' after the payment has been
+    completed. Best just to leave the status as 'PAID' and not to get
+    the status from Stripe each time a user logs in to ensure the
+    functionality of the site still works.
+"""
 """def login_reciever(sender, user, **kwargs):
     subscription = user.subscription
     sub = stripe.Subscription.retrieve(subscription.stripe_subscription_id)
