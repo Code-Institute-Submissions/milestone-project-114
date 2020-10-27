@@ -225,7 +225,7 @@ To test responsiveness, Google Chrome's developer tools have been used to ensure
 
 ### Known Bugs and Issues
 
-*  
+*  Cancelling a subscription does not currently cause a page redirect or refresh.
 
 ***
 
