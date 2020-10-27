@@ -17,7 +17,7 @@ def randomString(stringLength=20):
         random.choice(password_characters) for i in range(stringLength))
 
 
-class Command(BaseCommand):
+class MakeSuperCommand(BaseCommand):
     def handle(self, *args, **kwargs):
         if not User.objects.filter(username="admin").exists():
             if settings.DEBUG:

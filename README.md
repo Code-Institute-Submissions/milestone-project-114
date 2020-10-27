@@ -176,11 +176,46 @@ High quality wireframes of the site can be found [here](deathfret-wireframe.pdf 
 
 ***
 
-## Testing
+## Manual Testing
 
 ### Creating an Account
 
+To test the full user functionality of the site, first a superuser account was created using the handle() function inside makesuper.py. This can be called in the terminal by using the following command:
 
+    - `python3 manage.py makesuper`
+
+This account has the ability to log in, and access the Django admin templates.
+
+A test account was then created as a simualtion of an anonymous user. The login forms were tested by intentionally providing an email address without the proper syntax, and a password deemed too short by the form constraints. After signing up successfully, the user is able to confirm this after email validation by navigating to the user's profile page and observing the Signup Free 'ACTIVE' status within the profile's subscription information.
+
+### Signing up to a Subscription
+
+The subscription stripe element is resilient against incorrect card information, and will not create a subscription without first having a subscription tier selected. Stripe's test payment card information has been used to start a subscription for the test user. This can be done by using either:
+
+    - `4242 4242 4242 4242`
+
+for direct payment, or:
+
+    - `4000 0000 0000 3220`
+
+to enable Stripe's 3D payment authentication.
+
+Upon a successful payment, the user is redirected to their profile page, where the subscription status should read 'PAID'. This will now allow the user to view all of the lesson content.
+
+### Cancelling a Subscription
+
+Cancelling a user's subscription is as simple as clicking the 'Cancel Subscription' button found in the user profile's subscription information. The subscription will imediately be cancelled.
+Further functionality to this would be to implement an automatic refresh of the profile page upon clicking cancel, so the status of the subscription correctly reads 'CANCELED' without the user having to exit the profile page or manually refresh.
+
+### Updating a Subscription
+
+If a user has a paid subscription, all 'subscribe' buttons visible throughout the site will now read 'change subscription'. This will still bring the user to the subscription payment page, where they will first have to cancel their current subscription in order to change their subscription by subscribing to a new tier.
+
+### Purchasing a Merch Item
+
+The payment flow has been tested both as an anonymous user, and a registered user. All items, quantity and sizes flow correctly. The update and delete CRUD operations on the cart contents also pose no issues.
+
+### Viewing a Masterclass
 
 ### Responsiveness
 
@@ -188,7 +223,7 @@ Using boostrap simplified the responsiveness process thanks to the grid system a
 
 To test responsiveness, Google Chrome developer tools has been used to ensure the site works across all screeen sizes, from desktop computers down to mobile.
 
-### Other Bugs and Problems
+### Known Bugs and Issues
 
 *  
 
