@@ -2,17 +2,17 @@
 
 ## Milestone Project 4 - Full Stack Frameworks with Django
 
-The final project as part of [Code Institute](https://codeinstitute.net)'s full stack software development course ties together all aspects of full stack developemnt
-in one comprehensive application. Using the Django full stack framework, the goal is to create an online service app that will be able to handle user authenticaation as well
+The final project as part of [Code Institute](https://codeinstitute.net)'s full-stack software development course ties together all aspects of full-stack development
+in one comprehensive application. Using the Django full-stack framework, the goal is to create an online service app that will be able to handle user authentication as well
 as a payment system for a product and/or service.
 
-As a guitarist with over 20 years experience playing, recording and touring, I have always dreamt of creating a community of up and coming players, in which the more prevalant
-who have anything to teach will be able to do so for a subscribing user. Specifically I have been a part of the extreme metal niche of the industry for many years and have observed a gap in this market, and that such a platform does not currently exist for this particular genre.
+As a guitarist with over 20 years of experience playing, recording and touring, I have always dreamt of creating a community of up and coming players, in which the more prevalent
+who have anything to teach will be able to do so for a subscribing user. Specifically, I have been a part of the extreme metal niche of the industry for many years and have observed a gap in this market, and that such a platform does not currently exist for this particular genre.
 
-The django app will be a subscription based site, where a member will be able to access lessons and masterclasses of talented guitarists for a small monthly, or yearly fee. The idea will be
-for the site owner(s) to source players who would be willing to write and record a lesson series, which will then be available for paying members in their very own members area. At the time of writing however, this collaborative content has not yet been created, so while the project is being built, only example lesson plans by sourced (Youtube, with permission) players will be used. The structure of the site will however, remain the same.
+The Django app will be a subscription-based site, where a member will be able to access lessons and masterclasses of talented guitarists for a small monthly, or yearly fee. The idea will be
+for the site owner(s) to source players who would be willing to write and record a lesson series, which will then be available for paying members in their very own members area. At the time of writing, however, this collaborative content has not yet been created, so while the project is being built, only example lesson plans by sourced (Youtube, with permission) players will be used. The structure of the site will, however, remain the same.
 
-The site will also feature a webstore of branded merchandise that a subscribing user or anaonymous shopper will be able to purchase. An extra incentive for subscribership is a subscriber's 10% discount to be used on all branded merchandise.
+The site will also feature a web-store of branded merchandise that a subscribing user or anonymous shopper will be able to purchase. An extra incentive for subscribership is a subscriber's 10% discount to be used on all branded merchandise.
 
 ![DeathfretResponsive](static/deathfret-responsive.png "DeathfretResponsive")
 
@@ -56,19 +56,19 @@ The site will also feature a webstore of branded merchandise that a subscribing 
 
 ### Goals
 
-As part of the Full Stack Developer course directed by [Code Institute](https://codeinstitute.net/), this project was designed to fulfill the scope of creating an ecommerce or SaaS app using the [Django](https://www.djangoproject.com/) full stack framework.
+As part of the Full Stack Developer course directed by [Code Institute](https://codeinstitute.net/), this project was designed to fulfil the scope of creating an e-commerce or SaaS app using the [Django](https://www.djangoproject.com/) full-stack framework.
 
-The goal is to create not only a site where users can access to valuable lesson series' offered by the talents of the music scene, but eventually to create a community of like-minded players who share a passion to share and devlop ideas artistically. The demographic is open to any guitarist who is interested in learning from the featured artists, but those specifically who are fans of the genre or are interested in learning from it.
+The goal is to create not only a site where users can access to valuable lesson series' offered by the talents of the music scene, but eventually to create a community of like-minded players who share a passion to share and develop ideas artistically. The demographic is open to any guitarist who is interested in learning from the featured artists, but those specifically who are fans of the genre or are interested in learning from it.
 
 The long term goal is to take this project beyond the scope of the course, and after completion, to launch this as my first online business.
 
 ### Developer Goals
 
-As a developer, the main goal is to build a subscription model based on a signup and paid for tier of subscription. The paid tier will be divided into monthly or yearly payments. If the user opts for the yearly payment option, this will work out cheaper for them annually, rather than paying on a monthly basis.
+As a developer, the main goal is to build a subscription model based on signup and paid tiers of subscription. The paid tier will be divided into monthly or yearly payments. If the user opts for the yearly payment option, this will work out cheaper for them annually, rather than paying monthly.
 
-The side goal for this project is to strengthen the knowledge of creating an eccommerce store and the system of one off payments for goods using [Stripe](https://stripe.com/gb).
+The side goal for this project is to strengthen the knowledge of creating an e-commerce store and the system of one-off payments for goods using [Stripe](https://stripe.com/gb).
 
-Both will strengthen knowledge and skills of the Django framework, and provide the development of advanced JavaScript and Python functionality.
+Both will strengthen the knowledge and skills of the Django framework gained, and provide the development of advanced JavaScript and Python functionality.
 
 ### User Stories
 
@@ -78,7 +78,7 @@ As a user, I would like to be able to:
 
 - [x] View a list of artist masterclasses so that I can make a decision to subscribe based on whether or not the lessons will be valuable to me.
 - [x] View a list of products so that I can select some to purchase.
-- [x] View individual product details so I can see the price, detail, size and stock availibility of the selected product.
+- [x] View individual product details so I can see the price, detail, size and stock availability of the selected product.
 - [x] View the total of my purchases at any time so I can keep track of my spending.
 
 * Registration and user accounts
@@ -95,16 +95,16 @@ As a user, I would like to be able to:
 
 * Purchasing and checkout
 
-- [x] Easily select which subscription method is best for me so that I can leep track of my spending.
-- [x] Easily select the size and quantity of a prouct, if available, and view at checkout so that I can ensure a correct selction was made before purchase.
+- [x] Easily select which subscription method is best for me so that I can keep track of my spending.
+- [x] Easily select the size and quantity of a product, if available, and view at checkout so that I can ensure a correct selection was made before purchase.
 
 ***
 
 ### Design
 
-The layout and navigation design elements of the site has been achieved using the Bootstrap design framework. As much consideration as possible has gone into the implementing the components and altering the styles of each to best suit the overall visual design.
+The layout and navigation design elements of the site have been achieved using the Bootstrap design framework. As much consideration as possible has gone into implementing the components and altering the styles of each to best suit the overall visual design.
 
-The UX design of the site has been designed as a simple, and easy to use payment flow for both subscription and goods payments. The featured artist and lesson series have been presented to the user in an easy-to-follow style of use, where leassons are laid out in an interactive, self-explanatory way.
+The UX design of the site has been designed as a simple, and easy to use payment flow for both subscription and goods payments. The featured artist and lesson series have been presented to the user in an easy-to-follow style of use, where lessons are laid out in an interactive, self-explanatory way.
 
 #### Frameworks
 
@@ -112,7 +112,7 @@ The UX design of the site has been designed as a simple, and easy to use payment
     - The Django framework has provided an excellent, intuitive framework to build this project upon. Offering the ability to easily create data models and to display the data back on the front-end with the use of Django's template tags.
 
 * [Bootstrap 4.5.2](https://getbootstrap.com/)
-    - Bootstrap has been chosen as the design framework over others, such as Materialize or Tailwind. Materialize was used in a previous project and resulted in some limitations with compatibility of other features that were implemented. To keep things simple, Bootstrap provided the ease of use and implememntation necessary for the scope of the project.
+    - Bootstrap has been chosen as the design framework over others, such as Materialize or Tailwind. Materialize was used in a previous project and resulted in some limitations with the compatibility of other features that were implemented. To keep things simple, Bootstrap provided the ease of use and implementation necessary for the scope of the project.
 
 * [JQuery 3.5.1](https://jquery.com/)
     - Although JQuery has not been a major factor for the use of JavaScript logic in the project, it has played an important role in connecting the front-end interactivity to the back-end functionality. 
@@ -132,7 +132,7 @@ Colours:
 
 #### Fonts
 
-Many fonts have been experimented with in order to fit the design of the project, including Google Fonts' "Metal" - which ended up leaving an impression of "tackiness". A cleaner, lighter and smarter font has been chosen, in order to give the site an air of sophistication and professionalism despite the nature of the genre in which is is based.
+Many fonts have been experimented with to fit the design of the project, including Google Fonts' "Metal" - which ended up leaving an impression of "tackiness". A cleaner, lighter and smarter font has been chosen, to give the site an air of sophistication and professionalism despite the nature of the genre in which it is based.
 
 ![FontsExample](static/deathfret-fonts.png "Fonts")
 
@@ -146,7 +146,7 @@ Montserrat from [Google Fonts](https://fonts.google.com) has been chosen to refl
 
 The initial wireframing design was created using [Balsamiq](https://balsamiq.cloud/).
 
-High quality wireframes of the site can be found [here](deathfret-wireframe.pdf "Wireframes").
+High-quality wireframes of the site can be found [here](static/deathfret-wireframe.pdf "Wireframes").
 
 ***
 
@@ -158,21 +158,21 @@ High quality wireframes of the site can be found [here](deathfret-wireframe.pdf 
 
 * Subscription tier page with easy UX flow for taking card payments.
 
-* Merch webstore with easy UK flow for taking card payments.
+* Merch web-store with easy UK flow for taking card payments.
 
-* User profile comtaining surrent subscription status, default delivery information and order history.
+* User profile containing current subscription status, default delivery information and order history.
 
 * Lesson sets laid out in a Bootstrap accordion.
 
 ### Features Left to Implement
 
-* Instagram feed for local feature wall - something that was implemented during the project but made redundant due to the nature of instagrams API being changed.
+* Instagram feed for a local feature wall - something that was implemented during the project but made redundant due to the nature of Instagram's API being changed.
 
 * A news blog related to the community that will be built by app users.
 
 * Downloadable course content (music sheets and backing tracks) in PDF and mp3 format.
 
-* Gain access key from Google in order to complete the social media login functionality. This requires registration of a finished site and domain.
+* Gain access key from Google to complete the social media login functionality. This requires registration of a finished site and domain.
 
 ***
 
@@ -180,13 +180,13 @@ High quality wireframes of the site can be found [here](deathfret-wireframe.pdf 
 
 ### Creating an Account
 
-To test the full user functionality of the site, first a superuser account was created using the handle() function inside makesuper.py. This can be called in the terminal by using the following command:
+To test the full user functionality of the site, first, a superuser account was created using the handle() function inside makesuper.py. This can be called in the terminal by using the following command:
 
     - `python3 manage.py makesuper`
 
-This account has the ability to log in, and access the Django admin templates.
+This account can log in, and access the Django admin templates.
 
-A test account was then created as a simualtion of an anonymous user. The login forms were tested by intentionally providing an email address without the proper syntax, and a password deemed too short by the form constraints. After signing up successfully, the user is able to confirm this after email validation by navigating to the user's profile page and observing the Signup Free 'ACTIVE' status within the profile's subscription information.
+A test account was then created as a simulation of an anonymous user. The login forms were tested by intentionally providing an email address without the proper syntax, and a password deemed too short by the form constraints. After signing up successfully, the user can confirm this after email validation by navigating to the user's profile page and observing the Signup Free 'ACTIVE' status within the profile's subscription information.
 
 ### Signing up to a Subscription
 
@@ -200,16 +200,16 @@ for direct payment, or:
 
 to enable Stripe's 3D payment authentication.
 
-Upon a successful payment, the user is redirected to their profile page, where the subscription status should read 'PAID'. This will now allow the user to view all of the lesson content.
+Upon successful payment, the user is redirected to their profile page, where the subscription status should read 'PAID'. This will now allow the user to view all of the lesson content.
 
 ### Cancelling a Subscription
 
-Cancelling a user's subscription is as simple as clicking the 'Cancel Subscription' button found in the user profile's subscription information. The subscription will imediately be cancelled.
+Cancelling a user's subscription is as simple as clicking the 'Cancel Subscription' button found in the user profile's subscription information. The subscription will immediately be cancelled.
 Further functionality to this would be to implement an automatic refresh of the profile page upon clicking cancel, so the status of the subscription correctly reads 'CANCELED' without the user having to exit the profile page or manually refresh.
 
 ### Updating a Subscription
 
-If a user has a paid subscription, all 'subscribe' buttons visible throughout the site will now read 'change subscription'. This will still bring the user to the subscription payment page, where they will first have to cancel their current subscription in order to change their subscription by subscribing to a new tier.
+If a user has a paid subscription, all 'subscribe' buttons visible throughout the site will now read 'change subscription'. This will still bring the user to the subscription payment page, where they will first have to cancel their current subscription to change their subscription by subscribing to a new tier.
 
 ### Purchasing a Merch Item
 
@@ -219,9 +219,9 @@ The payment flow has been tested both as an anonymous user, and a registered use
 
 ### Responsiveness
 
-Using boostrap simplified the responsiveness process thanks to the grid system and responsive based text classes. I have utilised this system with minimal use of media queries.
+Using Bootstrap simplified the responsiveness process thanks to the grid system and responsive based text classes. I have utilised this system with minimal use of media queries.
 
-To test responsiveness, Google Chrome developer tools has been used to ensure the site works across all screeen sizes, from desktop computers down to mobile.
+To test responsiveness, Google Chrome's developer tools have been used to ensure the site works across all screen sizes, from desktop computers down to mobile.
 
 ### Known Bugs and Issues
 
@@ -257,7 +257,7 @@ To test responsiveness, Google Chrome developer tools has been used to ensure th
 
 * To test the site based on different platforms, I used [Cross Browser Platforms](https://app.crossbrowsertesting.com/) to view the look and feel of the site on multiple platforms.
     - The site was tested throughout development using Google Chrome.
-    - No other issues with emements appear present. Functionality works fine.
+    - No other issues with elements appear present. The functionality works fine.
 
 ***
 
@@ -267,7 +267,7 @@ To test responsiveness, Google Chrome developer tools has been used to ensure th
 
 To deploy the app on Heroku, the following steps have been followed:
 
-1. Log into Heroku, and create new app by providing app name and nearest location of deployment.
+1. Log into Heroku, and create a new app by providing the app name and the nearest location of deployment.
 
 2. Under the resources tab, provision the Heroku Postgres database as a new Add-on. This will be used as the deployment database.
 
@@ -279,11 +279,11 @@ To deploy the app on Heroku, the following steps have been followed:
 
 5. To set up the new Postgres database, `import dj_database_url` in the project level settings.py file and set the new database default to the Heroku database config variable. Once in place, run migrations.
 
-6. Once the migration has occurred, revert the default database setting to the original and set up a conditional so that if the DATABASE_URL exists in the Heroku environment, use Postgres, otherwise, use local database.
+6. Once the migration has occurred, revert the default database setting to the original and set up a conditional so that if the DATABASE_URL exists in the Heroku environment, use Postgres, otherwise, use a local database.
 
-7. Install `gunicorn` as project web server and freeze to requirements.txt.
+7. Install `gunicorn` as the project web server and freeze to requirements.txt.
 
-8. Create the Heroku Procfile (`touch Procfile`) which will run gunicorn as server for the app.
+8. Create the Heroku Procfile (`touch Procfile`) which will run gunicorn as the server for the app.
 
     - `web: gunicorn <app_name>.wsgi:application`
 
@@ -358,11 +358,11 @@ To deploy the app on Heroku, the following steps have been followed:
 
 ### Content
 
-- All content has been written by myself, with the exception of the artist and lesson descriptions which have been written by each artist, respectively.
+- All content has been written by myself, except for the artist and lesson descriptions which have been written by each artist, respectively.
 
 ### Media:
 
-* The Deathfret brand logo was designed by myself, for personal use.
+* The Deathfret brand logo was designed by a personal friend, for use here.
 * Index carousel images have been sourced as copyright-free images from [Adobe Stock](https://stock.adobe.com/uk/).
 * Merch items created by myself using [Custom Ink](https://www.customink.com/).
 * All credit for lesson videos goes to the sourced artists:
@@ -373,7 +373,7 @@ To deploy the app on Heroku, the following steps have been followed:
 
 ### Code
 
-- The Deathfret merch store app coding content has been inspired by what has been learned about Django full stack frameworks thanks to the Data Centric Development module provided by [Code Institute](https://codeinstitute.net/), allowing room to further demonstrate understanding of the framework for the subscription app.
+- The Deathfret merch store app coding content has been inspired by what has been learned about Django full-stack frameworks thanks to the Full-Stack Development module provided by [Code Institute](https://codeinstitute.net/), allowing room to further demonstrate an understanding of the framework for the subscription app.
 - This article from [Ordinary Coders](https://www.ordinarycoders.com/blog/article/django-stripe-monthly-subscription) provided valuable insight into how to integrate the Stripe subscription API with this app.
 
 ### Acknowledgements
