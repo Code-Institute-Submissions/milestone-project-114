@@ -29,7 +29,7 @@ def subscribe(request):
 
 
 def createSubscription(request, *args, **kwargs):
-    """ Create te subscription on the backend """
+    """ Create the subscription on the backend """
     data = json.loads(request.body)
     customer_id = request.user.userprofile.stripe_customer_id
 
