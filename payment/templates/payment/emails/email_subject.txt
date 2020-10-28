@@ -1,1 +1,0 @@
-Deathfret Guitar Subscription Confirmation for ID: {{ subscription.stripe_subscription_id }}

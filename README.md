@@ -7,12 +7,11 @@ in one comprehensive application. Using the Django full-stack framework, the goa
 as a payment system for a product and/or service.
 
 As a guitarist with over 20 years of experience playing, recording and touring, I have always dreamt of creating a community of up and coming players, in which the more prevalent
-who have anything to teach will be able to do so for a subscribing user. Specifically, I have been a part of the extreme metal niche of the industry for many years and have observed a gap in this market, and that such a platform does not currently exist for this particular genre.
+who have something to teach will be able to do so for a subscribing user. Specifically, I have been a part of the extreme metal niche of the industry for many years and have observed a gap in this market, and that such a platform does not currently exist for this particular genre.
 
-The Django app will be a subscription-based site, where a member will be able to access lessons and masterclasses of talented guitarists for a small monthly, or yearly fee. The idea will be
-for the site owner(s) to source players who would be willing to write and record a lesson series, which will then be available for paying members in their very own members area. At the time of writing, however, this collaborative content has not yet been created, so while the project is being built, only example lesson plans by sourced (Youtube, with permission) players will be used. The structure of the site will, however, remain the same.
+The Django app is a subscription-based site, where a member will be able to access lessons and masterclasses of talented guitarists for a small monthly, or yearly fee. The site owner(s) are able to source players who would be willing to write and record a lesson series, which will then be available for paying members in their very own members area. At the time of writing, however, this collaborative content has not yet been created, so while the project is being built, only example lesson plans by sourced (Youtube, with permission) players will be used. The structure of the site will, however, remain the same.
 
-The site will also feature a web-store of branded merchandise that a subscribing user or anonymous shopper will be able to purchase. An extra incentive for subscribership is a subscriber's 10% discount to be used on all branded merchandise.
+The site will also feature a web-store of branded merchandise that a subscribing user or anonymous shopper will be able to purchase. An extra incentive for subscribership is a 10% discount to be used on all branded merchandise.
 
 ![DeathfretResponsive](static/deathfret-responsive.png "DeathfretResponsive")
 
@@ -58,7 +57,12 @@ The site will also feature a web-store of branded merchandise that a subscribing
 
 As part of the Full Stack Developer course directed by [Code Institute](https://codeinstitute.net/), this project was designed to fulfil the scope of creating an e-commerce or SaaS app using the [Django](https://www.djangoproject.com/) full-stack framework.
 
-The goal is to create not only a site where users can access to valuable lesson series' offered by the talents of the music scene, but eventually to create a community of like-minded players who share a passion to share and develop ideas artistically. The demographic is open to any guitarist who is interested in learning from the featured artists, but those specifically who are fans of the genre or are interested in learning from it.
+The main goals of the site are:
+
+    - A platform where users can access valuable lesson series' offered by the talents of the music scene.
+    - To create a community of like-minded players who share a passion to share and develop ideas artistically.
+
+The target audience is any guitarist who is interested in learning from the featured artists, but specifically those who are fans of the genre or are interested in learning from it.
 
 The long term goal is to take this project beyond the scope of the course, and after completion, to launch this as my first online business.
 
@@ -70,18 +74,22 @@ The side goal for this project is to strengthen the knowledge of creating an e-c
 
 Both will strengthen the knowledge and skills of the Django framework gained, and provide the development of advanced JavaScript and Python functionality.
 
+#### Project Challenges
+
+The main challenge posed by the project was the implementation of the subscription system offered by Stripe. The flow and payment intent differs vastly from that of the fixed price payment system, and the challnges faced by keeping webhooks and information seperate from the checkout app, were eventually overcome by a process of following Stripe's Documentation, and building the user data around what is required by Stripe to handle and accept subscription payments.
+
 ### User Stories
 
 As a user, I would like to be able to:
 
-* Viewing and Navigation
+#### Viewing and Navigation
 
 - [x] View a list of artist masterclasses so that I can make a decision to subscribe based on whether or not the lessons will be valuable to me.
 - [x] View a list of products so that I can select some to purchase.
 - [x] View individual product details so I can see the price, detail, size and stock availability of the selected product.
 - [x] View the total of my purchases at any time so I can keep track of my spending.
 
-* Registration and user accounts
+#### Registration and User Accounts
 
 - [x] Register for an account so that I can have access to the content provided.
 - [x] Easily login or logout so I can access my personal account information.
@@ -89,11 +97,11 @@ As a user, I would like to be able to:
 - [x] Recieve and email confirmation after registering so that I can see that my registration was successful.
 - [x] Be able to view a personalised user profile so that I can keep track of my subscription status and personal details.
 
-* Searching
+#### Searching
 
 - [x] Search for a lesson by artist name or description so that I can quickly find the content I need.
 
-* Purchasing and checkout
+#### Purchasing and Checkout
 
 - [x] Easily select which subscription method is best for me so that I can keep track of my spending.
 - [x] Easily select the size and quantity of a product, if available, and view at checkout so that I can ensure a correct selection was made before purchase.
@@ -105,6 +113,10 @@ As a user, I would like to be able to:
 The layout and navigation design elements of the site have been achieved using the Bootstrap design framework. As much consideration as possible has gone into implementing the components and altering the styles of each to best suit the overall visual design.
 
 The UX design of the site has been designed as a simple, and easy to use payment flow for both subscription and goods payments. The featured artist and lesson series have been presented to the user in an easy-to-follow style of use, where lessons are laid out in an interactive, self-explanatory way.
+
+#### Subscription Form Layout - Design and Payment flow
+
+The first thing an user will see upon accessing the site, is the subscribe button on the home page. If a user wants to subscribe, they are immediately taken to a subscription payment page where they are clearly given options for what would suit them best. Upon selecting a payment plan, the app JavaScript scrolls the page to the Stripe card element, where the selected plan information is mounted to the card. Upon a successful payment, the user is redirected to their profile page (which will have been set-up by user registration and validation) where the subscription information is clearlt presented. The user can now browse and access the artist lesson series' the site has to offer.
 
 #### Frameworks
 
@@ -144,7 +156,7 @@ Montserrat from [Google Fonts](https://fonts.google.com) has been chosen to refl
 
 #### Wireframes
 
-The initial wireframing design was created using [Balsamiq](https://balsamiq.cloud/).
+The initial wireframing design was created using [Balsamiq](https://balsamiq.cloud/). The initial design process prioritised the look and feel of the lesson series, as well as the subscription payment flow. The finished design of the project has stayed consistent with the initial desigm, with the exception now that the lessons are presented to the user in accordion functionality.
 
 High-quality wireframes of the site can be found [here](static/deathfret-wireframe.pdf "Wireframes").
 

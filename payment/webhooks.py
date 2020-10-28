@@ -1,86 +1,4 @@
-from django.conf import settings
-from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
-from django.views.decorators.http import require_POST
-from payment.webhook_handler import StripeSubscriptionWebhookHandler
-import stripe
-
-
-@require_POST
-@csrf_exempt
-def subscribe_webhook(request):
-    """ Catch the stripe subscription webhooks """
-    # Set up
-    webhook_secret = settings.SUBSCRIBE_WEBHOOK_SECRET
-    stripe.api_key = settings.STRIPE_SECRET_KEY
-
-    # Get the webhook data and verify it's signature
-    payload = request.body
-    sig_header = request.META['HTTP_STRIPE_SIGNATURE']
-    event = None
-
-    try:
-        event = stripe.Webhook.construct_event(
-            payload,
-            sig_header,
-            webhook_secret,
-        )
-
-    except ValueError as e:
-        # Invalid payload
-        return HttpResponse(content=e, status=400)
-
-    except stripe.error.SignatureVerificationError as e:
-        # Invalid signature
-        return HttpResponse(content=e, status=400)
-
-    except Exception as e:
-        return HttpResponse(content=e, status=400)
-
-    # Set up the webhook handler
-    handler = StripeSubscriptionWebhookHandler(request)
-
-    # Map the webhook events to the relevant handler functions in the handler
-    event_map = {
-        'invoice.paid': handler.handle_invoice_paid,
-        'invoice.payment_failed': handler.handle_invoice_payment_failed,
-        'customer.subscription.deleted': handler.handle_subscription_deleted,
-    }
-
-    # Get the webhook type
-    event_type = event['type']
-
-    # If handler exists, retrieve from the event map
-    # Default set to generic handler
-    event_handler = event_map.get(event_type, handler.handle_event)
-
-    # Call the handler with the relevant event
-    response = event_handler(event)
-    return response
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-'''from profiles.models import UserProfile
+from profiles.models import UserProfile
 from django.conf import settings
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -160,4 +78,4 @@ def subscribe_webhook(request):
             'You have successfully cancelled your subscription.'
         )
 
-    return HttpResponse()'''
+    return HttpResponse()
