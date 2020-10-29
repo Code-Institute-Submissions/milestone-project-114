@@ -220,6 +220,10 @@ a:hover {
     color: #aab7c4;
 }
 
+.form-check-label {
+    color: #ffffff;
+}
+
 /* -------------------------- Allauth social button styling */
 
 .socialaccount_providers {

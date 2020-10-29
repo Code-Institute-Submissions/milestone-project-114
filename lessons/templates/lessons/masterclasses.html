@@ -29,9 +29,9 @@
                 <h2 class="logo-font text-center">Artist Masterclasses</h2>
 
                 <div class="row">
-                    <div class="col-lg-4"></div>
+                    <div class="col-lg-2"></div>
 
-                    <div class="col-lg-4">
+                    <div class="col-12 col-lg-8">
                         <h6 class="py-2 text-secondary text-center">
                             We are proud to present to your our artist masterclass series. We've collaborated with some of the industry's 
                             most accomplished and celebrated guitarists, as well as those up and coming in the scene. Whatever your ability, 
@@ -40,7 +40,7 @@
                         </h6>
                     </div>
 
-                    <div class="col-lg-4"></div>
+                    <div class="col-lg-2"></div>
                 </div>
             </div>
         </div>
@@ -55,7 +55,9 @@
                                     <img src="{{ overview.artist.artist_image.url }}" alt="{{ overview.artist.name }}" class="item-img card-img-top img-fluid border shadow">
                                 </a>
 
-                                <h4 class="card-header text-secondary pt-3">{{ overview.masterclass_title_friendly_name }}</h4>
+                                <a href="{% if user.subscription.status == 'paid' %}{% url 'masterclass' overview.masterclass_title %}{% else %}{% url 'payment:subscribe' %}{% endif %}">
+                                    <h4 class="card-header text-secondary pt-3">{{ overview.masterclass_title_friendly_name }}</h4>
+                                </a>
 
                                 <hr class="border-white">
 
