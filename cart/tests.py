@@ -4,9 +4,9 @@ from django.test import TestCase
 class TestContexts(TestCase):
 
     def test_user_subscription_status(self):
-        status = 'paid'
+        test_status = 'paid'
 
-        if status == 'paid':
+        if test_status == 'paid':
             total = 10
             delivery = total * (10 / 100)
             discount = total * (10 / 100)

@@ -1,4 +1,4 @@
-import stripe
+"""import stripe
 import random
 import string
 from django.conf import settings
@@ -51,4 +51,4 @@ class MakeSuperCommand(BaseCommand):
             subscription.stripe_subscription_id = stripe_subscription['id']
             subscription.save()
             user.userprofile.stripe_customer_id = stripe_customer['id']
-            user.userporfile.save()
+            user.userporfile.save()"""
