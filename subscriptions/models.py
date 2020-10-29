@@ -38,9 +38,11 @@ class Subscription(models.Model):
 def post_email_confirmed(request, email_address, *args, **kwargs):
     user = User.objects.get(email=email_address.email)
     signup_free = Pricing.objects.get(name='Signup Free')
+    status = 'active'
     subscription = Subscription.objects.create(
         user=user,
         pricing=signup_free,
+        status=status,
     )
     stripe_customer = stripe.Customer.create(
         email=user.email
@@ -52,9 +54,10 @@ def post_email_confirmed(request, email_address, *args, **kwargs):
                 'price': 'price_1HcZWtEjKkX6AQGJldgbPRLj'
             }
         ],
+        status='active'
     )
 
-    subscription.status = 'active'
+    subscription.status = stripe_subscription['status']
     subscription.stripe_subscription_id = stripe_subscription['id']
     subscription.save()
     user.userprofile.stripe_customer_id = stripe_customer['id']
