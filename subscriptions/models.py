@@ -54,10 +54,9 @@ def post_email_confirmed(request, email_address, *args, **kwargs):
                 'price': 'price_1HcZWtEjKkX6AQGJldgbPRLj'
             }
         ],
-        status='active'
     )
 
-    subscription.status = stripe_subscription['status']
+    subscription.status = 'active'
     subscription.stripe_subscription_id = stripe_subscription['id']
     subscription.save()
     user.userprofile.stripe_customer_id = stripe_customer['id']
