@@ -16,7 +16,7 @@
     {% get_providers as socialaccount_providers %}
 
     {% if socialaccount_providers %}
-        <p>
+        <p class="text-white">
             {% blocktrans with site.name as site_name %}Please sign in with one
             of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
             for a {{ site_name }} account and sign in below:{% endblocktrans %}
@@ -32,7 +32,7 @@
 
         {% include "socialaccount/snippets/login_extra.html" %}
     {% else %}
-        <p>
+        <p class="text-white">
             {% blocktrans %}If you have not created an account yet, then please
             <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
         </p>   
@@ -46,7 +46,7 @@
         {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <a href="{% url 'index' %}" class="btn btn-outline-danger rounded-0 text-uppercase">Home</a>
+        <a href="{% url 'index' %}" class="text-secondary btn border-white rounded-0 text-uppercase">Home</a>
 
         <button class="primaryAction" type="submit">
             {% trans "Sign In" %}

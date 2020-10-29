@@ -7,7 +7,7 @@
 {% block inner_content %}
     <h2 class="logo-font mb-4">{% trans "Sign Up" %}</h2>
 
-    <p>
+    <p class="text-white">
         {% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}
     </p>
 
@@ -20,7 +20,7 @@
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
 
-        <a class="btn btn-outline-danger rounded-0 text-uppercase" href="{% url 'account_login' %}">
+        <a class="text-secondary btn border-white rounded-0 text-uppercase" href="{% url 'account_login' %}">
             Back to Login
         </a>
 

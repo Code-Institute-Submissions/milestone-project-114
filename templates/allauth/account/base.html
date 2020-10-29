@@ -2,15 +2,29 @@
 
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block content %}
     <div class="container header-container">
+        <div class="row mt-4">
+            <div class="col-lg-4"></div>
+
+            <div class="col-12 col-lg-4">
+                <img class="img-fluid" src="{% static 'deathfret-logo.png' %}" alt="deathfret-logo">
+            </div>
+
+            <div class="col-4"></div>
+        </div>
+
         <div class="row">
             <div class="col-md-3"></div>
 
             <div class="col-12 col-md-6 text-center">
                 <div class="allauth-form-inner-content">
-                    {% block inner_content %}
-                    {% endblock %}
+                    <div class="transparent-bg-1 mb-5">
+                        {% block inner_content %}
+                        {% endblock %}
+                    </div>
                 </div>
             </div>
 

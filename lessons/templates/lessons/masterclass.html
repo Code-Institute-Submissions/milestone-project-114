@@ -14,8 +14,18 @@
 
 {% block content %}
     <div class="container">
-        <div class="row pt-4">
-            <div class="col text-center mt-3">
+        <div class="row mt-4">
+            <div class="col-lg-4"></div>
+
+            <div class="col-12 col-lg-4">
+                <img class="img-fluid" src="{% static 'deathfret-logo.png' %}" alt="deathfret-logo">
+            </div>
+
+            <div class="col-4"></div>
+        </div>
+
+        <div class="row transparent-bg-2">
+            <div class="col-12 text-center">
                 <h2 class="logo-font mb-4 text-center">{{ masterclass.masterclass_title_friendly_name }}</h2>
 
                 <h4 class="text-secondary font-weight-light">By {{ masterclass.artist }}</h4>
@@ -31,7 +41,7 @@
                         <div class="card">
                             <div class="card-header lighten-3 z-depth-1" role="tab" id="heading">
                                 <h5 class="text-uppercase mb-0 py-1">
-                                    <a class="white-text font-weight-bold lesson-title" data-toggle="collapse" href="#collapse" aria-expanded="true" aria-controls="collapse">
+                                    <a class="font-weight-bold lesson-title" data-toggle="collapse" href="#collapse" aria-expanded="true" aria-controls="collapse">
                                         Lesson {{ masterclass.lesson_number1 }}. {{ masterclass.lesson_title1 }}
                                     </a>
                                 </h5>

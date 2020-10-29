@@ -11,27 +11,41 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
-        <div class="row pt-4">
-            <div class="col text-center mt-3">
-                <h2 class="logo-font mb-4 text-center">Merch Store</h2>
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-lg-4"></div>
+
+            <div class="col-12 col-lg-4">
+                <img class="img-fluid" src="{% static 'deathfret-logo.png' %}" alt="deathfret-logo">
+            </div>
+
+            <div class="col-4"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="logo-font text-center transparent-bg-2">Merch Store</h2>
             </div>
         </div>
 
         <div class="row">
             <div class="merch-container col-10 offset-1 py-4">
-                <div class="row">
+                <div class="row transparent-bg-2">
                     {% for item in merch %}
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-3">
-                            <div class="text-center">
-                                <a href="{% url 'item_detail' item.id %}">
-                                    <img src="{{ item.image.url }}" alt="{{ item.name }}" class="item-img card-img-top img-fluid shadow">
-                                </a>
+                        <div class="col-12 col-md-6 col-lg-4 mb-3">
+                            <div class="card text-white transparent-bg-1 mb-3">
+                                <div class="text-center">
+                                    <a href="{% url 'item_detail' item.id %}">
+                                        <img src="{{ item.image.url }}" alt="{{ item.name }}" class="item-img card-img-top img-fluid border shadow">
+                                    </a>
 
-                                <div class="card-body pb-0">
-                                    <p class="text-secondary mb-0">{{ item.name }}</p>
+                                    <div class="card-header pb-0">
+                                        <p class="text-white mb-3">{{ item.name }}</p>
+                                    </div>
 
-                                    <p class="text-secondary mb-0 text-left font-weight-bold text-center">£{{ item.price }}</p>
+                                    <div class="card-body border">
+                                        <a href="{% url 'item_detail' item.id %}" class="text-secondary mb-0 text-left font-weight-bold text-center">£{{ item.price }}</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
