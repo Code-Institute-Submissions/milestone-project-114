@@ -71,6 +71,11 @@ def post_email_confirmed(request, email_address, *args, **kwargs):
     functionality of the site still works.
 """
 
+"""
+    Reactivated login reciever with conditonal statement, this way
+    the user's subscription status will always be correct no matter what.
+"""
+
 
 def login_reciever(sender, user, **kwargs):
     if user.subscription.pricing == "Signup Free":

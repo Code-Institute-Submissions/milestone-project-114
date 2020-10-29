@@ -1,0 +1,14 @@
+Hello {{ subscription.user }}!
+
+This is a confirmation email from our subscription service. Your plan details can be seen below:
+
+Username ID: {{ subscription.user }}
+Subscription ID: {{ subscription.stripe_subscription_id }}
+Payment Plan: {{ subscription.pricing }}
+Status: {{ subscription.status }}
+
+If you have any questions, don't hesitate to contact us at {{ contact_email }}.
+
+Thank you for your subscription!
+
+Deathfret Guitar

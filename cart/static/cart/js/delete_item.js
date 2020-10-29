@@ -5,7 +5,7 @@
 $('.update-link').click(function(e) {
     let form = $(this).prev('.update-form');
     form.submit();
-});
+})
 
 $('.remove-item').click(function(e) {
     // Define the variables to be used in the post method variables

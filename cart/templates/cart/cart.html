@@ -48,7 +48,7 @@
                             <div>
                                 <p class="logo-font mb-3">Quantity: </p>
 
-                                <form class="form update-form mb-5" method="POST" action="{% url 'update_cart' item.item_id %}">
+                                <form class="form update-form" method="POST" action="{% url 'update_cart' item.item_id %}">
                                     {% csrf_token %}
 
                                     <div class="form-group">
@@ -76,11 +76,11 @@
                                             {% endif %}
                                         </div>
                                     </div>
-
-                                     <a class="update-link text-secondary float-lg-left"><small>Update</small></a>
-                                
-                                    <a class="remove-item text-danger float-lg-right" id="remove_{{ item.item_id }}" data-item_size="{{ item.size }}"><small>Delete</small></a>
                                 </form>
+
+                                <a class="update-link text-secondary float-lg-left"><small>Update</small></a>
+                                
+                                <a class="remove-item text-danger float-lg-right" id="remove_{{ item.item_id }}" data-item_size="{{ item.size }}"><small>Delete</small></a>
                             </div>
 
                             <p class="my-2">Item Price: £{{ item.item.price }}</p>

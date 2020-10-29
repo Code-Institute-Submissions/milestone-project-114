@@ -6,11 +6,37 @@ from django.views.decorators.http import require_POST
 import stripe
 from subscriptions.models import Pricing
 from django.contrib import messages
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+
+
+def _send_confirmation_email(self, request, subscription):
+    """ Send a confirmation email to customer on success of payment """
+    customer_email = request.user.email
+    subject = render_to_string(
+        'payment/emails/email_subject.txt',
+        {
+            'subscription': subscription,
+        },
+    )
+    body = render_to_string(
+        'payment/emails/email_body.txt',
+        {
+            'subscription': subscription,
+            'contact_email': settings.DEFAULT_EMAIL,
+        },
+    )
+    send_mail(
+        subject,
+        body,
+        settings.DEFAULT_EMAIL,
+        [customer_email],
+    )
 
 
 @require_POST
 @csrf_exempt
-def subscribe_webhook(request):
+def subscribe_webhook(self, request):
     """ Catch the stripe subscription webhooks """
     webhook_secret = settings.SUBSCRIBE_WEBHOOK_SECRET
     payload = request.body
@@ -53,6 +79,8 @@ def subscribe_webhook(request):
             request,
             'Congratulations! Your paid subscription is now active.'
         )
+        subscription = userprofile.user.subscription
+        self._send_confirmation_email(subscription)
 
     if event_type == 'invoice.payment_failed':
         # If the payment fails or the customer
