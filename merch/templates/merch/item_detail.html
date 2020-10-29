@@ -29,15 +29,13 @@
         </div>
 
         <div class="row text-center transparent-bg-2 my-5">
-            <div class="col-lg-2"></div>
-            
-            <div class="col-12 col-lg-4 mt-3 transparent-bg-1">
+            <div class="col-12 col-md-6 mt-3 transparent-bg-1">
                 <a href="{{ item.image.url }}" target="_blank">
-                    <img src="{{ item.image.url }}" alt="{{ item.name }}" class="img-fluid">
+                    <img src="{{ item.image.url }}" alt="{{ item.name }}" class="img-fluid w-75">
                 </a>
             </div>
 
-            <div class="col-12 col-lg-4 mt-3 text-white transparent-bg-1">
+            <div class="col-12 col-md-6 mt-3 text-white transparent-bg-1">
                 <div class="item-detail-container mb-5 mt-md-5">
 
                     <p class="lead mb-0 text-center font-weight-bold">£{{ item.price }}</p>
@@ -102,7 +100,7 @@
                                 <div class="col-lg-4"></div>
 
                                 <div class="col-12">
-                                    <a href="{% url 'merch' %}" class="subscribe-button text-secondary btn border-white mb-2 rounded-0 text-uppercase">
+                                    <a href="{% url 'merch' %}" class="subscribe-button text-secondary btn border-white rounded-0 text-uppercase">
                                         <span class="text-uppercase">Back to store</span>
                                     </a>
 
@@ -121,8 +119,6 @@
                     </form>
                 </div>
             </div>
-
-            <div class="col-lg-2"></div>
         </div>
     </div>
 {% endblock %}

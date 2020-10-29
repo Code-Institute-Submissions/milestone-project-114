@@ -61,7 +61,7 @@
                                                 </button>
                                             </div>
 
-                                            <input type="number" class="form-control form-control-sm rounded-0 qty_input" name="quantity" value="1" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                            <input type="number" class="form-control form-control-sm rounded-0 qty_input" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
 
                                             <div class="input-group-append">
                                                 <button class="increment-qty btn btn-danger btn-sm rounded-0" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
