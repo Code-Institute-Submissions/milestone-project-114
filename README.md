@@ -229,7 +229,7 @@ The payment flow has been tested both as an anonymous user, and a registered use
 
 ### Viewing a Masterclass
 
-
+Only a paid subscriber is able to view an artist masterclass. An anonymous user or user on the 'Signup Free' tier will be redirected to the subscribe page in order to start a paid subscription. Once the user has paid, they are then able to navigate to the masterclass page and click on an artist overview to begin learning.
 
 ### Responsiveness
 
