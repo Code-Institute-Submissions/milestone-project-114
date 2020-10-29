@@ -229,6 +229,8 @@ The payment flow has been tested both as an anonymous user, and a registered use
 
 ### Viewing a Masterclass
 
+
+
 ### Responsiveness
 
 Using Bootstrap simplified the responsiveness process thanks to the grid system and responsive based text classes. I have utilised this system with minimal use of media queries.
