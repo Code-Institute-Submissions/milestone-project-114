@@ -45,98 +45,113 @@
         {% if user.subscription.status == 'paid' %}
             <div class="row my-2 transparent-bg-2">
                 <div class="col-12">
-                    <h6 class="text-center text-white">You are currently on the <strong class="font-weight-bold text-danger">{{ user.subscription.pricing }}</strong> plan.</h6>
+                    <h6 class="text-center text-white">You are currently on the <strong class="font-weight-bold text-danger">{{ user.subscription.pricing }}</strong> plan. Please return to your profile to cancel your current subscription.</h6>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-5"></div>
+                
+                <div class="col-12 col-lg-2">
+                    <div class="subscription-container">
+                        <h5>
+                            <a href="{% url 'profile' %}" class="subscribe-button btn btn-danger rounded-0 text-uppercase">My Profile</a>
+                        </h5>
+                    </div>
+                </div>
+
+                <div class="col-lg-5"></div>
+            </div>
+        {% else %}
+            <div class="row text-center">
+                <div class="col-lg-3"></div>
+
+                {% for p in products%}
+                    {% if p.name != 'Signup' %}
+                        <div class="mt-3 col-12 col-lg-3">
+                            <div class="card text-white bg-black">
+                                <div class="card-body">
+                                    <h5 class="card-title font-weight-bold">{{p.name}} {{ percentage_saved }}</h5>
+                                    
+                                    <p class="card-text text-muted">{{p.description|linebreaksbr}}</p>
+
+                                    {% if p.name == 'Yearly' %}
+                                        <p class="text-danger card-text">Save 20% When You Subscribe Annually!</p>
+                                    {% endif %}
+
+                                    {% for plan in p.plan_set.all %}
+                                        <h5 >{{ plan.human_readable_price }}</h5>
+
+                                        <div class="text-right">
+                                            <input id="checkbox" onchange="document.getElementById('subscribe-card').scrollIntoView(true);" class="my-2" type="checkbox" name="{{p.name}}" value="{{p.id}}" onclick="planSelect('{{p.name}}' ,'{{plan.human_readable_price}}', '{{plan.id}}')">
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                
+                <div class="col-lg-3"></div>
+            </div>
+        
+
+            <div class="row mb-5">
+                <div class="col">
+                    <div id="subscribe-card"></div>
+                </div>
+            </div>
+
+            <div class="row mb-5 text-white">
+                <div class="flex justify-center mx-auto my-5 col-12 col-lg-5">
+                    <div>
+                        <div class="card-body shadow transparent-bg-1">
+                            <h5 class="logo-font text-center my-3">Subscribe now to gain access to all our courses!</h5>
+
+                            <p class="text-center text-secondary">Enter card details. Your subscription will start immediately!</p>
+
+                            <hr class="border-white">
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <p>Plan:</p>
+
+                                    <p>Total:</p>
+                                </div>
+
+                                <div class="col-6 text-right">
+                                    <p id="plan"></p>
+
+                                    <p id="price"></p>
+
+                                    <p hidden id="priceId"></p>
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                            <form id="subscription-form">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-12 px-2">
+                                        <div id="subscribe-card-element"><!--Stripe.js injects the Card Element--></div>
+
+                                        <button id="submit" type="submit">
+                                            <div class="spinner hidden" id="spinner"></div>
+
+                                            <span id="button-text">Pay</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <p id="subscribe-card-errors" role="alert"></p>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         {% endif %}
-
-        <div class="row text-center">
-            <div class="col-lg-3"></div>
-
-            {% for p in products%}
-                {% if p.name != 'Signup' %}
-                    <div class="mt-3 col-12 col-lg-3">
-                        <div class="card text-white bg-black">
-                            <div class="card-body">
-                                <h5 class="card-title font-weight-bold">{{p.name}} {{ percentage_saved }}</h5>
-                                
-                                <p class="card-text text-muted">{{p.description|linebreaksbr}}</p>
-
-                                {% if p.name == 'Yearly' %}
-                                    <p class="text-danger card-text">Save 20% When You Subscribe Annually!</p>
-                                {% endif %}
-
-                                {% for plan in p.plan_set.all %}
-                                    <h5 >{{ plan.human_readable_price }}</h5>
-
-                                    <div class="text-right">
-                                        <input id="checkbox" onchange="document.getElementById('subscribe-card').scrollIntoView(true);" class="my-2" type="checkbox" name="{{p.name}}" value="{{p.id}}" onclick="planSelect('{{p.name}}' ,'{{plan.human_readable_price}}', '{{plan.id}}')">
-                                    </div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
-            
-            <div class="col-lg-3"></div>
-        </div>
-
-        <div class="row mb-5">
-            <div class="col">
-                <div id="subscribe-card"></div>
-            </div>
-        </div>
-
-        <div class="row mb-5 text-white">
-            <div class="flex justify-center mx-auto my-5 col-12 col-lg-5">
-                <div>
-                    <div class="card-body shadow transparent-bg-1">
-						<h5 class="logo-font text-center my-3">Subscribe now to gain access to all our courses!</h5>
-
-						<p class="text-center text-secondary">Enter card details. Your subscription will start immediately!</p>
-
-                        <hr class="border-white">
-
-						<div class="row">
-							<div class="col-6">
-								<p>Plan:</p>
-
-								<p>Total:</p>
-							</div>
-
-							<div class="col-6 text-right">
-								<p id="plan"></p>
-
-								<p id="price"></p>
-
-								<p hidden id="priceId"></p>
-							</div>
-
-						</div>
-
-						<br>
-
-                        <form id="subscription-form">
-                            {% csrf_token %}
-                            <div class="row">
-                                <div class="col-12 px-2">
-                                    <div id="subscribe-card-element"><!--Stripe.js injects the Card Element--></div>
-
-                                    <button id="submit" type="submit">
-                                        <div class="spinner hidden" id="spinner"></div>
-
-                                        <span id="button-text">Pay</span>
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <p id="subscribe-card-errors" role="alert"></p>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 {% endblock %}
 

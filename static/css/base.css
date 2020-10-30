@@ -327,3 +327,10 @@ a:hover {
         max-height: 50px;
     }
 }
+
+@media (max-width: 360px) {
+    .video {
+        width: 290px;
+        height: 185px;
+    }
+}
