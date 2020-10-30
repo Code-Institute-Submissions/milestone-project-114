@@ -201,6 +201,20 @@
                         </div>
                     </div>
 
+                    {% if request.user.is_authenticated %}
+                        {% if user.subscription.status == 'paid' %}
+                            <div class="row">
+                                <div class="col-12 col-md-4">
+                                    <p class="small mb-0 text-white font-weight-bold">Subscriber Discount:</p>
+                                </div>
+
+                                <div class="col-12 col-md-8 text-md-right">
+                                    <p class="small mb-0">{{ order.discount }}</p>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+
                     <div class="row">
                         <div class="col-12 col-md-4">
                             <p class="small mb-0 text-white font-weight-bold">Grand Total:</p>
